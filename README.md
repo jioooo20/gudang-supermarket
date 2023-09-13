@@ -1,1 +1,1 @@
-Jadi kita akan membuat Inventory buku dengan fitur CRUD standar
+Jadi kita akan membuat gudang supermarket
