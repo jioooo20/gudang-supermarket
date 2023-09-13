@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+//note gudang lengkap
 public class gudang {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
