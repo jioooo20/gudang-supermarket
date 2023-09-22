@@ -1,0 +1,22 @@
+
+
+Algoritma: Stok Gudang
+{masukkan nama barang, stok barang, dan barang rusak lalu lakukan hitungan untuk mengetauhui stok akhir}
+
+Deklarasi:
+String  : namaBrg
+int:    stokAwal, stokOut, stokRusak, stokTambah, stokToday
+
+Deskripsi:
+print "Nama Barang: "
+input namaBrg
+print "Masukkan Jumlah Stok Awal: "
+input stokAwal
+print "Jumlah Stok Rusak: "
+input stokRusak
+print "Jumlah Stok Yang Keluar: "
+input stokOut
+print "Penambahan Stok: "
+input stokTambah
+stokToday = stokAwal - stokRusak - stokOut + stokTambah
+print "Banyak stok " + namaBrg + "  saat ini sejumlah " + stokToday
