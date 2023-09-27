@@ -67,7 +67,7 @@ public class swit {
                 } else if (menu == 2) {
                     System.out.println("Masukkan id Barang yang ingin dihapus: ");
                     idBrg = input.nextInt();
-                    System.out.println("Data barang dengan dengan id" + idBrg + " telah berhasil dihapus");
+                    System.out.println("Data barang dengan id " + idBrg + " telah berhasil dihapus");
 
                 } else {
                     System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1 atau 2");
