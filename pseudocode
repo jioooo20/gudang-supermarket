@@ -1,4 +1,4 @@
-
+git pull --no-commit
 
 Algoritma: Stok Gudang
 {masukkan nama barang, stok barang, dan barang rusak lalu lakukan hitungan untuk mengetauhui stok akhir}
