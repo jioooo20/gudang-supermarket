@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class swit {
 
+    // String namaBrg, tipeBrg, supplier, inGdg, prdDate, expDate;
+    // Double harga;
+    // int idBrg, stokBrg, fitur, menu;
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
@@ -90,16 +93,18 @@ public class swit {
 
                 break;
             case 6:
+            
                 System.out.println("=====Code Scanning=====");
                 System.out.println("Masukkan id Barang Yang Ingin Anda Scan: ");
                 idBrg = input.nextInt();
-                System.out.println("Masukkan Nama Supplier: ");
-                System.out.println("Masukkan Nama Barang: ");
-                System.out.println("Masukkan Kategori Barang: ");
-                System.out.println("Masukkan Harga Barang: ");
-                System.out.println("Masukkan Tanggal Produksi Barang: ");
-                System.out.println("Masukkan Tanggal Kadaluarsa Barang: ");
-                System.out.println("Masukkan Jumlah Stok Barang: ");
+                System.out.println("=====Data Barang yang Dicari=====");
+                System.out.print("Nama Barang               : \n" );
+                System.out.print("Kategori Barang           : \n" );
+                System.out.print("Nama Supplier             : \n" );
+                System.out.print("Tanggal Produksi Barang   : \n" );
+                System.out.print("Tanggal Kadaluarsa Barang : \n" );
+                System.out.print("Harga Barang              : \n" );
+                System.out.print("Jumlah Stok Barang        : \n" );
 
                 break;
             case 7:
