@@ -10,7 +10,7 @@ public class update {
         Double harga;
         int idBrg, stokBrg, fitur, menu;
 
-        System.out.println("=====Update Item Information=====");
+        System.out.println("======Update Item Information======");
                 System.out.println("Pilih Menu Anda");
                 System.out.println("1. Update");
                 System.out.println("2. Hapus");
