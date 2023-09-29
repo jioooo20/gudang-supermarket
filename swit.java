@@ -90,6 +90,10 @@ public class swit {
                 break;
             case 5:
                 System.out.println("=====Stock Checking=====");
+                System.out.print("Nama Barang           : \n" );
+                System.out.print("Kategori Barang       : \n" );
+                System.out.print("Jumlah Stok Barang    : \n" );
+                System.out.print("Id Barang             : \n" );
 
                 break;
             case 6:
