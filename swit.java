@@ -53,7 +53,7 @@ public class swit {
                 System.out.println("Masukkan Jumlah Stok Barang: ");
                 stokBrg = input.nextInt();
                 input.nextLine();
-                System.out.println("==========================================================================");
+                System.out.println("===========================================================================");
                 System.out.println("Barang " + namaBrg + " dengan id " + idBrg + " dari supplier " + supplier
                         + " telah berhasil ditambahkan");
                 break;
