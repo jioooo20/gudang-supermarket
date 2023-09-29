@@ -101,9 +101,14 @@ public class swit {
             case 5:
                 System.out.println("=====Stock Checking=====");
                 System.out.print("Nama Barang           : \n" );
+                namaBrg = input.next();
+                input.nextLine();
                 System.out.print("Kategori Barang       : \n" );
+                tipeBrg = input.next();
+                input.nextLine();
                 System.out.print("Jumlah Stok Barang    : \n" );
-                System.out.print("Id Barang             : \n" );
+                stokBrg = input.nextInt();
+                input.nextLine();
 
                 break;
             case 6:
