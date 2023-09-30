@@ -9,18 +9,20 @@ public class update {
         String namaBrg, tipeBrg, supplier, inGdg, prdDate, expDate;
         Double harga;
         int idBrg, stokBrg, fitur, menu;
+        boolean exit = false;
 
         System.out.println("======Update Item Information======");
         System.out.println("Pilih Menu Anda");
         System.out.println("1. Update");
         System.out.println("2. Hapus");
+        System.out.println("3. Keluar");
         System.out.print("Masukkan Nomor Menu: ");
         menu = input.nextInt();
         input.nextLine();
         if (menu == 1) {
             System.out.print("Masukkan Nama Barang yang ingin anda ubah: ");
             namaBrg = input.nextLine();
-            while (true) {
+            while (!exit) {
                 System.out.println("============================");
                 System.out.println("Part yang ingin anda ubah:");
                 System.out.println("1. Nama Barang");
@@ -62,9 +64,11 @@ public class update {
                     case 7:
                         System.out.print("Masukkan Jumlah Stok Barang Baru: ");
                         stokBrg = input.nextInt();
+                        break;
                     case 8:
-                        System.out.println("Program selesai.");
-                        System.exit(0);
+                        System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
+                        exit = true;
+                        break;
                     default:
                         System.out.println("Pilihan tidak valid.");
                 }
