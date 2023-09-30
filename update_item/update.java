@@ -63,8 +63,8 @@ public class update {
                         System.out.print("Masukkan Jumlah Stok Barang Baru: ");
                         stokBrg = input.nextInt();
                     case 8:
-                        System.out.print("Masukkan Jumlah Stok Barang Baru: ");
-                        stokBrg = input.nextInt();
+                        System.out.println("Program selesai.");
+                        System.exit(0);
                     default:
                         System.out.println("Pilihan tidak valid.");
                 }
