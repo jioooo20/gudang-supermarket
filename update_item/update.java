@@ -22,7 +22,7 @@ public class update {
         if (menu == 1) {
             System.out.print("Masukkan Nama Barang yang ingin anda ubah: ");
             namaBrg = input.nextLine();
-            while (!exit) {
+            
                 System.out.println("============================");
                 System.out.println("Part yang ingin anda ubah:");
                 System.out.println("1. Nama Barang");
@@ -73,12 +73,8 @@ public class update {
                         System.out.println("Pilihan tidak valid.");
                 }
                 System.out.println("Barang " + namaBrg + " berhasil diperbarui ");
-            }
             
-            
-            
-            
-            
+
         } else if (menu == 2) {
             System.out.println("Masukkan Nama Barang yang ingin dihapus: ");
             namaBrg = input.nextLine();
