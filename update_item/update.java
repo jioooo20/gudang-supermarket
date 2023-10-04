@@ -12,11 +12,11 @@ public class update {
         boolean exit = false;
 
         System.out.println("======Update Item Information======");
-        System.out.println("Pilih Menu Anda");
+        System.out.println("Silahkan Pilih");
         System.out.println("1. Update");
         System.out.println("2. Hapus");
         System.out.println("3. Keluar");
-        System.out.print("Masukkan Nomor Menu: ");
+        System.out.print("Masukkan Nomor: ");
         menu = input.nextInt();
         input.nextLine();
         if (menu == 1) {
@@ -52,14 +52,14 @@ public class update {
                         break;
                     case 4:
                         System.out.print("Masukkan Tanggal Produksi Baru: ");
-                        stokBrg = input.nextInt();
+                        prdDate = input.nextLine();
                     case 5:
                         System.out.print("Masukkan Tanggal Kadaluarsa Baru: ");
-                        tipeBrg = input.nextLine();
+                        expDate = input.nextLine();
                         break;
                     case 6:
                         System.out.print("Masukkan Harga Barang Baru: ");
-                        supplier = input.nextLine();
+                        harga = input.nextDouble();
                         break;
                     case 7:
                         System.out.print("Masukkan Jumlah Stok Barang Baru: ");
@@ -78,7 +78,7 @@ public class update {
         } else if (menu == 2) {
             System.out.println("Masukkan Nama Barang yang ingin dihapus: ");
             namaBrg = input.nextLine();
-            System.out.println("Data barang id " + namaBrg + " telah berhasil dihapus");
+            System.out.println("Data barang " + namaBrg + " telah berhasil dihapus");
 
         } else {
             System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1 atau 2");
