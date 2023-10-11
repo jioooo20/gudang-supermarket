@@ -38,9 +38,6 @@ public class indexV1 {
             System.out.println("Masukkan Kategori Barang: ");
             tipeBrg = input.next();
             input.nextLine();
-            System.out.println("Masukkan Tanggal Masuk Barang: ");
-            inGdg = input.next();
-            input.nextLine();
             System.out.println("Masukkan Tanggal Produksi Barang: ");
             prdDate = input.next();
             input.nextLine();
@@ -50,14 +47,11 @@ public class indexV1 {
             System.out.println("Masukkan Harga Barang: ");
             harga = input.nextDouble();
             input.nextLine();
-            System.out.println("Masukkan id Barang: ");
-            idBrg = input.nextInt();
-            input.nextLine();
             System.out.println("Masukkan Jumlah Stok Barang: ");
             stokBrg = input.nextInt();
             input.nextLine();
             System.out.println("===========================================================================");
-            System.out.println("Barang " + namaBrg + " dengan id " + idBrg + " dari supplier " + supplier
+            System.out.println("Barang " + namaBrg +  " dari supplier " + supplier
                     + " telah berhasil ditambahkan");
                 break;
             case 2:
