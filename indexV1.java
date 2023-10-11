@@ -10,7 +10,7 @@ public class indexV1 {
  
         System.out.println("===============Selamat Datang===============");
         System.out.println("1.Item Entry and Storage"); 
-        System.out.println("2.Stock Quantity Management");
+        System.out.println("2.Stock Quantity Management"); 
         System.out.println("3.Item Categorization");
         System.out.println("4.Supplier Management");
         System.out.println("5.Stock Checking");
