@@ -25,7 +25,7 @@ public class indexV1 {
             if (fitur == 0 ) {
                 break;
             }
-
+ 
         switch (fitur) {
             case 1:
             System.out.println("=====Item Entry and Storage=====");
@@ -39,7 +39,7 @@ public class indexV1 {
             tipeBrg = input.next();
             input.nextLine();
             System.out.println("Masukkan Tanggal Masuk Barang: ");
-            inGdg = input.next();
+            inGd = input.next();
             input.nextLine();
             System.out.println("Masukkan Tanggal Produksi Barang: ");
             prdDate = input.next();
