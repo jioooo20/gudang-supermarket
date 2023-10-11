@@ -58,8 +58,8 @@ public class indexV1 {
             System.out.println("1.Iya");
             System.out.println("0.Kembali ke menu");
 
-            int pilihStop = input.nextInt();
-            if( pilihStop == 0){
+            int pilihStop1 = input.nextInt();
+            if( pilihStop1 == 0){
                 stop = false; //kembali ke main menu
             }else{
                 stop = true; // lanjut 
@@ -67,18 +67,24 @@ public class indexV1 {
             }while (stop);   
             
                 break;
-            case 2:
-            while (true) {
+            case 2: 
+                int menu2;
+                int stop2 = 0;
+                do{
                 System.out.println("======Update Item Information======");
                 System.out.println("Silahkan Pilih");
                 System.out.println("1. Update");
                 System.out.println("2. Hapus");
-                System.out.println("3. Keluar");
+                System.out.println("0. Keluar");
                 System.out.print("Masukkan Nomor: ");
-                menu = input.nextInt();
-                input.nextLine();
+                menu2 = input.nextInt();
+
+
+                if (menu2 == 0) {
+                    break;
+                }
     
-                if (menu == 1) {
+                if (menu2 == 1) {
                     System.out.print("Masukkan Nama Barang yang ingin anda ubah: ");
                     namaBrg = input.nextLine();
     
@@ -90,7 +96,7 @@ public class indexV1 {
                     System.out.println("4. Tanggal Kadaluarsa Barang");
                     System.out.println("5. Harga Barang");
                     System.out.println("6. Jumlah Stok Barang");
-                    System.out.println("7. Selesai");
+                    System.out.println("0. Selesai");
                     System.out.print("Pilih menu: ");
                     int pilihan = input.nextInt();
                     input.nextLine(); // Membuang karakter newline
@@ -120,25 +126,23 @@ public class indexV1 {
                             System.out.print("Masukkan Jumlah Stok Barang Baru: ");
                             stokBrg = input.nextInt();
                             break;
-                        case 7:
+                        case 0:
                             System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
                             break;
                         default:
                             System.out.println("Pilihan tidak valid.");
                     }
                     System.out.println("Barang " + namaBrg + " berhasil diperbarui ");
-                } else if (menu == 2) {
+                } else if (menu2 == 2) {
                     System.out.print("Masukkan Nama Barang yang ingin dihapus: ");
                     namaBrg = input.nextLine();
                     System.out.println("Data barang " + namaBrg + " telah berhasil dihapus");
-                } else if (menu == 3) {
-                    System.out.println("Keluar dari program.");
-                    break; // tambahkan pernyataan break untuk keluar dari loop
                 } else {
                     System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1, 2, atau 3");
                 }
-            }
-                break;
+                
+            }while (menu2 != stop2); 
+            break;  
             case 3:
                 System.out.println("=====Item Categorization=====");
 
