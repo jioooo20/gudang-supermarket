@@ -7,7 +7,7 @@ public class indexV1 {
         String namaBrg = "", tipeBrg = "", supplier = "", prdDate = "", expDate = "";
         double harga = 0.0;
         int stokBrg = 0, menu;
-
+ 
         System.out.println("===============Selamat Datang===============");
         System.out.println("1.Item Entry and Storage");
         System.out.println("2.Stock Quantity Management");
@@ -28,6 +28,39 @@ public class indexV1 {
 
         switch (fitur) {
             case 1:
+            System.out.println("=====Item Entry and Storage=====");
+            System.out.println("Masukkan Nama Supplier: ");
+            supplier = input.next();
+            input.nextLine();
+            System.out.println("Masukkan Nama Barang: ");
+            namaBrg = input.next();
+            input.nextLine();
+            System.out.println("Masukkan Kategori Barang: ");
+            tipeBrg = input.next();
+            input.nextLine();
+            System.out.println("Masukkan Tanggal Masuk Barang: ");
+            inGdg = input.next();
+            input.nextLine();
+            System.out.println("Masukkan Tanggal Produksi Barang: ");
+            prdDate = input.next();
+            input.nextLine();
+            System.out.println("Masukkan Tanggal Kadaluarsa Barang: ");
+            expDate = input.next();
+            input.nextLine();
+            System.out.println("Masukkan Harga Barang: ");
+            harga = input.nextDouble();
+            input.nextLine();
+            System.out.println("Masukkan id Barang: ");
+            idBrg = input.nextInt();
+            input.nextLine();
+            System.out.println("Masukkan Jumlah Stok Barang: ");
+            stokBrg = input.nextInt();
+            input.nextLine();
+            System.out.println("===========================================================================");
+            System.out.println("Barang " + namaBrg + " dengan id " + idBrg + " dari supplier " + supplier
+                    + " telah berhasil ditambahkan");
+                break;
+            case 2:
             while (true) {
                 System.out.println("======Update Item Information======");
                 System.out.println("Silahkan Pilih");
@@ -103,37 +136,6 @@ public class indexV1 {
                     System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1, 2, atau 3");
                 }
             }
-                break;
-            case 2:
-                // System.out.println("=====Update Item Information=====");
-                // System.out.println("Pilih Menu Anda");
-                // System.out.println("1. Update");
-                // System.out.println("2. Hapus");
-                // System.out.println("Masukkan Nomor Menu: ");
-                // menu = input.nextInt();
-                // input.nextLine();
-                // if (menu == 1) {
-                //     System.out.println("Masukkan Nama Barang yang ingin anda edit: ");
-                //     namaBrg = input.nextLine();
-                //     System.out.println("Masukkan Nama Barang Baru: ");
-                //     namaBrg = input.nextLine();
-                //     System.out.println("Masukkan Kategori Barang Baru: ");
-                //     tipeBrg = input.nextLine();
-                //     System.out.println("Masukkan Nama Supplier Baru: ");
-                //     supplier = input.nextLine();
-                //     System.out.println("Masukkan Jumlah Stok Barang Baru: ");
-                //     stokBrg = input.nextInt();
-                //     System.out.println("Barang " + namaBrg + " dengan id " + idBrg + " dari supplier " + supplier
-                //             + " telah berhasil diupdate");
-                // } else if (menu == 2) {
-                //     System.out.println("Masukkan id Barang yang ingin dihapus: ");
-                //     idBrg = input.nextInt();
-                //     System.out.println("Data barang id " + idBrg + " telah berhasil dihapus");
-
-                // } else {
-                //     System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1 atau 2");
-                // }
-
                 break;
             case 3:
                 System.out.println("=====Item Categorization=====");
