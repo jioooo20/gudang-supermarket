@@ -6,8 +6,9 @@ public class indexV1 {
 
         String namaBrg = "", tipeBrg = "", supplier = "", prdDate = "", expDate = "";
         double harga = 0.0;
-        int stokBrg = 0, menu;
- 
+        int stokBrg = 0, menu, fitur;
+        
+        do{
         System.out.println("===============Selamat Datang===============");
         System.out.println("1.Item Entry and Storage");
         System.out.println("2.Stock Quantity Management");
@@ -17,42 +18,53 @@ public class indexV1 {
         System.out.println("6.Code Scanning");
         System.out.println("7.Expiry Date Tracking ");
         System.out.println("0.Keluar dari Menu");
-        System.out.println("Masukkan Nomor Menu: ");
-        
-        
-        int fitur = input.nextInt();
-        do{
+        System.out.print("Masukkan Nomor Menu: ");        
+        fitur = input.nextInt();
             if (fitur == 0 ) {
                 break;
             }
  
         switch (fitur) {
             case 1:
+            boolean stop = true;
+            do{
             System.out.println("=====Item Entry and Storage=====");
-            System.out.println("Masukkan Nama Supplier: ");
+            System.out.print("Masukkan Nama Supplier: ");
             supplier = input.next();
             input.nextLine();
-            System.out.println("Masukkan Nama Barang: ");
+            System.out.print("Masukkan Nama Barang: ");
             namaBrg = input.next();
             input.nextLine();
-            System.out.println("Masukkan Kategori Barang: ");
+            System.out.print("Masukkan Kategori Barang: ");
             tipeBrg = input.next();
             input.nextLine();
-            System.out.println("Masukkan Tanggal Produksi Barang: ");
+            System.out.print("Masukkan Tanggal Produksi Barang: ");
             prdDate = input.next();
             input.nextLine();
-            System.out.println("Masukkan Tanggal Kadaluarsa Barang: ");
+            System.out.print("Masukkan Tanggal Kadaluarsa Barang: ");
             expDate = input.next();
             input.nextLine();
-            System.out.println("Masukkan Harga Barang: ");
+            System.out.print("Masukkan Harga Barang: ");
             harga = input.nextDouble();
             input.nextLine();
-            System.out.println("Masukkan Jumlah Stok Barang: ");
+            System.out.print("Masukkan Jumlah Stok Barang: ");
             stokBrg = input.nextInt();
             input.nextLine();
             System.out.println("===========================================================================");
             System.out.println("Barang " + namaBrg +  " dari supplier " + supplier
                     + " telah berhasil ditambahkan");
+            System.out.println("Masukkan data lagi?");
+            System.out.println("1.Iya");
+            System.out.println("0.Kembali ke menu");
+
+            int pilihStop = input.nextInt();
+            if( pilihStop == 0){
+                stop = false; //kembali ke main menu
+            }else{
+                stop = true; // lanjut 
+            }
+            }while (stop);   
+            
                 break;
             case 2:
             while (true) {
