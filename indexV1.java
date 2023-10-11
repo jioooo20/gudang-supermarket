@@ -214,6 +214,8 @@ public class indexV1 {
                 break;
             case 7:
                 System.out.println("=====Expiry Date Tracking=====");
+                System.out.println("Masukkan nama barang yang ingin anda cek:");
+                namaBrg = input.nextLine();
 
                 break;
             case 0:
