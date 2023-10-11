@@ -39,7 +39,7 @@ public class indexV1 {
             tipeBrg = input.next();
             input.nextLine();
             System.out.println("Masukkan Tanggal Masuk Barang: ");
-            inGd = input.next();
+            inGdg = input.next();
             input.nextLine();
             System.out.println("Masukkan Tanggal Produksi Barang: ");
             prdDate = input.next();
