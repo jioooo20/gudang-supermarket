@@ -38,8 +38,8 @@ public class indexV1 {
             System.out.println("Masukkan Kategori Barang: ");
             tipeBrg = input.next();
             input.nextLine();
-            System.out.println("Masukkan Tanggal Masuk Barang: ");
-            inGdg = input.next();
+            // System.out.println("Masukkan Tanggal Masuk Barang: ");
+            // inGdg = input.next();
             input.nextLine();
             System.out.println("Masukkan Tanggal Produksi Barang: ");
             prdDate = input.next();
@@ -50,14 +50,14 @@ public class indexV1 {
             System.out.println("Masukkan Harga Barang: ");
             harga = input.nextDouble();
             input.nextLine();
-            System.out.println("Masukkan id Barang: ");
-            idBrg = input.nextInt();
+            // System.out.println("Masukkan id Barang: ");
+            // idBrg = input.nextInt();
             input.nextLine();
             System.out.println("Masukkan Jumlah Stok Barang: ");
             stokBrg = input.nextInt();
             input.nextLine();
             System.out.println("===========================================================================");
-            System.out.println("Barang " + namaBrg + " dengan id " + idBrg + " dari supplier " + supplier
+            System.out.println("Barang " + namaBrg + " dari supplier " + supplier
                     + " telah berhasil ditambahkan");
                 break;
             case 2:
@@ -79,12 +79,11 @@ public class indexV1 {
                     System.out.println("Part yang ingin anda ubah:");
                     System.out.println("1. Nama Barang");
                     System.out.println("2. Kategori Barang");
-                    System.out.println("3. Tanggal Masuk Barang");
-                    System.out.println("4. Tanggal Produksi Barang");
-                    System.out.println("5. Tanggal Kadaluarsa Barang");
-                    System.out.println("6. Harga Barang");
-                    System.out.println("7. Jumlah Stok Barang");
-                    System.out.println("8. Selesai");
+                    System.out.println("3. Tanggal Produksi Barang");
+                    System.out.println("4. Tanggal Kadaluarsa Barang");
+                    System.out.println("5. Harga Barang");
+                    System.out.println("6. Jumlah Stok Barang");
+                    System.out.println("7. Selesai");
                     System.out.print("Pilih menu: ");
                     int pilihan = input.nextInt();
                     input.nextLine(); // Membuang karakter newline
@@ -99,26 +98,22 @@ public class indexV1 {
                             tipeBrg = input.nextLine();
                             break;
                         case 3:
-                            System.out.print("Masukkan Tanggal Masuk Baru: ");
-                            supplier = input.nextLine();
-                            break;
-                        case 4:
                             System.out.print("Masukkan Tanggal Produksi Baru: ");
                             prdDate = input.nextLine();
-                            break; // tambahkan break di sini
-                        case 5:
+                            break; 
+                        case 4:
                             System.out.print("Masukkan Tanggal Kadaluarsa Baru: ");
                             expDate = input.nextLine();
                             break;
-                        case 6:
+                        case 5:
                             System.out.print("Masukkan Harga Barang Baru: ");
                             harga = input.nextDouble();
                             break;
-                        case 7:
+                        case 6:
                             System.out.print("Masukkan Jumlah Stok Barang Baru: ");
                             stokBrg = input.nextInt();
                             break;
-                        case 8:
+                        case 7:
                             System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
                             break;
                         default:
