@@ -6,7 +6,7 @@ public class indexV1 {
 
         String namaBrg = "", tipeBrg = "", supplier = "", prdDate = "", expDate = "";
         double harga = 0.0;
-        int stokBrg = 0, menu;
+        int stokBrg = 0, menu = -1;
  
         System.out.println("===============Selamat Datang===============");
         System.out.println("1.Item Entry and Storage"); 
@@ -60,13 +60,14 @@ public class indexV1 {
             System.out.println("Barang " + namaBrg + " dari supplier " + supplier
                     + " telah berhasil ditambahkan");
                 break;
-            case 2:
-            while (true) {
+            case 2: 
+            
+            while (menu != 0){
                 System.out.println("======Update Item Information======");
                 System.out.println("Silahkan Pilih");
                 System.out.println("1. Update");
                 System.out.println("2. Hapus");
-                System.out.println("3. Keluar");
+                System.out.println("0. Keluar");
                 System.out.print("Masukkan Nomor: ");
                 menu = input.nextInt();
                 input.nextLine();
@@ -83,7 +84,7 @@ public class indexV1 {
                     System.out.println("4. Tanggal Kadaluarsa Barang");
                     System.out.println("5. Harga Barang");
                     System.out.println("6. Jumlah Stok Barang");
-                    System.out.println("7. Selesai");
+                    System.out.println("0. Selesai");
                     System.out.print("Pilih menu: ");
                     int pilihan = input.nextInt();
                     input.nextLine(); // Membuang karakter newline
@@ -113,7 +114,7 @@ public class indexV1 {
                             System.out.print("Masukkan Jumlah Stok Barang Baru: ");
                             stokBrg = input.nextInt();
                             break;
-                        case 7:
+                        case 0:
                             System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
                             break;
                         default:
@@ -124,14 +125,14 @@ public class indexV1 {
                     System.out.print("Masukkan Nama Barang yang ingin dihapus: ");
                     namaBrg = input.nextLine();
                     System.out.println("Data barang " + namaBrg + " telah berhasil dihapus");
-                } else if (menu == 3) {
+                } else if (menu == 0) {
                     System.out.println("Keluar dari program.");
-                    break; // tambahkan pernyataan break untuk keluar dari loop
+                    break; 
                 } else {
                     System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1, 2, atau 3");
                 }
             }
-                break;
+            break;
             case 3:
                 System.out.println("=====Item Categorization=====");
 
