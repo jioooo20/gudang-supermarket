@@ -4,14 +4,15 @@ public class indexV1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String namaBrg = "", tipeBrg = "", supplier = "", prdDate = "", expDate = "";
+        String namaBrg = "", tipeBrg = "", prdDate = "", expDate = "", supplier = "", konSupp= "", alamatSupp = "" ;
         double harga = 0.0;
         int stokBrg = 0, menu, fitur;
+        boolean stop = true;        
         
         do{
         System.out.println("===============Selamat Datang===============");
         System.out.println("1.Item Entry and Storage"); 
-        System.out.println("2.Stock Quantity Management"); 
+        System.out.println("2.Update Item Information"); 
         System.out.println("3.Item Categorization");
         System.out.println("4.Supplier Management");
         System.out.println("5.Stock Checking");
@@ -26,7 +27,7 @@ public class indexV1 {
  
         switch (fitur) {
             case 1:
-            boolean stop = true;
+
             do{
             System.out.println("=====Item Entry and Storage=====");
             System.out.print("Masukkan Nama Supplier: ");
@@ -143,19 +144,40 @@ public class indexV1 {
 
                 break;
             case 4:
+            
+            do{
                 System.out.println("=====Supplier Management=====");
-                System.out.println("Masukkan supplier: ");
-                supplier = input.next();
-                input.nextLine();
-                System.out.println("Masukkan Kontak: ");
-                String konSUp = input.next();
-                System.out.println("Masukkan Alamat: ");
-                String alamSup = input.next();
+                System.out.println("1.Masukkan Supplier Baru");
+                System.out.println("2.Lihat Informasi Supplier");
+                System.out.print("Masukkan Nomor: ");
+                int pilihan4 = input.nextInt();
+                switch(pilihan4){
+                    case 1 :
+                    System.out.println("===Masukkan Supplier Baru===");
+                    
+                }
 
-                System.out.println("==============================");
-                System.out.println("Supplier: " + supplier);
-                System.out.println("Kontak: " + konSUp);
-                System.out.println("Alamat: " + alamSup);
+                
+            int pilihStop = input.nextInt();
+            if( pilihStop == 0){
+                stop = false; //kembali ke main menu
+            }else{
+                stop = true; // lanjut 
+            }
+            }while (stop); 
+                // System.out.println("=====Supplier Management=====");
+                // System.out.println("Masukkan supplier: ");
+                // supplier = input.next();
+                // input.nextLine();
+                // System.out.println("Masukkan Kontak: ");
+                // String konSUp = input.next();
+                // System.out.println("Masukkan Alamat: ");
+                // String alamSup = input.next();
+
+                // System.out.println("==============================");
+                // System.out.println("Supplier: " + supplier);
+                // System.out.println("Kontak: " + konSUp);
+                // System.out.println("Alamat: " + alamSup);
 
                 break;
             case 5:
