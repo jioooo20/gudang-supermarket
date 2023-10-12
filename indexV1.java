@@ -27,7 +27,6 @@ public class indexV1 {
  
         switch (fitur) {
             case 1:
-
             do{
             System.out.println("=====Item Entry and Storage=====");
             System.out.print("Masukkan Nama Supplier: ");
@@ -153,21 +152,44 @@ public class indexV1 {
                 System.out.println("=====Supplier Management=====");
                 System.out.println("1.Masukkan Supplier Baru");
                 System.out.println("2.Lihat Informasi Supplier");
+                System.out.println("0.Kembali");
                 System.out.print("Masukkan Nomor: ");
                 int pilihan4 = input.nextInt();
+                if (pilihan4 == 0 ) {
+                    break;
+                }
                 switch(pilihan4){
                     case 1 :
+                    do{
                     System.out.println("===Masukkan Supplier Baru===");
-                    
+                    System.out.print("Masukkan Supplier: ");
+                    supplier = input.next();
+                    System.out.print("Masukkan Kontak Supplier: ");
+                    konSupp = input.next();
+                    System.out.print("Masukkan Alamat Supplier: ");
+                    alamatSupp = input.next();
+                    System.out.println("=============================");
+                    System.out.println("Masukkan Data Supplier Lagi?");
+                    System.out.println("1. Iya");
+                    System.out.println("0. Tidak");
+                    System.out.print("Masukkan Nomer: ");
+                    int pilihStop4 = input.nextInt();
+                    if( pilihStop4 == 0){
+                        stop = false; //kembali ke main menu
+                    }else{
+                        stop = true; // lanjut 
+                    }    
+                    }while (stop);
+                        break;
+                    case 2: 
+                    System.out.println("===List Supplier===");
+                    System.out.println("1|"+" suplier | kontak | alamat | ");
+                        break;
+                    case 0:
+
+                        break;                  
                 }
 
-                
-            int pilihStop = input.nextInt();
-            if( pilihStop == 0){
-                stop = false; //kembali ke main menu
-            }else{
-                stop = true; // lanjut 
-            }
             }while (stop); 
                 // System.out.println("=====Supplier Management=====");
                 // System.out.println("Masukkan supplier: ");
