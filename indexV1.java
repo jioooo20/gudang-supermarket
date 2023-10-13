@@ -1,10 +1,12 @@
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
+import java.util.Date;
 
 public class indexV1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String namaBrg = "", tipeBrg = "", prdDate = "", expDate = "", supplier = "", konSupp= "", alamatSupp = "" ;
+        String namaBrg = "", tipeBrg = "", prdDate = "", expDate = "", dateNow = "", supplier = "", konSupp= "", alamatSupp = "" ;
         double harga = 0.0;
         int stokBrg = 0, menu, fitur;
         boolean stop = true;        
@@ -66,7 +68,7 @@ public class indexV1 {
             }while (stop);   
             
                 break;
-                    case 2:
+            case 2:
             int menu2;
             int stop2 = 0;
             do {
@@ -140,8 +142,7 @@ public class indexV1 {
                     default:
                         System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1, 2, atau 3");
                         break;
-                }
-
+            }
             } while (menu2 != stop2);
             break;
 
@@ -238,11 +239,39 @@ public class indexV1 {
 
                 break;
             case 7:
+                int menu7;
+                int stop7 = 0;
+                do {
                 System.out.println("=====Expiry Date Tracking=====");
-                System.out.println("Masukkan nama barang yang ingin anda cek:");
-                namaBrg = input.nextLine();
+                System.out.println("Silahkan pilih menu anda (1/0):");
+                System.out.println("1. Cek tanggal kadaluarsa");
+                System.out.println("0. Kembali");
+                System.out.print("Pilih menu: ");
+                menu7 = input.nextInt();
+                switch (menu7) {
+                    case 1:
+                    System.out.print("Masukkan nama barang: ");
+                    namaBrg = input.next();
+                    input.nextLine();
+                    System.out.print("Masukkan tanggal yang ingin Anda cek (format: dd-MM-yyyy): ");
+                    prdDate = input.nextLine(); 
+                    System.out.print("Masukkan tanggal sekarang (format: dd-MM-yyyy): ");
+                    dateNow = input.nextLine(); 
 
-                break;
+                    if (prdDate == dateNow) {
+                        System.out.println("Tanggal sudah lewat!");
+                    } else {
+                        System.out.println("Tanggal belum lewat.");
+                    }
+                    break;
+                    case 0:
+                    break;
+                }
+
+
+
+            } while (menu7 != stop7);
+            break;
             case 0:
                 System.out.println("!!Anda keluar dari menu!!");
                 System.exit(0);
@@ -250,6 +279,6 @@ public class indexV1 {
                 
         } 
         } while (fitur != 0);
-               
+    
     }
 }
