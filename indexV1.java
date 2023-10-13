@@ -1,6 +1,4 @@
-import java.text.SimpleDateFormat;
 import java.util.Scanner;
-import java.util.Date;
 
 public class indexV1 {
     public static void main(String[] args) {
