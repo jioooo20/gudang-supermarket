@@ -86,6 +86,7 @@ public class indexV1 {
                 if (menu2 == 1) {
                     System.out.print("Masukkan Nama Barang yang ingin anda ubah: ");
                     namaBrg = input.nextLine();
+                    input.nextLine();
     
                     System.out.println("============================");
                     System.out.println("Part yang ingin anda ubah:");
@@ -133,8 +134,9 @@ public class indexV1 {
                     }
                     System.out.println("Barang " + namaBrg + " berhasil diperbarui ");
                 } else if (menu2 == 2) {
-                    System.out.print("Masukkan Nama Barang yang ingin dihapus: ");
+                    System.out.println("Masukkan Nama Barang yang ingin dihapus: ");
                     namaBrg = input.nextLine();
+                    input.nextLine();
                     System.out.println("Data barang " + namaBrg + " telah berhasil dihapus");
                 } else {
                     System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1, 2, atau 3");
@@ -183,10 +185,10 @@ public class indexV1 {
                         break;
                     case 2: 
                     System.out.println("===List Supplier===");
-                    System.out.println("1|"+" suplier | kontak | alamat | ");
+                    System.out.println("1|"+" suplier | k2ontak | alamat | ");
                         break;
                     case 0:
-
+                        
                         break;                  
                 }
 
