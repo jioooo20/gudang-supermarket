@@ -246,6 +246,7 @@ public class indexV1 {
                 System.out.println("=====Expiry Date Tracking=====");
                 System.out.println("Silahkan pilih menu anda (1/0):");
                 System.out.println("1. Cek tanggal kadaluarsa");
+                System.out.println("2. Tampilkan daftar kadaluarsa");
                 System.out.println("0. Kembali");
                 System.out.print("Pilih menu: ");
                 menu7 = input.nextInt();
@@ -265,6 +266,8 @@ public class indexV1 {
                         System.out.println("Tanggal belum lewat.");
                     }
                     break;
+                    case 2:
+                    
                     case 0:
                     break;
                 }
