@@ -4,27 +4,27 @@ public class indexV1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String namaBrg = "", tipeBrg = "", prdDate = "", expDate = "", dateNow = "", supplier = "", konSupp= "", alamatSupp = "" ;
-        double harga = 0.0;
+        String namaBrg = "Mie", tipeBrg = "Makanan", prdDate = "", expDate = "", dateNow = "", supplier = "", konSupp= "", alamatSupp = "" ;
+        double harga = 3000;
         int stokBrg = 0, menu, fitur;
-        boolean stop = true;        
+        boolean stop = true;
         
         do{
         System.out.println("===============Selamat Datang===============");
-        System.out.println("1.Item Entry and Storage"); 
-        System.out.println("2.Update Item Information"); 
+        System.out.println("1.Item Entry and Storage");
+        System.out.println("2.Update Item Information");
         System.out.println("3.Item Categorization");
         System.out.println("4.Supplier Management");
         System.out.println("5.Stock Checking");
         System.out.println("6.Code Scanning");
         System.out.println("7.Expiry Date Tracking ");
         System.out.println("0.Keluar dari Menu");
-        System.out.print("Masukkan Nomor Menu: ");        
+        System.out.print("Masukkan Nomor Menu: ");
         fitur = input.nextInt();
             if (fitur == 0 ) {
                 break;
             }
- 
+
         switch (fitur) {
             case 1:
             do{
@@ -61,9 +61,9 @@ public class indexV1 {
             if( pilihStop1 == 0){
                 stop = false; //kembali ke main menu
             }else{
-                stop = true; // lanjut 
+                stop = true; // lanjut
             }
-            }while (stop);   
+            }while (stop);
             
                 break;
             case 2:
@@ -182,20 +182,20 @@ public class indexV1 {
                     if( pilihStop4 == 0){
                         stop = false; //kembali ke main menu
                     }else{
-                        stop = true; // lanjut 
-                    }    
+                        stop = true; // lanjut
+                    }
                     }while (stop);
                         break;
-                    case 2: 
+                    case 2:
                     System.out.println("===List Supplier===");
                     System.out.println("1|"+" suplier | kontak | alamat | ");
                         break;
                     case 0:
                         
-                        break;                  
+                        break;
                 }
 
-            }while (stop); 
+            }while (stop);
                 // System.out.println("=====Supplier Management=====");
                 // System.out.println("Masukkan supplier: ");
                 // supplier = input.next();
@@ -212,23 +212,46 @@ public class indexV1 {
 
                 break;
             case 5:
+                int menu5;
+                int stop5 = 0;
+                do {
                 System.out.println("=====Stock Checking=====");
-                System.out.print("Nama Barang           : \n" );
-                namaBrg = input.next();
-                input.nextLine();
-                System.out.print("Kategori Barang       : \n" );
-                tipeBrg = input.next();
-                input.nextLine();
-                System.out.print("Jumlah Stok Barang    : \n" );
-                stokBrg = input.nextInt();
-                input.nextLine();
+                System.out.println("1. Cek Semua Stok Barang");
+                System.out.println("2. Cek Stok Berdasarkan Nama Barang");
+                System.out.println("0. Keluar");
+                System.out.print("Pilih Nomor : ");
+                menu5 = input.nextInt();
 
+            switch (menu5) {
+                case 1:
+                    System.out.println("Stok Barang :");
+                    System.out.println("Nama Barang           : " + namaBrg );
+                    System.out.println("Kategori Barang       : " + tipeBrg );
+                    System.out.println("Harga Barang          : " + harga );
+                    break;
+                case 2:
+                    System.out.println("Masukkan Nama Barang Yang Ingin Anda Cek :");
+                    namaBrg = input.next();
+                    input.nextLine();
+                    System.out.println("Nama Barang           : " );
+                    System.out.println("Kategori Barang       : " );
+                    System.out.println("Jumlah Stok Barang    : " );
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Nomor menu yang anda masukkan salah");
+                    break;
+            }
+            } while (menu5 != stop5);
                 break;
             case 6:
             
                 System.out.println("=====Code Scanning=====");
-                System.out.println("Masukkan nama Barang Yang Ingin Anda Scan: ");
-                namaBrg = input.nextLine();
+                System.out.print("Masukkan nama Barang Yang Ingin Anda Scan: ");
+                namaBrg = input.next();
+                input.nextLine();
+
                 System.out.println("=====Data Barang yang Dicari=====");
                 System.out.println("Nama Barang               : \n" );
                 System.out.println("Kategori Barang           : \n" );
@@ -256,9 +279,9 @@ public class indexV1 {
                     namaBrg = input.next();
                     input.nextLine();
                     System.out.print("Masukkan tanggal yang ingin Anda cek (format: dd-MM-yyyy): ");
-                    prdDate = input.nextLine(); 
+                    prdDate = input.nextLine();
                     System.out.print("Masukkan tanggal sekarang (format: dd-MM-yyyy): ");
-                    dateNow = input.nextLine(); 
+                    dateNow = input.nextLine();
 
                     if (prdDate == dateNow) {
                         System.out.println("Tanggal sudah lewat!");
@@ -278,7 +301,7 @@ public class indexV1 {
                 System.exit(0);
                 break;
                 
-        } 
+        }
         } while (fitur != 0);
     
     }
