@@ -16,9 +16,9 @@ public class indexV1 {
         System.out.println("3.Item Categorization");
         System.out.println("4.Supplier Management");
         System.out.println("5.Stock Checking");
-        System.out.println("6.Code Scanning");
+        System.out.println("6.Item Scanning");
         System.out.println("7.Expiry Date Tracking ");
-        System.out.println("0.Keluar dari Menu");
+        System.out.println("0.Keluar");
         System.out.print("Masukkan Nomor Menu: ");
         fitur = input.nextInt();
             if (fitur == 0 ) {
@@ -74,7 +74,7 @@ public class indexV1 {
                 System.out.println("Silahkan Pilih");
                 System.out.println("1. Update");
                 System.out.println("2. Hapus");
-                System.out.println("0. Keluar");
+                System.out.println("0. Kembali");
                 System.out.print("Masukkan Nomor: ");
                 menu2 = input.nextInt();
 
@@ -132,11 +132,12 @@ public class indexV1 {
                         System.out.println("Barang " + namaBrg + " berhasil diperbarui ");
                         break;
                     case 2:
-                        System.out.println("Masukkan Nama Barang yang ingin dihapus: ");
+                        System.out.print("Masukkan Nama Barang yang ingin dihapus: ");
                         namaBrg = input.nextLine();
+                        input.nextLine();
                         //lakukan cek validasi
 
-                        System.out.println("Data barang " + namaBrg + " telah berhasil dihapus");
+                        System.out.println("Data barang telah berhasil dihapus");
                         break;
                     case 0:
                         break;
@@ -218,7 +219,7 @@ public class indexV1 {
                 System.out.println("=====Stock Checking=====");
                 System.out.println("1. Cek Semua Stok Barang");
                 System.out.println("2. Cek Stok Berdasarkan Nama Barang");
-                System.out.println("0. Keluar");
+                System.out.println("0. Kembali");
                 System.out.print("Pilih Nomor : ");
                 menu5 = input.nextInt();
 
@@ -247,7 +248,7 @@ public class indexV1 {
                 break;
             case 6:
             
-                System.out.println("=====Code Scanning=====");
+                System.out.println("=====Item Scanning=====");
                 System.out.print("Masukkan nama Barang Yang Ingin Anda Scan: ");
                 namaBrg = input.next();
                 input.nextLine();
@@ -290,7 +291,7 @@ public class indexV1 {
                     }
                     break;
                     case 2:
-                    
+                    System.out.println("Nama Barang:");
                     case 0:
                     break;
                 }
