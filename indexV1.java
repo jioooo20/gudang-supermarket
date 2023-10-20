@@ -4,27 +4,27 @@ public class indexV1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String namaBrg = "", tipeBrg = "", prdDate = "", expDate = "", supplier = "", konSupp= "", alamatSupp = "" ;
-        double harga = 0.0;
+        String namaBrg = "", tipeBrg = "", prdDate = "", expDate = "", dateNow = "", supplier = "", konSupp= "", alamatSupp = "" ;
+        double harga = 30000;
         int stokBrg = 0, menu, fitur;
-        boolean stop = true;        
+        boolean stop = true;
         
         do{
         System.out.println("===============Selamat Datang===============");
-        System.out.println("1.Item Entry and Storage"); 
-        System.out.println("2.Update Item Information"); 
+        System.out.println("1.Item Entry and Storage");
+        System.out.println("2.Update Item Information");
         System.out.println("3.Item Categorization");
         System.out.println("4.Supplier Management");
         System.out.println("5.Stock Checking");
-        System.out.println("6.Code Scanning");
+        System.out.println("6.Item Scanning");
         System.out.println("7.Expiry Date Tracking ");
-        System.out.println("0.Keluar dari Menu");
-        System.out.print("Masukkan Nomor Menu: ");        
+        System.out.println("0.Keluar");
+        System.out.print("Masukkan Nomor Menu: ");
         fitur = input.nextInt();
             if (fitur == 0 ) {
                 break;
             }
- 
+
         switch (fitur) {
             case 1:
             do{
@@ -61,87 +61,96 @@ public class indexV1 {
             if( pilihStop1 == 0){
                 stop = false; //kembali ke main menu
             }else{
-                stop = true; // lanjut 
+                stop = true; // lanjut
             }
-            }while (stop);   
+            }while (stop);
             
                 break;
-            case 2: 
-                int menu2;
-                int stop2 = 0;
-                do{
+            case 2:
+            int menu2;
+            int stop2 = 0;
+            do {
                 System.out.println("======Update Item Information======");
                 System.out.println("Silahkan Pilih");
                 System.out.println("1. Update");
                 System.out.println("2. Hapus");
-                System.out.println("0. Keluar");
+                System.out.println("0. Kembali");
                 System.out.print("Masukkan Nomor: ");
                 menu2 = input.nextInt();
 
+                switch (menu2) {
+                    case 1:
+                        System.out.print("Masukkan Nama Barang yang ingin anda ubah: ");
+                        namaBrg = input.nextLine();
+                        input.nextLine();
+                        //lakukan cek validasi
 
-                if (menu2 == 0) {
-                    break;
-                }
-    
-                if (menu2 == 1) {
-                    System.out.print("Masukkan Nama Barang yang ingin anda ubah: ");
-                    namaBrg = input.nextLine();
-    
-                    System.out.println("============================");
-                    System.out.println("Part yang ingin anda ubah:");
-                    System.out.println("1. Nama Barang");
-                    System.out.println("2. Kategori Barang");
-                    System.out.println("3. Tanggal Produksi Barang");
-                    System.out.println("4. Tanggal Kadaluarsa Barang");
-                    System.out.println("5. Harga Barang");
-                    System.out.println("6. Jumlah Stok Barang");
-                    System.out.println("0. Selesai");
-                    System.out.print("Pilih menu: ");
-                    int pilihan = input.nextInt();
-                    input.nextLine(); // Membuang karakter newline
-    
-                    switch (pilihan) {
-                        case 1:
-                            System.out.print("Masukkan Nama Barang Baru: ");
-                            namaBrg = input.nextLine();
-                            break;
-                        case 2:
-                            System.out.print("Masukkan Kategori Barang Baru: ");
-                            tipeBrg = input.nextLine();
-                            break;
-                        case 3:
-                            System.out.print("Masukkan Tanggal Produksi Baru: ");
-                            prdDate = input.nextLine();
-                            break; 
-                        case 4:
-                            System.out.print("Masukkan Tanggal Kadaluarsa Baru: ");
-                            expDate = input.nextLine();
-                            break;
-                        case 5:
-                            System.out.print("Masukkan Harga Barang Baru: ");
-                            harga = input.nextDouble();
-                            break;
-                        case 6:
-                            System.out.print("Masukkan Jumlah Stok Barang Baru: ");
-                            stokBrg = input.nextInt();
-                            break;
-                        case 0:
-                            System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
-                            break;
-                        default:
-                            System.out.println("Pilihan tidak valid.");
-                    }
-                    System.out.println("Barang " + namaBrg + " berhasil diperbarui ");
-                } else if (menu2 == 2) {
-                    System.out.print("Masukkan Nama Barang yang ingin dihapus: ");
-                    namaBrg = input.nextLine();
-                    System.out.println("Data barang " + namaBrg + " telah berhasil dihapus");
-                } else {
-                    System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1, 2, atau 3");
-                }
-                
-            }while (menu2 != stop2); 
-            break;  
+                        System.out.println("============================");
+                        System.out.println("Part yang ingin anda ubah:");
+                        System.out.println("1. Nama Barang");
+                        System.out.println("2. Kategori Barang");
+                        System.out.println("3. Tanggal Produksi Barang");
+                        System.out.println("4. Tanggal Kadaluarsa Barang");
+                        System.out.println("5. Harga Barang");
+                        System.out.println("6. Jumlah Stok Barang");
+                        System.out.println("0. Selesai");
+                        System.out.print("Pilih menu: ");
+                        int pilihan = input.nextInt();
+                        input.nextLine(); // Membuang karakter newline
+
+                        switch (pilihan) {
+                            case 1:
+                                System.out.print("Masukkan Nama Barang Baru: ");
+                                namaBrg = input.nextLine();
+                                break;
+                            case 2:
+                                System.out.print("Masukkan Kategori Barang Baru: ");
+                                tipeBrg = input.nextLine();
+                                break;
+                            case 3:
+                                System.out.print("Masukkan Tanggal Produksi Baru: ");
+                                prdDate = input.nextLine();
+                                break;
+                            case 4:
+                                System.out.print("Masukkan Tanggal Kadaluarsa Baru: ");
+                                expDate = input.nextLine();
+                                break;
+                            case 5:
+                                System.out.print("Masukkan Harga Barang Baru: ");
+                                harga = input.nextDouble();
+                                break;
+                            case 6:
+                                System.out.print("Masukkan Jumlah Stok Barang Baru: ");
+                                stokBrg = input.nextInt();
+                                break;
+                            case 0:
+                                System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
+                                break;
+                            default:
+                                System.out.println("Pilihan tidak valid.");
+                        }
+                        System.out.println("Barang " + namaBrg + " berhasil diperbarui ");
+                        break;
+                    case 2:
+                        System.out.print("Masukkan Nama Barang yang ingin dihapus: ");
+                        namaBrg  = input.nextLine();
+                        input.nextLine();
+                        System.out.println("Data barang telah berhasil dihapus");
+                        // if (namaBrgHapus == namaBrg) {
+                        //     System.out.println("Data barang " + namaBrg + " telah berhasil dihapus");
+                        // } else {
+                        //     System.out.println("Nama barang tidak ditemukan");
+                        // }
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1, 2, atau 3");
+                        break;
+            }
+            } while (menu2 != stop2);
+            break;
+
             case 3:
                 System.out.println("=====Item Categorization=====");
 
@@ -177,20 +186,20 @@ public class indexV1 {
                     if( pilihStop4 == 0){
                         stop = false; //kembali ke main menu
                     }else{
-                        stop = true; // lanjut 
-                    }    
+                        stop = true; // lanjut
+                    }
                     }while (stop);
                         break;
-                    case 2: 
+                    case 2:
                     System.out.println("===List Supplier===");
                     System.out.println("1|"+" suplier | kontak | alamat | ");
                         break;
-                    default:
-                        System.out.println("APA INI DIMANA");
-                        break;                  
+                    case 0:
+                        
+                        break;
                 }
 
-            }while (stop); 
+            }while (stop);
                 // System.out.println("=====Supplier Management=====");
                 // System.out.println("Masukkan supplier: ");
                 // supplier = input.next();
@@ -207,46 +216,97 @@ public class indexV1 {
 
                 break;
             case 5:
+                int menu5;
+                int stop5 = 0;
+                do {
                 System.out.println("=====Stock Checking=====");
-                System.out.print("Nama Barang           : \n" );
-                namaBrg = input.next();
-                input.nextLine();
-                System.out.print("Kategori Barang       : \n" );
-                tipeBrg = input.next();
-                input.nextLine();
-                System.out.print("Jumlah Stok Barang    : \n" );
-                stokBrg = input.nextInt();
-                input.nextLine();
+                System.out.println("1. Cek Semua Stok Barang");
+                System.out.println("2. Cek Stok Berdasarkan Nama Barang");
+                System.out.println("0. Kembali");
+                System.out.print("Pilih Nomor : ");
+                menu5 = input.nextInt();
 
+            switch (menu5) {
+                case 1:
+                    System.out.println("Stok Barang :");
+                    System.out.println("Nama Barang           : " + namaBrg );
+                    System.out.println("Kategori Barang       : " + tipeBrg );
+                    System.out.println("Harga Barang          : " + harga );
+                    break;
+                case 2:
+                    System.out.println("Masukkan Nama Barang Yang Ingin Anda Cek :");
+                    namaBrg = input.next();
+                    input.nextLine();
+                    System.out.println("Nama Barang           : " );
+                    System.out.println("Kategori Barang       : " );
+                    System.out.println("Jumlah Stok Barang    : " );
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Nomor menu yang anda masukkan salah");
+                    break;
+            }
+            } while (menu5 != stop5);
                 break;
             case 6:
             
-                System.out.println("=====Code Scanning=====");
-                System.out.println("Masukkan nama Barang Yang Ingin Anda Scan: ");
-                namaBrg = input.nextLine();
+                System.out.println("=====Item Scanning=====");
+                System.out.print("Masukkan nama Barang Yang Ingin Anda Scan: ");
+                namaBrg = input.next();
+                input.nextLine();
+
                 System.out.println("=====Data Barang yang Dicari=====");
-                System.out.print("Nama Barang               : \n" );
-                System.out.print("Kategori Barang           : \n" );
-                System.out.print("Nama Supplier             : \n" );
-                System.out.print("Tanggal Produksi Barang   : \n" );
-                System.out.print("Tanggal Kadaluarsa Barang : \n" );
-                System.out.print("Harga Barang              : \n" );
-                System.out.print("Jumlah Stok Barang        : \n" );
+                System.out.println("Nama Barang               : \n" );
+                System.out.println("Kategori Barang           : \n" );
+                System.out.println("Nama Supplier             : \n" );
+                System.out.println("Tanggal Produksi Barang   : \n" );
+                System.out.println("Tanggal Kadaluarsa Barang : \n" );
+                System.out.println("Harga Barang              : \n" );
+                System.out.println("Jumlah Stok Barang        : \n" );
 
                 break;
             case 7:
+                int menu7;
+                int stop7 = 0;
+                do {
                 System.out.println("=====Expiry Date Tracking=====");
-                System.out.println("Masukkan nama barang yang ingin anda cek:");
-                namaBrg = input.nextLine();
+                System.out.println("Silahkan pilih menu anda (1/0):");
+                System.out.println("1. Cek tanggal kadaluarsa");
+                System.out.println("2. Tampilkan daftar kadaluarsa");
+                System.out.println("0. Kembali");
+                System.out.print("Pilih menu: ");
+                menu7 = input.nextInt();
+                switch (menu7) {
+                    case 1:
+                    System.out.print("Masukkan nama barang: ");
+                    namaBrg = input.next();
+                    input.nextLine();
+                    System.out.print("Masukkan tanggal yang ingin Anda cek (format: dd-MM-yyyy): ");
+                    prdDate = input.nextLine();
+                    System.out.print("Masukkan tanggal sekarang (format: dd-MM-yyyy): ");
+                    dateNow = input.nextLine();
 
-                break;
+                    if (prdDate == dateNow) {
+                        System.out.println("Tanggal sudah lewat!");
+                    } else {
+                        System.out.println("Tanggal belum lewat.");
+                    }
+                    break;
+                    case 2:
+                    System.out.println("Nama Barang:");
+                    case 0:
+                    break;
+                }
+            } while (menu7 != stop7);
+            break;
             case 0:
                 System.out.println("!!Anda keluar dari menu!!");
                 System.exit(0);
                 break;
                 
-        } 
+        }
         } while (fitur != 0);
-               
+    
     }
 }
