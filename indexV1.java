@@ -156,7 +156,7 @@ public class indexV1 {
                 System.out.print("Masukkan Nomor: ");
                 int pilihan4 = input.nextInt();
                 if (pilihan4 == 0 ) {
-                    break;
+                    continue;
                 }
                 switch(pilihan4){
                     case 1 :
@@ -185,8 +185,8 @@ public class indexV1 {
                     System.out.println("===List Supplier===");
                     System.out.println("1|"+" suplier | kontak | alamat | ");
                         break;
-                    case 0:
-
+                    default:
+                        System.out.println("APA INI DIMANA");
                         break;                  
                 }
 
