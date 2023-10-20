@@ -4,8 +4,8 @@ public class indexV1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String namaBrg = "Mie", tipeBrg = "Makanan", prdDate = "", expDate = "", dateNow = "", supplier = "", konSupp= "", alamatSupp = "" ;
-        double harga = 3000;
+        String namaBrg = "", tipeBrg = "", prdDate = "", expDate = "", dateNow = "", supplier = "", konSupp= "", alamatSupp = "" ;
+        double harga = 30000;
         int stokBrg = 0, menu, fitur;
         boolean stop = true;
         
@@ -133,11 +133,14 @@ public class indexV1 {
                         break;
                     case 2:
                         System.out.print("Masukkan Nama Barang yang ingin dihapus: ");
-                        namaBrg = input.nextLine();
+                        namaBrg  = input.nextLine();
                         input.nextLine();
-                        //lakukan cek validasi
-
                         System.out.println("Data barang telah berhasil dihapus");
+                        // if (namaBrgHapus == namaBrg) {
+                        //     System.out.println("Data barang " + namaBrg + " telah berhasil dihapus");
+                        // } else {
+                        //     System.out.println("Nama barang tidak ditemukan");
+                        // }
                         break;
                     case 0:
                         break;
