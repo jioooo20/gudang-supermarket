@@ -156,20 +156,30 @@ public class indexV1 {
 
                 break;
             case 4:
-            
+            int menu4;
             do{
                 System.out.println("=====Supplier Management=====");
                 System.out.println("1.Masukkan Supplier Baru");
                 System.out.println("2.Lihat Informasi Supplier");
                 System.out.println("0.Kembali");
                 System.out.print("Masukkan Nomor: ");
-                int pilihan4 = input.nextInt();
-                if (pilihan4 == 0 ) {
-                    continue;
+                menu4 = input.nextInt();
+                if (menu4 == 0 ) {
+                    break;
                 }
-                switch(pilihan4){
+                switch(menu4){
                     case 1 :
+                    int stop4 = 0;
                     do{
+                        if(stop4 != 0 && stop4 != 1){
+                            System.out.println("=========================");
+                            System.out.println("Masukkan Data Supplier Lagi?");
+                            System.out.println("1. Iya");
+                            System.out.println("0. Tidak");
+                            System.out.print("Pilih angka 1 atau 0: ");                                                       
+                            stop4 = input.nextInt();         
+                            continue;         
+                        }
                     System.out.println("===Masukkan Supplier Baru===");
                     System.out.print("Masukkan Supplier: ");
                     supplier = input.next();
@@ -182,38 +192,21 @@ public class indexV1 {
                     System.out.println("1. Iya");
                     System.out.println("0. Tidak");
                     System.out.print("Masukkan Nomer: ");
-                    int pilihStop4 = input.nextInt();
-                    if( pilihStop4 == 0){
-                        stop = false; //kembali ke main menu
-                    }else{
-                        stop = true; // lanjut
-                    }
-                    }while (stop);
-                        break;
+                    stop4 = input.nextInt();
+                    // if(stop4 != 0 && stop4 != 1 && stop4 >= 2){
+                    //     System.out.println("============================");
+                    //     System.out.println("Masukkan angka 0 atau 1");
+                    //     continue;
+                    // }
+                    } while (stop4 != 0);
+                    break;
                     case 2:
                     System.out.println("===List Supplier===");
                     System.out.println("1|"+" suplier | kontak | alamat | ");
                         break;
-                    case 0:
-                        
-                        break;
                 }
 
-            }while (stop);
-                // System.out.println("=====Supplier Management=====");
-                // System.out.println("Masukkan supplier: ");
-                // supplier = input.next();
-                // input.nextLine();
-                // System.out.println("Masukkan Kontak: ");
-                // String konSUp = input.next();
-                // System.out.println("Masukkan Alamat: ");
-                // String alamSup = input.next();
-
-                // System.out.println("==============================");
-                // System.out.println("Supplier: " + supplier);
-                // System.out.println("Kontak: " + konSUp);
-                // System.out.println("Alamat: " + alamSup);
-
+            }while (menu4 != 0);
                 break;
             case 5:
                 int menu5;
