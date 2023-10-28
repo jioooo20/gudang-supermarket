@@ -6,12 +6,12 @@ public class indexV1 {
 
         String[] namaBrg = {"Mie Sedap Goreng", "Teh Rio"};
         String[] tipeBrg = {"Makanan", "Minuman"};
-        String[] prdDate = new String[5];
-        String[] expDate = new String[5];
+        String[] prdDate = {"22 September 2023", "23 September 2023"};
+        String[] expDate = {"23 desember 2024", "24 desember 2025"};
         String[] dateNow = new String[5];
         String[] supplier = {"Wings", "Wings"};
-        String[] konSupp = new String[5];
-        String[] alamatSupp = new String[5];
+        String[] konSupp = {"08214141414", "08515151521"};
+        String[] alamatSupp = {"Jawa", "Malang"};
         double[] harga = {110000, 22500};
         int[] stokBrg = {10, 20};
         int menu, fitur;
@@ -39,24 +39,75 @@ public class indexV1 {
             int i=0;
             System.out.println("=====Item Entry and Storage=====");
             System.out.print("Masukkan Nama Supplier: ");
-            supplier[i] = input.nextLine();
-            input.nextLine();
+            String newSupplier = input.nextLine();            
+            //buat array baru
+            int newSizeSupplier = supplier.length + 1;
+            String[] tempSuplier = new String[newSizeSupplier];
+            //copy 
+            for(int j=0; j<supplier.length; j++){
+                tempSuplier[j] = supplier[j];
+            }
+            //tambah nama supplier
+            tempSuplier[newSizeSupplier - 1] = newSupplier;
+            //tuker array lama ke baru
+            supplier = tempSuplier;
+            input.next();
+
             System.out.print("Masukkan Nama Barang: ");
-            namaBrg[i] = input.nextLine();
+            String newNama = input.nextLine();
+            int newSizeBarang = namaBrg.length + 1;
+            String[] tempnama = new String[newSizeBarang];
+            for(int j=0; j<namaBrg.length; j++){
+                tempnama[j]=namaBrg[j];
+            }
+            tempnama[newSizeBarang - 1] = newNama;
+            namaBrg = tempnama;
+            input.next();
+
             System.out.print("Masukkan Kategori Barang: ");
-            tipeBrg[i] = input.nextLine();
+            String newTipe = input.nextLine();
+            int newSizeTipe = tipeBrg.length + 1;
+            String[] tempTipe = new String[newSizeTipe];
+            for(int j=0; j<tipeBrg.length; j++){
+                tempTipe[j]=tipeBrg[j];
+            }
+            tempTipe[newSizeTipe - 1] = newTipe;
+            tipeBrg = tempTipe;
+            input.next();
+
             System.out.print("Masukkan Tanggal Produksi Barang: ");
             prdDate[i] = input.next();
             input.nextLine();
+
             System.out.print("Masukkan Tanggal Kadaluarsa Barang: ");
             expDate[i] = input.next();
             input.nextLine();
+
             System.out.print("Masukkan Harga Barang: ");
-            harga[i] = input.nextDouble();
-            input.nextLine();
+            double newHarga = input.nextDouble();
+            int newSizeHarga = harga.length + 1;
+            double[] tempHarga = new double[newSizeHarga];
+            for(int j=0; j<harga.length;j++){
+                tempHarga[j] = harga[j];
+            }
+            tempHarga[newSizeHarga - 1] = newHarga;
+            harga = tempHarga;
+            
             System.out.print("Masukkan Jumlah Stok Barang: ");
-            stokBrg[i] = input.nextInt();
-            input.nextLine();
+            int newStok = input.nextInt();
+            int newSizeStok = stokBrg.length + 1;
+            int[] tempStok = new int[newSizeStok];
+            for(int j=0;j<stokBrg.length;j++){
+                tempStok[j] = stokBrg[j];
+            }
+            tempStok[newSizeStok - 1] = newStok;
+            stokBrg = tempStok;
+            
+            //coba ditampilkan(nnt dihapus)
+            for(int j=0;j<3; j++){
+                System.out.println((j+1) +" | "+ supplier[j] +" | "+ namaBrg[j] +" | "+tipeBrg[j]+" | "+prdDate[j]+" | "+harga[j]+" | "+stokBrg[j] );
+            }
+
             System.out.println("===========================================================================");
             System.out.println("Barang telah berhasil ditambahkan");
             System.out.println("Masukkan data lagi?");
@@ -324,3 +375,43 @@ public class indexV1 {
     
     }
 }
+
+// INI NOTE!!!
+
+//  case 1:
+//             do{
+//             int i=0;
+//             System.out.println("=====Item Entry and Storage=====");
+//             System.out.print("Masukkan Nama Supplier: ");
+//             supplier[i] = input.nextLine();
+//             input.nextLine();
+//             System.out.print("Masukkan Nama Barang: ");
+//             namaBrg[i] = input.nextLine();
+//             System.out.print("Masukkan Kategori Barang: ");
+//             tipeBrg[i] = input.nextLine();
+//             System.out.print("Masukkan Tanggal Produksi Barang: ");
+//             prdDate[i] = input.next();
+//             input.nextLine();
+//             System.out.print("Masukkan Tanggal Kadaluarsa Barang: ");
+//             expDate[i] = input.next();
+//             input.nextLine();
+//             System.out.print("Masukkan Harga Barang: ");
+//             harga[i] = input.nextDouble();
+//             input.nextLine();
+//             System.out.print("Masukkan Jumlah Stok Barang: ");
+//             stokBrg[i] = input.nextInt();
+//             input.nextLine();
+//             System.out.println("===========================================================================");
+//             System.out.println("Barang telah berhasil ditambahkan");
+//             System.out.println("Masukkan data lagi?");
+//             System.out.println("1. Iya");
+//             System.out.println("0. Kembali");
+//             int pilihStop1 = input.nextInt();
+//             if( pilihStop1 == 0){
+//                 stop = false; //kembali ke main menu
+//             }else{
+//                 stop = true; // lanjut 
+//             }
+//             i++;
+//             }while (stop);                     
+//                 break;
