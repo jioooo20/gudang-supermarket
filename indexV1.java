@@ -4,16 +4,16 @@ public class indexV1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String[] namaBrg = new String[5];
-        String[] tipeBrg = new String[5];
+        String[] namaBrg = {"Mie Sedap Goreng", "Teh Rio"};
+        String[] tipeBrg = {"Makanan", "Minuman"};
         String[] prdDate = new String[5];
         String[] expDate = new String[5];
         String[] dateNow = new String[5];
-        String[] supplier = new String[5];
+        String[] supplier = {"Wings", "Wings"};
         String[] konSupp = new String[5];
         String[] alamatSupp = new String[5];
-        double[] harga = new double[5];
-        int[] stokBrg = new int[5];
+        double[] harga = {110000, 22500};
+        int[] stokBrg = {10, 20};
         int menu, fitur;
         boolean stop = true;        
         
@@ -26,7 +26,7 @@ public class indexV1 {
         System.out.println("5.Stock Checking");
         System.out.println("6.Code Scanning");
         System.out.println("7.Expiry Date Tracking ");
-        System.out.println("0.Keluar dari Menu");
+        System.out.println("0.Keluar");
         System.out.print("Masukkan Nomor Menu: ");        
         fitur = input.nextInt();
             if (fitur == 0 ) {
@@ -60,8 +60,8 @@ public class indexV1 {
             System.out.println("===========================================================================");
             System.out.println("Barang telah berhasil ditambahkan");
             System.out.println("Masukkan data lagi?");
-            System.out.println("1.Iya");
-            System.out.println("0.Kembali ke menu");
+            System.out.println("1. Iya");
+            System.out.println("0. Kembali");
 
             int pilihStop1 = input.nextInt();
             if( pilihStop1 == 0){
@@ -162,59 +162,73 @@ public class indexV1 {
             //     System.out.println("=====Item Categorization=====");
 
             //     break;
-            // case 4:
-            // int menu4;
-            // do{
-            //     System.out.println("=====Supplier Management=====");
-            //     System.out.println("1.Masukkan Supplier Baru");
-            //     System.out.println("2.Lihat Informasi Supplier");
-            //     System.out.println("0.Kembali");
-            //     System.out.print("Masukkan Nomor: ");
-            //     menu4 = input.nextInt();
-            //     if (menu4 == 0 ) {
-            //         break;
-            //     }
-            //     switch(menu4){
-            //         case 1 :
-            //         int stop4 = 0;
-            //         do{
-            //             if(stop4 != 0 && stop4 != 1){
-            //                 System.out.println("=========================");
-            //                 System.out.println("Masukkan Data Supplier Lagi?");
-            //                 System.out.println("1. Iya");
-            //                 System.out.println("0. Tidak");
-            //                 System.out.print("Pilih angka 1 atau 0: ");                                                       
-            //                 stop4 = input.nextInt();         
-            //                 continue;         
-            //             }
-            //         System.out.println("===Masukkan Supplier Baru===");
-            //         System.out.print("Masukkan Supplier: ");
-            //         supplier = input.next();
-            //         System.out.print("Masukkan Kontak Supplier: ");
-            //         konSupp = input.next();
-            //         System.out.print("Masukkan Alamat Supplier: ");
-            //         alamatSupp = input.next();
-            //         System.out.println("=============================");
-            //         System.out.println("Masukkan Data Supplier Lagi?");
-            //         System.out.println("1. Iya");
-            //         System.out.println("0. Tidak");
-            //         System.out.print("Masukkan Nomer: ");
-            //         stop4 = input.nextInt();
-            //         // if(stop4 != 0 && stop4 != 1 && stop4 >= 2){
-            //         //     System.out.println("============================");
-            //         //     System.out.println("Masukkan angka 0 atau 1");
-            //         //     continue;
-            //         // }
-            //         } while (stop4 != 0);
-            //         break;
-            //         case 2:
-            //         System.out.println("===List Supplier===");
-            //         System.out.println("1|"+" suplier | kontak | alamat | ");
-            //             break;
-            //     }
+            case 4:
+            // loop nya ada yang ilang, lagi nyoba array. udah ketemu cara nambahin sesuai urutan, cuma lek ada lebih dr 1 produk carra ngatur supplier ini gimanaaa saya bingung
+            int menu4;
+            do{
+                System.out.println("=====Supplier Management=====");
+                System.out.println("1.Masukkan Supplier Baru");
+                System.out.println("2.Lihat Informasi Supplier");
+                System.out.println("0.Kembali");
+                System.out.print("Masukkan Nomor: ");
+                menu4 = input.nextInt();
+                if (menu4 == 0 ) {
+                    break;
+                }
+                switch(menu4){
+                    case 1 :
+                    int stop4 = 0;
+                    do{
+                    String cariSupplier;
+                    int hasil=0;                        
+                        // if(stop4 != 0 && stop4 != 1){
+                        //     System.out.println("=========================");
+                        //     System.out.println("Masukkan Data Supplier Lagi?");
+                        //     System.out.println("1. Iya");
+                        //     System.out.println("0. Tidak");
+                        //     System.out.print("Pilih angka 1 atau 0: ");                                                       
+                        //     stop4 = input.nextInt();         
+                        //     continue;         
+                        // }
+                    System.out.println("===Masukkan Supplier Baru===");
+                    System.out.print("Masukkan Supplier: ");
+                    cariSupplier = input.next();
+                    for(int i=0; i<supplier.length; i++){
+                        if(supplier[i] == cariSupplier){
+                            hasil=i;
+                            break;
+                        }
+                    }
+                    System.out.print("Masukkan Kontak Supplier: ");
+                    konSupp[hasil] = input.next();
+                    System.out.print("Masukkan Alamat Supplier: ");
+                    alamatSupp[hasil] = input.next();
+                    // System.out.println("=============================");
+                    // System.out.println("Masukkan Data Supplier Lagi?");
+                    // System.out.println("1. Iya");
+                    // System.out.println("0. Tidak");
+                    // System.out.print("Masukkan Nomer: ");
+                    // stop4 = input.nextInt();
+                    // if(stop4 != 0 && stop4 != 1 && stop4 >= 2){
+                    //     System.out.println("============================");
+                    //     System.out.println("Masukkan angka 0 atau 1");
+                    //     continue;
+                    // }
+                    } while (stop4 != 0);
+                    System.out.println("==================================================");
+                    for(int i=0; i<supplier.length;i++){
+                        System.out.println((i+1)+" | "+ supplier[i]+" | "+konSupp[i]+" | "+alamatSupp[i]);
+                    }
+                    System.out.println("==================================================");
+                    break;
+                    case 2:
+                    System.out.println("===List Supplier===");
+                    System.out.println("1|"+" suplier | kontak | alamat | ");
+                        break;
+                }
 
-            // }while (menu4 != 0);
-            //     break;
+            }while (menu4 != 0);
+                break;
             // case 5:
             //     int menu5;
             //     int stop5 = 0;
