@@ -104,7 +104,7 @@ public class indexV1 {
             stokBrg = tempStok;
             
             //coba ditampilkan(nnt dihapus)
-            for(int j=0;j<3; j++){
+            for(int j=0;j<namaBrg.length; j++){
                 System.out.println((j+1) +" | "+ supplier[j] +" | "+ namaBrg[j] +" | "+tipeBrg[j]+" | "+prdDate[j]+" | "+harga[j]+" | "+stokBrg[j] );
             }
 
@@ -230,7 +230,7 @@ public class indexV1 {
                     case 1 :
                     int stop4 = 0;
                     do{
-                    String cariSupplier;
+                    // String cariSupplier;
                     int hasil=0;                        
                         // if(stop4 != 0 && stop4 != 1){
                         //     System.out.println("=========================");
@@ -243,7 +243,7 @@ public class indexV1 {
                         // }
                     System.out.println("===Masukkan Supplier Baru===");
                     System.out.print("Masukkan Supplier: ");
-                    cariSupplier = input.next();
+                    String cariSupplier = input.next();
                     for(int i=0; i<supplier.length; i++){
                         if(supplier[i] == cariSupplier){
                             hasil=i;
@@ -266,15 +266,16 @@ public class indexV1 {
                     //     continue;
                     // }
                     } while (stop4 != 0);
-                    System.out.println("==================================================");
-                    for(int i=0; i<supplier.length;i++){
-                        System.out.println((i+1)+" | "+ supplier[i]+" | "+konSupp[i]+" | "+alamatSupp[i]);
-                    }
-                    System.out.println("==================================================");
+
                     break;
                     case 2:
-                    System.out.println("===List Supplier===");
-                    System.out.println("1|"+" suplier | kontak | alamat | ");
+                    System.out.println("===================List Supplier==================");
+                    System.out.println("==================================================");
+                    System.out.println("No |"+" Supplier \t| Kontak \t| Alamat  ");
+                    for(int i=0; i<supplier.length;i++){
+                        System.out.println((i+1)+"  | "+ supplier[i]+" \t| "+konSupp[i]+" \t| "+alamatSupp[i]);
+                    }
+                    System.out.println("==================================================");                    
                         break;
                 }
 
