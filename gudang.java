@@ -3,67 +3,40 @@ import java.util.Scanner;
 //note gudang lengkap
 public class gudang {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
+        // variable dan tipe data
+        String id, beratBrg, stokBrg, namaBrg, tipeBrg, inGdg, outGdg, prdDate, expDate;
+        // input
+        System.out.println("Masukkan ID barang: ");
+        id = input.nextLine();
+        System.out.println("Nama barang: ");
+        namaBrg = input.nextLine();
+        System.out.println("Berat barang: ");
+        beratBrg = input.nextLine();
+        System.out.println("Tipe barang: ");
+        tipeBrg = input.nextLine();
+        System.out.println("Tanggal masuk gudang: ");
+        inGdg = input.nextLine();
+        System.out.println("Tanggal keluar gudang: ");
+        outGdg = input.nextLine();
+        System.out.println("Tanggal Produksi: ");
+        prdDate = input.nextLine();
+        System.out.println("Tanggal kadaluwarsa: ");
+        expDate = input.nextLine();
+        System.out.println("Jumlah Stok barang: ");
+        stokBrg = input.nextLine();
 
-        int [] nilaiMhs = new int [10];
-        double total = 0;
-        double rata2;
-
-        for (int i = 0; i < nilaiMhs.length; i++){
-            System.out.print("Masukan nilai mahasiswa ke-"+(i+1)+" : ");
-            nilaiMhs[i] = scan.nextInt();
-        }
-
-        for (int i = 0; i < nilaiMhs.length; i++){
-            total += nilaiMhs[i];
-        }
-
-        rata2 = total/nilaiMhs.length;
-        System.out.println("Rata - rata nilai = "+rata2);
-       
-
+        // output
+        System.out.println("=======Data berhasil dimasukkan======");
+        System.out.println("Id barang: " + id);
+        System.out.println("Nama barang: " + namaBrg);
+        System.out.println("Berat barang: " + beratBrg);
+        System.out.println("Tipe barang: " + tipeBrg);
+        System.out.println("Tanggal masuk gudang: " + inGdg);
+        System.out.println("Tanggal keluar gudang: " + outGdg);
+        System.out.println("Tanggal Produksi: " + prdDate);
+        System.out.println("Tanggal kadaluwarsa: " + expDate);
+        System.out.println("Jumlah Stok barang: " + stokBrg);
 
     }
 }
-
-        // // Membuat array dengan 8 elemen
-        // int[] array = new int[8];
-        // for (int i = 0; i < 8; i++) {
-        //     array[i] = i + 1;
-        // }
-
-        // // Menghitung jumlah
-        // int sum = 0;
-        // for (int i : array) {
-        //     sum += i;
-        // }
-
-        // // Menghitung rata-rata
-        // double average = (double) sum / array.length;
-
-        // System.out.println("Rata-rata dari elemen array adalah: " + average); 
-//////////////////////////////////
-
-        // int[] element = new int[10];
-        // for (int i = 0; i < 10; i++) {
-        //     element[i] = i + 1;
-        // }
-
-        // System.out.println("Array sebelum dibalik:");
-        // for (int i : element) {
-        //     System.out.print(i + " ");
-        // }
-        // System.out.println();
-
-        // // Membalik array
-        // for (int i = 0; i < element.length / 2; i++) {
-        //     int temp = element[i];
-        //     element[i] = element[element.length - 1 - i];
-        //     element[element.length - 1 - i] = temp;
-        // }
-
-        // System.out.println("Array setelah dibalik:");
-        // for (int i : element) {
-        //     System.out.print(i + " ");
-        // }
-       
