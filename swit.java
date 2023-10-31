@@ -96,6 +96,18 @@ public class swit {
                 break;
             case 4:
                 System.out.println("=====Supplier Management=====");
+                System.out.println("Masukkan supplier: ");
+                supplier = input.next();
+                input.nextLine();
+                System.out.println("Masukkan Kontak: ");
+                String konSUp = input.next();
+                System.out.println("Masukkan Alamat: ");
+                String alamSup = input.next();
+
+                System.out.println("==============================");
+                System.out.println("Supplier: " + supplier);
+                System.out.println("Kontak: " + konSUp);
+                System.out.println("Alamat: " + alamSup);
 
                 break;
             case 5:

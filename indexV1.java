@@ -26,6 +26,7 @@ public class indexV1 {
         System.out.println("5.Stock Checking");
         System.out.println("6.Code Scanning");
         System.out.println("7.Expiry Date Tracking ");
+        System.out.println("8.Delivery");
         System.out.println("0.Keluar");
         System.out.print("Masukkan Nomor Menu: ");        
         fitur = input.nextInt();
@@ -370,7 +371,33 @@ public class indexV1 {
             //     System.out.println("!!Anda keluar dari menu!!");
             //     System.exit(0);
             //     break;
-                
+
+            case 8:
+            int fitur8;
+            do{
+            System.out.println("=====Delivery=====");
+            System.out.println("1.Malang");
+            System.out.println("2.Blitar");
+            System.out.println("3.Tuban");
+            System.out.println("0.Keluar");
+            System.out.print("Masukkan Nomor Cabang: ");
+            fitur8 = input.nextInt();
+
+            if(fitur8 == 0){
+                break;
+            }
+            switch (fitur8) {
+                case 1:
+                    System.out.println("===Cabang Malang===");
+                    System.out.println("Masukkan ");
+                    break;
+            
+                default:
+                    break;
+            }
+
+            }while (fitur != 0);
+                break;//break menu8       
         }
         } while (fitur != 0);
     

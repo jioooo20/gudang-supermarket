@@ -22,7 +22,7 @@ public class stok {
         stokTambah = stk.nextInt();
 
         stokToday = stokAwal - stokRusak - stokOut + stokTambah;
-        System.out.println("Banyak stok " + namaBrg + "  saat ini sejumlah " + stokToday);
+        System.out.println("Banyak stok " + namaBrg + " saat ini sejumlah " + stokToday);
 
     }
 }

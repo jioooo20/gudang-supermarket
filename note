@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int[] angka = {1, 2, 3, 4, 5};
+
+        do {
+            System.out.print("Masukkan angka baru: ");
+            int newNumber = input.nextInt();
+
+            // Membuat array baru dengan ukuran yang lebih besar
+            int newSize = angka.length + 1;
+            int[] newArray = new int[newSize];
+
+            // Menyalin elemen-elemen yang sudah ada ke array baru
+            for (int i = 0; i < angka.length; i++) {
+                newArray[i] = angka[i];
+            }
+
+            // Menambahkan elemen baru ke array baru
+            newArray[newSize - 1] = newNumber;
+
+            // Mengganti array lama dengan array baru
+            angka = newArray;
+
+            System.out.println("Isi array setelah penambahan:");
+            for (int i = 0; i < angka.length; i++) {
+                System.out.print(angka[i] + " ");
+            }
+
+            System.out.print("Tambahkan elemen lagi? (ya/tidak): ");
+            String pilihan = input.next();
+
+            if (!pilihan.equalsIgnoreCase("ya")) {
+                break;
+            }
+
+        } while (true);
+    }
+}
