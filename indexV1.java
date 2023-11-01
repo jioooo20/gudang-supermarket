@@ -395,7 +395,7 @@ public class indexV1 {
                     int stop81 = 0;
                     do{
                         int jumKirBarang;
-                        int hasil=0;                        
+                        int hasilCarBrg=0;                        
                         for(int j=0;j<namaBrg.length; j++){
                             System.out.println((j+1) +" | "+ supplier[j] +" | "+ namaBrg[j] +" | "+tipeBrg[j]+" | "+prdDate[j]+" | "+harga[j]+" | "+stokBrg[j] );
                             }
@@ -403,11 +403,11 @@ public class indexV1 {
                             String cariBarang = input.next();
                             for(int i=0; i<namaBrg.length; i++){
                                 if(namaBrg[i].equalsIgnoreCase(cariBarang)){
-                                    hasil = i;
+                                    hasilCarBrg=i;
                                     break;
                                 }
                             }  
-                            System.out.println(hasil);
+                            System.out.println(hasilCarBrg);
 
                         } while (stop81 != 0);
 
