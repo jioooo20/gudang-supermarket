@@ -23,7 +23,7 @@ public class cabangV1 {
         System.out.println("=====Stok Cabang=====");
         for(int i=0;i<stokCabang.length;i++){
             for(int j=0; j<stokCabang[i].length;j++){
-                System.out.println("Stok "+namaBrg[j]+" pada cabang "+ cabang[j] + ": " + stokCabang[i][j]);
+                System.out.println("Stok "+namaBrg[j]+" pada cabang "+ cabang[i] + ": " + stokCabang[i][j]);
             }
         }
 
