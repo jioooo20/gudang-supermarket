@@ -249,17 +249,21 @@ public class indexV1 {
                             break;
                         case 3:
                             for (int i = 0; i < namaBrg.length; i++) {
-                        System.out.println("Nama Barang: " + namaBrg[i]);
-                        System.out.println("Tipe Barang: " + tipeBrg[i]);
-                        System.out.println("Tanggal Produksi: " + prdDate[i]);
-                        System.out.println("Tanggal Kadaluarsa: " + expDate[i]);
-                        System.out.println("Supplier: " + supplier[i]);
-                        System.out.println("Kontak Supplier: " + konSupp[i]);
-                        System.out.println("Alamat Supplier: " + alamatSupp[i]);
-                        System.out.println("Harga: " + harga[i]);
-                        System.out.println("Stok: " + stokBrg[i]);
-                        System.out.println("====================");
-                    }
+                                if (namaBrg[i] == null) {
+                                    continue;
+                                } else {
+                                    System.out.println("Nama Barang: " + namaBrg[i]);
+                                System.out.println("Tipe Barang: " + tipeBrg[i]);
+                                System.out.println("Tanggal Produksi: " + prdDate[i]);
+                                System.out.println("Tanggal Kadaluarsa: " + expDate[i]);
+                                System.out.println("Supplier: " + supplier[i]);
+                                System.out.println("Kontak Supplier: " + konSupp[i]);
+                                System.out.println("Alamat Supplier: " + alamatSupp[i]);
+                                System.out.println("Harga: " + harga[i]);
+                                System.out.println("Stok: " + stokBrg[i]);
+                                System.out.println("====================");
+                                }
+                            }
                     break;
                         case 0:
                             break;
