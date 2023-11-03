@@ -4,7 +4,7 @@ Selamat datang di repositori Proyek Semester 1 kelompok 4! Proyek ini adalah pen
 
 ## Deskripsi Proyek
 
-Proyek ini bertujuan untuk menciptakan solusi efisien untuk mengelola stok produk di gudang supermarket. Dengan aplikasi ini, kami berusaha memudahkan manajemen persediaan, pelacakan produk, dan pembaruan otomatis inventaris. Proyek ini dikembangkan menggunakan teknologi modern dan berbagai bahasa pemrograman.
+Proyek ini bertujuan untuk menciptakan solusi efisien untuk mengelola stok produk di gudang supermarket. Dengan aplikasi ini, kami berusaha memudahkan manajemen persediaan, pelacakan produk, dan pembaruan otomatis inventaris. Proyek ini dikembangkan menggunakan bahasa pemrograman Java.
 
 ## Fitur Utama
 
