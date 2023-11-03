@@ -15,9 +15,9 @@ Proyek ini bertujuan untuk menciptakan solusi efisien untuk mengelola stok produ
 5. Stock checking
 6. Code scanning
 7. Expiry Date Tracking
-8. ... 
+8. Delivery
 
-## Kontribusi
+## Kontributor
 
 Projek ini merupakan kontribusi dan kolaborasi dari 3 anggota kelompok kami:
 1. Giovano Alkandri (13)       2341720096 (Ketua Projek) 
