@@ -231,16 +231,16 @@ public class indexV1 {
                                     stokBrg[i] = stokBrg[i + 1];
                                 }
 
-                                int lastIn = namaBrg.length - 1;
-                                namaBrg[lastIn] = null;
-                                tipeBrg[lastIn] = null;
-                                prdDate[lastIn] = null;
-                                expDate[lastIn] = null;
-                                supplier[lastIn] = null;
-                                konSupp[lastIn] = null;
-                                alamatSupp[lastIn] = null;
-                                harga[lastIn] = 0;
-                                stokBrg[lastIn] = 0;
+                                int hapus = namaBrg.length - 1;
+                                namaBrg[hapus] = null;
+                                tipeBrg[hapus] = null;
+                                prdDate[hapus] = null;
+                                expDate[hapus] = null;
+                                supplier[hapus] = null;
+                                konSupp[hapus] = null;
+                                alamatSupp[hapus] = null;
+                                harga[hapus] = 0;
+                                stokBrg[hapus] = 0;
                                 
                                 System.out.println("Data barang " + namaBarangHapus + " telah berhasil dihapus");
                             } else {
