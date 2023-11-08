@@ -448,8 +448,7 @@ public class indexV1 {
             System.out.println("0.Keluar");
             System.out.print("Masukkan Nomor Cabang: ");
             fitur8 = input.nextInt();
-            input.nextLine();
-            int hasilIndex=-1;  
+            input.nextLine(); 
             int jumKirBarang; 
             if(fitur8 == 0){
                 break;
@@ -457,26 +456,25 @@ public class indexV1 {
             switch (fitur8) {
                 case 1:
                     int stop81 = 0;
+                    int indeks=0;
                     do{                                                         
                         for(int i=0;i<namaBrg.length; i++){
                             System.out.println((i+1) +" | "+ supplier[i] +" | "+ namaBrg[i] +" | "+tipeBrg[i]+" | "+prdDate[i]+" | "+harga[i]+" | "+stokBrg[i] );
                         }
-                        System.out.print("Masukkan Nama Barang: ");
-                        String cariBarang = input.nextLine();
+                        System.out.print("Masukkan Nomor Barang: ");
+                        int cariNomorBarang = input.nextInt();
 
-                        for(int i=0; i<namaBrg.length; i++){
-                            if(namaBrg[i].equalsIgnoreCase(cariBarang)){
-                                hasilIndex=i;           
-                                break;                      
-                            } else{
-                                System.out.println("Barang tidak ada");
-                               
-                            }
-                        }  
+                        if (cariNomorBarang >= 1 && cariNomorBarang <= namaBrg.length) {
+                            indeks = cariNomorBarang - 1;
+                            System.out.println("Barang pada indeks " + cariNomorBarang + " adalah " + namaBrg[indeks]);
+                        } else {
+                            System.out.println("Indeks tidak valid.");
+                        }
+
                             System.out.print("Masukkan Jumlah Barang: ");
                             jumKirBarang = input.nextInt();
-                            stokBrg[hasilIndex] -= jumKirBarang;  //mengurangi stok gudang
-                            stokCabang[0][hasilIndex] += jumKirBarang; //menambah stok di cabang
+                            stokBrg[indeks] -= jumKirBarang;  //mengurangi stok gudang
+                            stokCabang[0][indeks] += jumKirBarang; //menambah stok di cabang
  
                         } while (stop81 != 0);
                     break;
