@@ -4,7 +4,7 @@ public class indexV1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String[] namaBrg = {"Mie Sedap Goreng", "Teh Rio"};
+        String[] namaBrg = {"Mie-Sedap-Goreng", "Indomilk"};
         String[] tipeBrg = {"Makanan", "Minuman"};
         String[] prdDate = {"22 September 2023", "23 September 2023"};
         String[] expDate = {"23 desember 2024", "24 desember 2025"};
@@ -301,7 +301,7 @@ public class indexV1 {
                         //     System.out.println("Masukkan Data Supplier Lagi?");
                         //     System.out.println("1. Iya");
                         //     System.out.println("0. Tidak");
-                        //     System.out.print("Pilih angka 1 atau 0: ");                                                       
+                        //     System.out.print("Pilih angka 1 atau 0: ");                                                      
                         //     stop4 = input.nextInt();         
                         //     continue;         
                         // }
@@ -444,54 +444,37 @@ public class indexV1 {
             System.out.println("0.Keluar");
             System.out.print("Masukkan Nomor Cabang: ");
             fitur8 = input.nextInt();
-
+            input.nextLine();
+            int hasilIndex=-1;  
+            int jumKirBarang; 
             if(fitur8 == 0){
                 break;
             }
             switch (fitur8) {
                 case 1:
                     int stop81 = 0;
-                    do{
-                        int jumKirBarang;
-                        int hasilCarBrg=0;                        
-                        for(int j=0;j<namaBrg.length; j++){
-                            System.out.println((j+1) +" | "+ supplier[j] +" | "+ namaBrg[j] +" | "+tipeBrg[j]+" | "+prdDate[j]+" | "+harga[j]+" | "+stokBrg[j] );
+                    do{                                                         
+                        for(int i=0;i<namaBrg.length; i++){
+                            System.out.println((i+1) +" | "+ supplier[i] +" | "+ namaBrg[i] +" | "+tipeBrg[i]+" | "+prdDate[i]+" | "+harga[i]+" | "+stokBrg[i] );
+                        }
+                        System.out.print("Masukkan Nama Barang: ");
+                        String cariBarang = input.nextLine();
+                        
+                        for(int i=0; i<namaBrg.length; i++){
+                            if(namaBrg[i].equalsIgnoreCase(cariBarang)){
+                                hasilIndex=i;           
+                                break;                     
+                            } else{
+                                System.out.println("Barang tidak ada");
+                               
                             }
-                            System.out.println("Masukkan Nama Barang: ");
-                            String cariBarang = input.next();
-                            for(int i=0; i<namaBrg.length; i++){
-                                if(namaBrg[i].equalsIgnoreCase(cariBarang)){
-                                    hasilCarBrg=i;
-                                    break;
-                                }
-                            }  
-                            System.out.println(hasilCarBrg);
-
+                        }  
+                            System.out.print("Masukkan Jumlah Barang: ");
+                            jumKirBarang = input.nextInt();
+                            stokBrg[hasilIndex] -= jumKirBarang;  //mengurangi stok gudang
+                            stokCabang[0][hasilIndex] += jumKirBarang; //menambah stok di cabang
+ 
                         } while (stop81 != 0);
-
-                              
-
-                    // int jumKirBarang;
-                    // int hasil=0;
-                    // String cariBarang;
-                    // System.out.println("===Cabang Malang===");
-                    // for(int j=0;j<namaBrg.length; j++){
-                    // System.out.println((j+1) +" | "+ supplier[j] +" | "+ namaBrg[j] +" | "+tipeBrg[j]+" | "+prdDate[j]+" | "+harga[j]+" | "+stokBrg[j] );
-                    // }
-                    // System.out.println("Masukkan Nomer Barang: ");
-                    // cariBarang = input.next();
-                    // for(int i=0; i<namaBrg.length; i++){
-                    //     if(namaBrg[i].equalsIgnoreCase(cariBarang)){
-                    //         hasil++;
-                    //         break;
-                    //     }
-                    // }                    
-                    // System.out.println("Masukkan Jumlah Barang: ");
-                    // // jumKirBarang = input.nextInt();
-                    // System.out.println(hasil);
-                    // // stokBrg[hasil] -= jumKirBarang;  //mengurangi stok gudang
-                    // // stokCabang[0][hasil] += jumKirBarang; //menambah stok di cabang
-                    
                     break;
 
                 default:
