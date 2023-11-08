@@ -459,11 +459,11 @@ public class indexV1 {
                         }
                         System.out.print("Masukkan Nama Barang: ");
                         String cariBarang = input.nextLine();
-                        
+
                         for(int i=0; i<namaBrg.length; i++){
                             if(namaBrg[i].equalsIgnoreCase(cariBarang)){
                                 hasilIndex=i;           
-                                break;                     
+                                break;                      
                             } else{
                                 System.out.println("Barang tidak ada");
                                
