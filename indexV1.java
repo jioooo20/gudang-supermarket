@@ -472,11 +472,14 @@ public class indexV1 {
                         stop81 = kirim_cabang;// angka pada stop81 mengikuti input dari menu pilih cabang
                         switch(kirim_cabang){
                             case 1: 
-                            System.out.println("=======================================");
-                            System.out.println("==========Kirim Cabang Malang==========");
-                            System.out.println("=======================================");
+                            System.out.println("==============================================================================================================");
+                            System.out.println("=============================================Kirim Cabang Malang==============================================");
+                            System.out.println("==============================================================================================================");
+                            System.out.println("=================================================Stok Gudang==================================================");
+                            System.out.println("==============================================================================================================");
+                            System.out.printf("%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No", "Barang", "Supplier", "Kategori", "Produksi", "Kedaluwarsa", "Harga", "Stok");
                             for (int i=0;i<namaBrg.length; i++){
-                            System.out.println((i+1) +" | "+ supplier[i] +" | "+ namaBrg[i] +" | "+tipeBrg[i]+" | "+prdDate[i]+" | "+harga[i]+" | "+stokBrg[i] );
+                                System.out.printf("%-3d| %-25s| %-18s| %-10s| %-12s| %-12s| %-10.1f| %-4d | \n", (i+1), namaBrg[i], supplier[i], tipeBrg[i], prdDate[i], expDate[i], harga[i], stokBrg[i]);
                             }   //menampilkan informasi barang dalam gudang
                             
                             System.out.print("Masukkan Nomor Urut Barang: ");
@@ -497,11 +500,14 @@ public class indexV1 {
 
                             break;
                             case 2: 
-                            System.out.println("=======================================");
-                            System.out.println("==========Kirim Cabang Blitar==========");
-                            System.out.println("=======================================");
+                            System.out.println("==============================================================================================================");
+                            System.out.println("===============================================Kirim Cabang Blitar============================================");
+                            System.out.println("==============================================================================================================");
+                            System.out.println("===================================================Stok Gudang================================================");
+                            System.out.println("==============================================================================================================");
+                            System.out.printf("%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No", "Barang", "Supplier", "Kategori", "Produksi", "Kedaluwarsa", "Harga", "Stok");
                             for (int i=0;i<namaBrg.length; i++){
-                            System.out.println((i+1) +" | "+ supplier[i] +" | "+ namaBrg[i] +" | "+tipeBrg[i]+" | "+prdDate[i]+" | "+harga[i]+" | "+stokBrg[i] );
+                                System.out.printf("%-3d| %-25s| %-18s| %-10s| %-12s| %-12s| %-10.1f| %-4d | \n", (i+1), namaBrg[i], supplier[i], tipeBrg[i], prdDate[i], expDate[i], harga[i], stokBrg[i]);
                             }   //menampilkan informasi barang dalam gudang
                             
                             System.out.print("Masukkan Nomor Urut Barang: ");
@@ -521,11 +527,14 @@ public class indexV1 {
 
                             break;
                             case 3: 
-                            System.out.println("=======================================");
-                            System.out.println("===========Kirim Cabang Tuban==========");
-                            System.out.println("=======================================");
+                            System.out.println("==============================================================================================================");
+                            System.out.println("==============================================Kirim Cabang Tuban==============================================");
+                            System.out.println("==============================================================================================================");
+                            System.out.println("==================================================Stok Gudang=================================================");
+                            System.out.println("==============================================================================================================");
+                            System.out.printf("%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No", "Barang", "Supplier", "Kategori", "Produksi", "Kedaluwarsa", "Harga", "Stok");
                             for (int i=0;i<namaBrg.length; i++){
-                            System.out.println((i+1) +" | "+ supplier[i] +" | "+ namaBrg[i] +" | "+tipeBrg[i]+" | "+prdDate[i]+" | "+harga[i]+" | "+stokBrg[i] );
+                                System.out.printf("%-3d| %-25s| %-18s| %-10s| %-12s| %-12s| %-10.1f| %-4d | \n", (i+1), namaBrg[i], supplier[i], tipeBrg[i], prdDate[i], expDate[i], harga[i], stokBrg[i]);
                             }   //menampilkan informasi barang dalam gudang
                             
                             System.out.print("Masukkan Nomor Urut Barang: ");
@@ -554,19 +563,20 @@ public class indexV1 {
                     break;
 
                 case 2:// tampilkan stok cabang
-                    System.out.println("=======================================");
-                    System.out.println("==============Stok Cabang==============");
-                    System.out.println("=======================================");
-                    System.out.print("Nama Barang |");
+                    System.out.println("==============================================");
+                    System.out.println("==================Stok Cabang=================");
+                    System.out.println("==============================================");
+                    System.out.printf("%-23s |","Nama Barang");
                     for (int i=0; i<cabang.length;i++){
-                        System.out.print( cabang[i] + "\t|");
+                        System.out.printf( "%-6s|", cabang[i]);
                     }
                     System.out.println();
+                    System.out.println("==============================================");
 
                     for(int i=0;i<namaBrg.length;i++){
-                        System.out.print(namaBrg[i]);
+                        System.out.printf("%-24s", namaBrg[i]);
                         for(int j=0; j<stokCabang.length;j++){
-                            System.out.print(" |\t "+ stokCabang[j][i]);
+                            System.out.printf("|  %-4d", stokCabang[j][i]);
                         }
                         System.out.println("|");
                     }
