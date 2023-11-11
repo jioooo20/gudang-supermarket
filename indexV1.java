@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class indexV1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -21,10 +20,12 @@ public class indexV1 {
             {7,7}//tuban
         };
         int menu, fitur;
-        boolean stop = true;        
+        boolean stop = true;
+        
+        //System.out.println("========================================"); GUNAKAN INI UNTUK MEMBERI GARIS!!!
         
         do{
-        System.out.println("===============Selamat Datang===============");
+        System.out.println("=============Selamat Datang=============");
         System.out.println("1.Item Entry and Storage"); 
         System.out.println("2.Update Item Information"); 
         System.out.println("3.Item Categorization");
@@ -44,7 +45,9 @@ public class indexV1 {
             case 1:
             do{
             int i=0;
-            System.out.println("=====Item Entry and Storage=====");
+            System.out.println("========================================");
+            System.out.println("=========Item Entry and Storage=========");
+            System.out.println("========================================");
             System.out.print("Masukkan Nama Supplier: ");
             String newSupplier = input.nextLine();            
             //buat array baru
@@ -115,11 +118,11 @@ public class indexV1 {
                 System.out.println((j+1) +" | "+ supplier[j]); //+" | "+ namaBrg[j] +" | "+tipeBrg[j]+" | "+prdDate[j]+" | "+harga[j]+" | "+stokBrg[j] );
             }
 
-            System.out.println("===========================================================================");
+            System.out.println("========================================");
             System.out.println("Barang telah berhasil ditambahkan");
             System.out.println("Masukkan data lagi?");
             System.out.println("1. Iya");
-            System.out.println("0. Kembali");
+            System.out.println("0. Tidak");
 
             int pilihStop1 = input.nextInt();
             if( pilihStop1 == 0){
@@ -135,7 +138,9 @@ public class indexV1 {
                 int menu2;
                 int stop2 = 0;
                 do {
-                    System.out.println("======Update Item Information======");
+                    System.out.println("========================================");
+                    System.out.println("========Update Item Information=========");
+                    System.out.println("========================================");
                     System.out.println("Silahkan Pilih");
                     System.out.println("1. Update");
                     System.out.println("2. Hapus");
@@ -158,7 +163,7 @@ public class indexV1 {
                             }
                             
                             if (index != -1) {
-                                System.out.println("============================");
+                                System.out.println("========================================");
                                 System.out.println("Part yang ingin anda ubah:");
                                 System.out.println("1. Nama Barang");
                                 System.out.println("2. Kategori Barang");
@@ -253,7 +258,8 @@ public class indexV1 {
                                 if (namaBrg[i] == null) {
                                     continue;
                                 } else {
-                                    System.out.println("Nama Barang: " + namaBrg[i]);
+                                System.out.println("========================================");
+                                System.out.println("Nama Barang: " + namaBrg[i]);
                                 System.out.println("Tipe Barang: " + tipeBrg[i]);
                                 System.out.println("Tanggal Produksi: " + prdDate[i]);
                                 System.out.println("Tanggal Kadaluarsa: " + expDate[i]);
@@ -262,7 +268,7 @@ public class indexV1 {
                                 System.out.println("Alamat Supplier: " + alamatSupp[i]);
                                 System.out.println("Harga: " + harga[i]);
                                 System.out.println("Stok: " + stokBrg[i]);
-                                System.out.println("====================");
+                                System.out.println("========================================");
                                 }
                             }
                     break;
@@ -279,14 +285,14 @@ public class indexV1 {
                 break;
 
             // case 3:
-            //     System.out.println("=====Item Categorization=====");
+                // System.out.println("===========Item Categorization===========");
 
             //     break;
             case 4:
             // loop nya ada yang ilang, lagi nyoba array. udah ketemu cara nambahin sesuai urutan, cuma lek ada lebih dr 1 produk carra ngatur supplier ini gimanaaa saya bingung
             int menu4;
             do{
-                System.out.println("=====Supplier Management=====");
+                System.out.println("===========Supplier Management==========");
                 System.out.println("1.Masukkan Supplier Baru");
                 System.out.println("2.Lihat Informasi Supplier");
                 System.out.println("0.Kembali");
@@ -310,7 +316,7 @@ public class indexV1 {
                         //     stop4 = input.nextInt();         
                         //     continue;         
                         // }
-                    System.out.println("===Masukkan Supplier Baru===");
+                    System.out.println("=========Masukkan Supplier Baru=========");
                     System.out.print("Masukkan Supplier: ");
                     String cariSupplier = input.next();
                     for(int i=0; i<supplier.length; i++){
@@ -338,13 +344,14 @@ public class indexV1 {
 
                     break;
                     case 2:
-                    System.out.println("===================List Supplier==================");
-                    System.out.println("==================================================");
+                    System.out.println("========================================");
+                    System.out.println("==============List Supplier=============");
+                    System.out.println("========================================");
                     System.out.println("No |"+" Supplier \t| Kontak \t| Alamat  ");
                     for(int i=0; i<supplier.length;i++){
                         System.out.println((i+1)+"  | "+ supplier[i]+" \t| "+konSupp[i]+" \t| "+alamatSupp[i]);
                     }
-                    System.out.println("==================================================");                    
+                    System.out.println("========================================");                    
                         break;
                 }
 
@@ -441,8 +448,8 @@ public class indexV1 {
             //     break;
             case 8:
             int fitur8;
-            do{
-            System.out.println("=====Delivery=====");
+            do{       
+            System.out.println("================Delivery================");
             System.out.println("1. Pengiriman");
             System.out.println("2. Lihat Stok Cabang");
             System.out.println("0. Kembali");
@@ -455,8 +462,8 @@ public class indexV1 {
                     int stop81 = -1;
                         int indeks=0;            
                         int jumKirBarang; 
-                    do{  
-                        System.out.println("===Pilih Cabang===");                                                       
+                    do{                     
+                        System.out.println("=====Pilih Cabang Yang Akan Dikirim=====");                                                       
                         System.out.println("1.Malang");
                         System.out.println("2.Blitar");
                         System.out.println("3.Tuban");
@@ -466,7 +473,9 @@ public class indexV1 {
                         stop81 = kirim_cabang;// angka pada stop81 mengikuti input dari menu pilih cabang
                         switch(kirim_cabang){
                             case 1: 
-                            System.out.println("===Kirim Cabang Malang===");
+                            System.out.println("=======================================");
+                            System.out.println("==========Kirim Cabang Malang==========");
+                            System.out.println("=======================================");
                             for (int i=0;i<namaBrg.length; i++){
                             System.out.println((i+1) +" | "+ supplier[i] +" | "+ namaBrg[i] +" | "+tipeBrg[i]+" | "+prdDate[i]+" | "+harga[i]+" | "+stokBrg[i] );
                             }   //menampilkan informasi barang dalam gudang
@@ -489,7 +498,9 @@ public class indexV1 {
 
                             break;
                             case 2: 
-                            System.out.println("===Kirim Cabang Blitar===");
+                            System.out.println("=======================================");
+                            System.out.println("==========Kirim Cabang Blitar==========");
+                            System.out.println("=======================================");
                             for (int i=0;i<namaBrg.length; i++){
                             System.out.println((i+1) +" | "+ supplier[i] +" | "+ namaBrg[i] +" | "+tipeBrg[i]+" | "+prdDate[i]+" | "+harga[i]+" | "+stokBrg[i] );
                             }   //menampilkan informasi barang dalam gudang
@@ -511,7 +522,9 @@ public class indexV1 {
 
                             break;
                             case 3: 
-                            System.out.println("===Kirim Cabang Tuban===");
+                            System.out.println("=======================================");
+                            System.out.println("===========Kirim Cabang Tuban==========");
+                            System.out.println("=======================================");
                             for (int i=0;i<namaBrg.length; i++){
                             System.out.println((i+1) +" | "+ supplier[i] +" | "+ namaBrg[i] +" | "+tipeBrg[i]+" | "+prdDate[i]+" | "+harga[i]+" | "+stokBrg[i] );
                             }   //menampilkan informasi barang dalam gudang
@@ -541,8 +554,10 @@ public class indexV1 {
                         } while (stop81 != 0);
                     break;
 
-                case 2:
-                    System.out.println("===Stok Cabang===");
+                case 2:// tampilkan stok cabang
+                    System.out.println("=======================================");
+                    System.out.println("==============Stok Cabang==============");
+                    System.out.println("=======================================");
                     System.out.print("Nama Barang |");
                     for (int i=0; i<cabang.length;i++){
                         System.out.print( cabang[i] + "\t|");
