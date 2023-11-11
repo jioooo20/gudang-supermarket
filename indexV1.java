@@ -1,19 +1,29 @@
 import java.util.Scanner;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class indexV1 {
-    public static void main(String[] args) {
+    public static void main(String[] args)  throws ParseException{
         Scanner input = new Scanner(System.in);
 
-        String[] namaBrg = {"Mie Sedap Goreng", "Teh Rio"};
-        String[] tipeBrg = {"Makanan", "Minuman"};
-        String[] prdDate = {"22 September 2023", "23 September 2023"};
-        String[] expDate = {"23 desember 2024", "24 desember 2025"};
-        String[] dateNow = new String[5];
-        String[] supplier = {"Wings", "Wings"};
-        String[] konSupp = {"08214141414", "08515151521"};
-        String[] alamatSupp = {"Jawa", "Malang"};
-        double[] harga = {110000, 22500};
-        int[] stokBrg = {10, 20};
+        String[] namaBrg = {"Mie Sedap Goreng", "Aqua 600ml", "Paracetamol", "Djarum Super", "Teh Pucuk Harum 600ml", "Coca-Cola 600ml", "OBH Combi 100ml", "Gudang Garam", "Roti Aoka", "Teh Kotak 300ml", "Aspirin", "Sampoerna", "Chitato", "Sprite Kaleng", "Minyak Kayu Putih 60ml"};
+        String[] tipeBrg = {"Makanan", "Minuman", "Obat", "Rokok", "Makanan", "Minuman", "Obat", "Rokok", "Makanan", "Minuman", "Obat", "Rokok", "Makanan", "Minuman", "Obat"};
+        String[] prdDate = {"22-09-2023", "23-09-2023", "21-10-2023", "24-09-2023", "20-09-2023", "22-09-2023", "23-09-2023", "21-10-2023", "24-09-2023", "20-11-2023", "22-09-2023", "23-09-2023", "21-10-2023", "24-09-2023", "20-11-2023"};
+        String[] expDate = {"23-12-2024", "24-12-2025", "20-11-2024", "25-12-2023", "19-12-2024", "23-12-2024", "24-12-2025", "20-11-2024", "25-12-2023", "19-12-2024", "23-12-2024", "24-12-2025", "20-11-2024", "25-12-2023", "19-12-2024"};
+        String[] supplier = {"Wings-Food", "Danone", "PT. Kimia Farma", "Sampoerna", "ABC", "Coca-Cola", "Combiphar", "Gudang-Garam", "Aoka", "Ultrajaya", "Bayer", "Sampoerna", "Indofood", "Coca-Cola", "Cap Lang"};
+        String[] konSupp = {"08214141414", "08515151521", "08123456789", "08765432100", "08214141414", "08515151521", "08123456789", "08765432100", "08214141414", "08515151521", "08123456789", "08765432100", "08214141414", "08515151521", "08123456789"};
+        String[] alamatSupp = {"Jakarta", "Bandung", "Surabaya", "Semarang", "Jakarta", "Bandung", "Surabaya", "Semarang", "Jakarta", "Bandung", "Surabaya", "Semarang", "Jakarta", "Bandung", "Surabaya"};
+        double[] harga = {20000, 48000, 19500, 93500, 62500, 108700, 550000, 530000, 113000, 94200, 125500, 232000, 243900, 121500, 238350};
+        int[] stokBrg = {100, 150, 50, 80, 120, 200, 30, 60, 90, 75, 40, 100, 60, 180, 25};
+        String [] cabang = {"Malang", "Blitar", "Tuban"};
+        int[][] stokCabang = {
+            {5, 10, 15, 8, 12, 7, 14, 6, 9, 11, 15, 5, 13, 8, 10},  // malang
+            {6, 15, 20, 9, 14, 8, 12, 7, 10, 13, 5, 11, 6, 15, 7},   // blitar
+            {7, 20, 25, 10, 13, 6, 15, 8, 12, 9, 14, 7, 11, 10, 13}  // tuban
+        };
+        Date today = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         int menu, fitur;
         boolean stop = true;        
         
@@ -40,14 +50,30 @@ public class indexV1 {
             int i=0;
             System.out.println("=====Item Entry and Storage=====");
             System.out.print("Masukkan Nama Supplier: ");
-            String newSupplier = input.next();
-            supplier[i] = newSupplier;
-            i++;
+            String newSupplier = input.nextLine();            
+            //buat array baru
+            int newSizeSupplier = supplier.length + 1;
+            String[] tempSuplier = new String[newSizeSupplier];
+            //copy 
+            for(int j=0; j<supplier.length; j++){
+                tempSuplier[j] = supplier[j];
+            }
+            //tambah nama supplier
+            tempSuplier[newSizeSupplier - 1] = newSupplier;
+            //tuker array lama ke baru
+            supplier[i] = tempSuplier[i];
+            input.next();
 
             System.out.print("Masukkan Nama Barang: ");
-            String newNamaBrg = input.next();
-            namaBrg[i] = newNamaBrg;
-            i++;
+            String newNama = input.nextLine();
+            int newSizeBarang = namaBrg.length + 1;
+            String[] tempnama = new String[newSizeBarang];
+            for(int j=0; j<namaBrg.length; j++){
+                tempnama[j]=namaBrg[j];
+            }
+            tempnama[newSizeBarang - 1] = newNama;
+            namaBrg = tempnama;
+            input.next();
 
             System.out.print("Masukkan Kategori Barang: ");
             String newTipe = input.nextLine();
@@ -61,14 +87,12 @@ public class indexV1 {
             input.next();
 
             System.out.print("Masukkan Tanggal Produksi Barang: ");
-            String newPrdDate = input.next();
-            prdDate[i] = newPrdDate;
-            i++;
+            prdDate[i] = input.next();
+            input.nextLine();
 
             System.out.print("Masukkan Tanggal Kadaluarsa Barang: ");
-            String newExpDate = input.next();
-            expDate[i] = newExpDate;
-            i++;
+            expDate[i] = input.next();
+            input.nextLine();
 
             System.out.print("Masukkan Harga Barang: ");
             double newHarga = input.nextDouble();
@@ -92,7 +116,7 @@ public class indexV1 {
             
             //coba ditampilkan(nnt dihapus)
             for(int j=0;j<namaBrg.length; j++){
-                System.out.println((j+1) +" | "+ supplier[j] +" | "+ namaBrg[j] +" | "+tipeBrg[j]+" | "+prdDate[j]+" | "+harga[j]+" | "+stokBrg[j] );
+                System.out.println((j+1) +" | "+ supplier[j]); //+" | "+ namaBrg[j] +" | "+tipeBrg[j]+" | "+prdDate[j]+" | "+harga[j]+" | "+stokBrg[j] );
             }
 
             System.out.println("===========================================================================");
@@ -111,113 +135,152 @@ public class indexV1 {
             }while (stop);         
             
                 break;
-            case 2:
-            // int menu2;
-            // int stop2 = 0;
-            // do {
-            //     System.out.println("======Update Item Information======");
-            //     System.out.println("Silahkan Pilih");
-            //     System.out.println("1. Update");
-            //     System.out.println("2. Hapus");
-            //     System.out.println("0. Kembali");
-            //     System.out.print("Masukkan Nomor: ");
-            //     menu2 = input.nextInt();
+                case 2:
+                int menu2;
+                int stop2 = 0;
+                do {
+                    System.out.println("======Update Item Information======");
+                    System.out.println("Silahkan Pilih");
+                    System.out.println("1. Update");
+                    System.out.println("2. Hapus");
+                    System.out.println("3. Tampilkan Item");//Sementara
+                    System.out.println("0. Kembali");
+                    System.out.print("Masukkan Nomor: ");
+                    menu2 = input.nextInt();
+                    input.nextLine(); 
+                    int index = -1;
+                    switch (menu2) {
+                        case 1:
+                            System.out.print("Masukkan Nama Barang yang ingin anda ubah: ");
+                            String namaBrgUpdate = input.nextLine();
 
-            //     switch (menu2) {
-            //         case 1:
-            //             System.out.print("Masukkan Nama Barang yang ingin anda ubah: ");
-            //             String cariBrg = input.nextLine();
-            //             boolean ditemukan = false;
-            //             int index = -1;
-            //             for (int i = 0; i < namaBrg.length; i++) {
-            //                 if (namaBrg[i].equalsIgnoreCase(cariBrg)) {
-            //                     ditemukan = true;
-            //                     index = i;
-            //                     break;
-            //                 }
-            //             }
-
-            //             if (ditemukan) {
-            //                 System.out.println("============================");
-            //                 System.out.println("Part yang ingin anda ubah:");
-            //                 System.out.println("1. Nama Barang");
-            //                 System.out.println("2. Kategori Barang");
-            //                 System.out.println("3. Tanggal Produksi Barang");
-            //                 System.out.println("4. Tanggal Kadaluarsa Barang");
-            //                 System.out.println("5. Harga Barang");
-            //                 System.out.println("6. Jumlah Stok Barang");
-            //                 System.out.println("0. Selesai");
-            //                 System.out.print("Pilih menu: ");
-            //                 int pilihan = input.nextInt();
-            //                 input.nextLine(); // Membuang karakter newline
-
-            //                 switch (pilihan) {
-            //                     case 1:
-            //                         System.out.print("Masukkan Nama Barang Baru: ");
-            //                         String namaBrgBaru = input.nextLine();
-            //                         namaBrg[index] = namaBrgBaru;
-            //                         System.out.println("Nama Barang berhasil diperbarui");
-            //                         break;
-            //                     case 2:
-            //                         System.out.print("Masukkan Kategori Barang Baru: ");
-            //                         tipeBrg = input.nextLine();
-            //                         break;
-            //                     case 3:
-            //                         System.out.print("Masukkan Tanggal Produksi Baru: ");
-            //                         prdDate = input.nextLine();
-            //                         break;
-            //                     case 4:
-            //                         System.out.print("Masukkan Tanggal Kadaluarsa Baru: ");
-            //                         expDate = input.nextLine();
-            //                         break;
-            //                     case 5:
-            //                         System.out.print("Masukkan Harga Barang Baru: ");
-            //                         harga = input.nextDouble();
-            //                         break;
-            //                     case 6:
-            //                         System.out.print("Masukkan Jumlah Stok Barang Baru: ");
-            //                         stokBrg = input.nextInt();
-            //                         break;
-            //                     case 0:
-            //                         System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
-            //                         break;
-            //                     default:
-            //                         System.out.println("Pilihan tidak valid.");
-            //                 }
+                            for (int i = 0; i < namaBrg.length; i++) {
+                                if (namaBrg[i].equalsIgnoreCase(namaBrgUpdate)) {
+                                    index = i;
+                                    break;
+                                }
+                            }
                             
-            //             } else {
-            //             System.out.println("Barang tidak ditemukan dalam daftar.");
-            //             }
-            //                 break;
-            //             case 2:
-            //                 System.out.print("Masukkan Nama Barang yang ingin dihapus: ");
-            //                 String namaBrgHapus = input.nextLine();
-            //                 boolean found = false;
-            //                 int deletedIndex = -1;
+                            if (index != -1) {
+                                System.out.println("============================");
+                                System.out.println("Part yang ingin anda ubah:");
+                                System.out.println("1. Nama Barang");
+                                System.out.println("2. Kategori Barang");
+                                System.out.println("3. Tanggal Produksi Barang");
+                                System.out.println("4. Tanggal Kadaluarsa Barang");
+                                System.out.println("5. Harga Barang");
+                                System.out.println("6. Jumlah Stok Barang");
+                                System.out.println("0. Selesai");
+                                System.out.print("Pilih menu: ");
+                                int pilihan = input.nextInt();
+                                input.nextLine(); // Consume newline character
 
-            //             for (int i = 0; i < namaBrg.length; i++) {
-            //                 if (namaBrg[i].equalsIgnoreCase(namaBrgHapus)) {
-            //                     found = true;
-            //                     deletedIndex = i;
-            //                     break;
-            //                 }
-            //             }
-            //                 System.out.println("Data barang telah berhasil dihapus");
-            //                 if (namaBrgHapus == namaBrg) {
-            //                     System.out.println("Data barang " + namaBrg + " telah berhasil dihapus");
-            //                 } else {
-            //                     System.out.println("Nama barang tidak ditemukan");
-            //                 }
-            //                 break;
-            //             case 0:
-            //                 break;
-            //             default:
-            //                 System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1, 2, atau 3");
-            //                 break;
-                    
-            // }
-            // } while (menu2 != stop2);
-            // break;
+                                switch (pilihan) {
+                                    case 1:
+                                        System.out.print("Masukkan Nama Barang Baru: ");
+                                        namaBrg[index] = input.nextLine();
+                                        break;
+                                    case 2:
+                                        System.out.print("Masukkan Kategori Barang Baru: ");
+                                        tipeBrg[index] = input.nextLine();
+                                        break;
+                                    case 3:
+                                        System.out.print("Masukkan Tanggal Produksi Baru: ");
+                                        prdDate[index] = input.nextLine();
+                                        break;
+                                    case 4:
+                                        System.out.print("Masukkan Tanggal Kadaluarsa Baru: ");
+                                        expDate[index] = input.nextLine();
+                                        break;
+                                    case 5:
+                                        System.out.print("Masukkan Harga Barang Baru: ");
+                                        harga[index] = input.nextDouble();
+                                        break;
+                                    case 6:
+                                        System.out.print("Masukkan Jumlah Stok Barang Baru: ");
+                                        stokBrg[index] = input.nextInt();
+                                        break;
+                                    case 0:
+                                        System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
+                                        break;
+                                    default:
+                                        System.out.println("Pilihan tidak valid.");
+                                }
+                                System.out.println("Barang " + namaBrg[index] + " berhasil diperbarui ");
+                            } else {
+                                System.out.println("Barang tidak ditemukan");
+                            }
+                            break;
+                        case 2:
+                            System.out.print("Masukkan Nama Barang yang ingin dihapus: ");
+                            String namaBarangHapus = input.nextLine();
+
+                            int indexHapus = -1;
+                            for (int i = 0; i < namaBrg.length; i++) {
+                                if (namaBrg[i].equalsIgnoreCase(namaBarangHapus)) {
+                                    indexHapus = i;
+                                    break;
+                                }
+                            }
+                            
+                            if (indexHapus != -1) {
+                                for (int i = indexHapus; i < namaBrg.length - 1; i++) {
+                                    namaBrg[i] = namaBrg[i + 1];
+                                    tipeBrg[i] = tipeBrg[i + 1];
+                                    prdDate[i] = prdDate[i + 1];
+                                    expDate[i] = expDate[i + 1];
+                                    supplier[i] = supplier[i + 1];
+                                    konSupp[i] = konSupp[i + 1];
+                                    alamatSupp[i] = alamatSupp[i + 1];
+                                    harga[i] = harga[i + 1];
+                                    stokBrg[i] = stokBrg[i + 1];
+                                }
+
+                                int hapus = namaBrg.length - 1;
+                                namaBrg[hapus] = null;
+                                tipeBrg[hapus] = null;
+                                prdDate[hapus] = null;
+                                expDate[hapus] = null;
+                                supplier[hapus] = null;
+                                konSupp[hapus] = null;
+                                alamatSupp[hapus] = null;
+                                harga[hapus] = 0;
+                                stokBrg[hapus] = 0;
+                                
+                                System.out.println("Data barang " + namaBarangHapus + " telah berhasil dihapus");
+                            } else {
+                                System.out.println("Barang tidak ditemukan");
+                            }
+                            break;
+                        case 3:
+                            for (int i = 0; i < namaBrg.length; i++) {
+                                if (namaBrg[i] == null) {
+                                    continue;
+                                } else {
+                                    System.out.println("Nama Barang: " + namaBrg[i]);
+                                System.out.println("Tipe Barang: " + tipeBrg[i]);
+                                System.out.println("Tanggal Produksi: " + prdDate[i]);
+                                System.out.println("Tanggal Kadaluarsa: " + expDate[i]);
+                                System.out.println("Supplier: " + supplier[i]);
+                                System.out.println("Kontak Supplier: " + konSupp[i]);
+                                System.out.println("Alamat Supplier: " + alamatSupp[i]);
+                                System.out.println("Harga: " + harga[i]);
+                                System.out.println("Stok: " + stokBrg[i]);
+                                System.out.println("====================");
+                                }
+                            }
+                    break;
+                        case 0:
+                            break;
+                        default:
+                            System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1, 2, atau 3");
+                            break;
+                    }
+                } while (menu2 != stop2);
+                break;
+            default:
+                System.out.println("Pilihan tidak valid.");
+                break;
 
             // case 3:
             //     System.out.println("=====Item Categorization=====");
@@ -247,7 +310,7 @@ public class indexV1 {
                         //     System.out.println("Masukkan Data Supplier Lagi?");
                         //     System.out.println("1. Iya");
                         //     System.out.println("0. Tidak");
-                        //     System.out.print("Pilih angka 1 atau 0: ");                                                       
+                        //     System.out.print("Pilih angka 1 atau 0: ");                                                      
                         //     stop4 = input.nextInt();         
                         //     continue;         
                         // }
@@ -255,7 +318,7 @@ public class indexV1 {
                     System.out.print("Masukkan Supplier: ");
                     String cariSupplier = input.next();
                     for(int i=0; i<supplier.length; i++){
-                        if(supplier[i] == cariSupplier){
+                        if(supplier[i].equalsIgnoreCase(cariSupplier)){
                             hasil=i;
                             break;
                         }
@@ -342,75 +405,221 @@ public class indexV1 {
             //     System.out.println("Jumlah Stok Barang        : \n" );
 
             //     break;
-            // case 7:
-            //     int menu7;
-            //     int stop7 = 0;
-            //     do {
-            //     System.out.println("=====Expiry Date Tracking=====");
-            //     System.out.println("Silahkan pilih menu anda (1/0):");
-            //     System.out.println("1. Cek tanggal kadaluarsa");
-            //     System.out.println("2. Tampilkan daftar kadaluarsa");
-            //     System.out.println("0. Kembali");
-            //     System.out.print("Pilih menu: ");
-            //     menu7 = input.nextInt();
-            //     switch (menu7) {
-            //         case 1:
-            //         System.out.print("Masukkan nama barang: ");
-            //         namaBrg = input.next();
-            //         input.nextLine();
-            //         System.out.print("Masukkan tanggal yang ingin Anda cek (format: dd-MM-yyyy): ");
-            //         prdDate = input.nextLine();
-            //         System.out.print("Masukkan tanggal sekarang (format: dd-MM-yyyy): ");
-            //         dateNow = input.nextLine();
+            
+            case 7:
+                int menu7;
+                int stop7 = 0;
+                do {
+                System.out.println("=====Expiry Date Tracking=====");
+                System.out.println("Silahkan pilih menu:");
+                System.out.println("1. Cek tanggal kadaluarsa");
+                System.out.println("2. Tampilkan daftar kadaluarsa");
+                System.out.println("0. Kembali");
+                System.out.print("Pilih menu: ");
+                menu7 = input.nextInt();
+                int index = 0;
+                
+                switch (menu7) {
+                    case 1:
+                            System.out.println("Daftar Barang:");
+                            for (int i = 0; i < namaBrg.length; i++) {
+                                System.out.println((i+1) +". "+namaBrg[i]);
+                            }
 
-            //         if (prdDate == dateNow) {
-            //             System.out.println("Tanggal sudah lewat!");
-            //         } else {
-            //             System.out.println("Tanggal belum lewat.");
-            //         }
-            //         break;
-            //         case 2:
-            //         System.out.println("Nama Barang:");
-            //         case 0:
-            //         break;
-            //     }
-            // } while (menu7 != stop7);
-            // break;
-            // case 0:
-            //     System.out.println("!!Anda keluar dari menu!!");
-            //     System.exit(0);
-            //     break;
+                            System.out.print("Masukkan Nomor barang: ");
+                            int noBarangCek = input.nextInt();
+
+                            // Mengonversi tanggal kadaluwarsa dari string ke Date
+                            Date expDateCek = dateFormat.parse(expDate[index]);
+
+                            if (noBarangCek >= 1 && noBarangCek <= namaBrg.length) {
+                                index = noBarangCek - 1;
+                                //cek tanggal
+                                if (today.after(expDateCek)) {
+                                    System.out.println("Barang sudah kadaluwarsa");
+                                } else {
+                                    System.out.println("Barang belum kadaluwarsa");
+                                }
+                            } else {
+                                System.out.println("Indeks tidak valid.");
+                            }
+                            System.out.println("--------------------------------");
+                        
+                            
+                    case 2:
+                        System.out.println("Daftar Barang Kadaluwarsa:");
+                        System.out.println("No\t| Nama Barang\t\t\t\t| Tanggal Kadaluwarsa\t| Status");
+                        
+                        // Sorting tanggal kadaluwarsa terdekat
+                        for (int i = 0; i < namaBrg.length - 1; i++) {
+                            for (int j = 0; j < namaBrg.length - i - 1; j++) {
+                                Date date1 = dateFormat.parse(expDate[j]);
+                                Date date2 = dateFormat.parse(expDate[j + 1]);
+
+                                if (date1.after(date2)) {
+                                    // untuk ubah urutan nama
+                                    String tempNama = namaBrg[j];
+                                    namaBrg[j] = namaBrg[j + 1];
+                                    namaBrg[j + 1] = tempNama;
+
+                                    //untuk ubah urutan tanggal kadaluwarsa
+                                    String tempDate = expDate[j];
+                                    expDate[j] = expDate[j + 1];
+                                    expDate[j + 1] = tempDate;
+                                }
+                            }
+                        }
+                        //menampilkan
+                        for (int i = 0; i < namaBrg.length; i++) {
+                            Date expDateDaftar = dateFormat.parse(expDate[i]);
+
+                            if (today.after(expDateDaftar)) {
+                                System.out.printf("%d\t| %-30s\t| %-20s\t| %s%n", (i + 1), namaBrg[i], expDate[i], "Kadaluwarsa" );
+                            } else{
+                                System.out.printf("%d\t| %-30s\t| %-20s\t| %s%n", (i + 1), namaBrg[i], expDate[i], " (Belum Kadaluwarsa)" );
+                            }
+                        }
+                        System.out.println("--------------------------------------------------------------------------------------------");
+                    break;
+                    case 0:
+                    break;
+                }
+            } while (menu7 != stop7);
+            break;
+
             case 8:
             int fitur8;
             do{
             System.out.println("=====Delivery=====");
-            System.out.println("1.Malang");
-            System.out.println("2.Blitar");
-            System.out.println("3.Tuban");
-            System.out.println("0.Keluar");
-            System.out.print("Masukkan Nomor Cabang: ");
+            System.out.println("1. Pengiriman");
+            System.out.println("2. Lihat Stok Cabang");
+            System.out.println("0. Kembali");
+            System.out.print("Masukkan Nomor Menu: ");
             fitur8 = input.nextInt();
+            input.nextLine(); 
 
-            if(fitur8 == 0){
-                break;
-            }
             switch (fitur8) {
                 case 1:
-                    System.out.println("===Cabang Malang===");
-                    System.out.println("Masukkan ");
+                    int stop81 = -1;
+                        int indeks=0;            
+                        int jumKirBarang; 
+                    do{  
+                        System.out.println("===Pilih Cabang===");                                                       
+                        System.out.println("1.Malang");
+                        System.out.println("2.Blitar");
+                        System.out.println("3.Tuban");
+                        System.out.println("0.Kembali");
+                        System.out.print("Masukkan Nomor Cabang: ");
+                        int kirim_cabang = input.nextInt();
+                        stop81 = kirim_cabang;// angka pada stop81 mengikuti input dari menu pilih cabang
+                        switch(kirim_cabang){
+                            case 1: 
+                            System.out.println("===Kirim Cabang Malang===");
+                            for (int i=0;i<namaBrg.length; i++){
+                            System.out.println((i+1) +" | "+ supplier[i] +" | "+ namaBrg[i] +" | "+tipeBrg[i]+" | "+prdDate[i]+" | "+harga[i]+" | "+stokBrg[i] );
+                            }   //menampilkan informasi barang dalam gudang
+                            
+                            System.out.print("Masukkan Nomor Urut Barang: ");
+                            int cariNomorBarangMalang = input.nextInt();
+
+                            if (cariNomorBarangMalang >= 1 && cariNomorBarangMalang <= namaBrg.length) {
+                                indeks = cariNomorBarangMalang - 1;
+                                System.out.println("Barang yang akan dikirim adalah " + namaBrg[indeks]);
+                            } else {
+                                System.out.println("Indeks tidak valid.");
+                            }//mencari posisi index barang
+
+                            System.out.print("Masukkan Jumlah Barang: ");
+                            jumKirBarang = input.nextInt();
+                            stokBrg[indeks] -= jumKirBarang;  //mengurangi stok gudang
+                            stokCabang[0][indeks] += jumKirBarang; //menambah stok di cabang
+
+
+                            break;
+                            case 2: 
+                            System.out.println("===Kirim Cabang Blitar===");
+                            for (int i=0;i<namaBrg.length; i++){
+                            System.out.println((i+1) +" | "+ supplier[i] +" | "+ namaBrg[i] +" | "+tipeBrg[i]+" | "+prdDate[i]+" | "+harga[i]+" | "+stokBrg[i] );
+                            }   //menampilkan informasi barang dalam gudang
+                            
+                            System.out.print("Masukkan Nomor Urut Barang: ");
+                            int cariNomorBarangBlitar = input.nextInt();
+
+                            if (cariNomorBarangBlitar >= 1 && cariNomorBarangBlitar <= namaBrg.length) {
+                                indeks = cariNomorBarangBlitar - 1;
+                                System.out.println("Barang yang akan dikirim adalah " + namaBrg[indeks]);
+                            } else {
+                                System.out.println("Indeks tidak valid.");
+                            }//mencari posisi index barang
+
+                            System.out.print("Masukkan Jumlah Barang: ");
+                            jumKirBarang = input.nextInt();
+                            stokBrg[indeks] -= jumKirBarang;  //mengurangi stok gudang
+                            stokCabang[1][indeks] += jumKirBarang; //menambah stok di cabang                            
+
+                            break;
+                            case 3: 
+                            System.out.println("===Kirim Cabang Tuban===");
+                            for (int i=0;i<namaBrg.length; i++){
+                            System.out.println((i+1) +" | "+ supplier[i] +" | "+ namaBrg[i] +" | "+tipeBrg[i]+" | "+prdDate[i]+" | "+harga[i]+" | "+stokBrg[i] );
+                            }   //menampilkan informasi barang dalam gudang
+                            
+                            System.out.print("Masukkan Nomor Urut Barang: ");
+                            int cariNomorBarangTuban = input.nextInt();
+
+                            if (cariNomorBarangTuban >= 1 && cariNomorBarangTuban <= namaBrg.length) {
+                                indeks = cariNomorBarangTuban - 1;
+                                System.out.println("Barang yang akan dikirim adalah " + namaBrg[indeks]);
+                            } else {
+                                System.out.println("Indeks tidak valid.");
+                            }//mencari posisi index barang
+
+                            System.out.print("Masukkan Jumlah Barang: ");
+                            jumKirBarang = input.nextInt();
+                            stokBrg[indeks] -= jumKirBarang;  //mengurangi stok gudang
+                            stokCabang[2][indeks] += jumKirBarang; //menambah stok di cabang                              
+
+                            break;
+                            default:
+                            System.out.println("Pilih Nomor Cabang!!!");
+                            break;
+                        }
+
+
+                        } while (stop81 != 0);
                     break;
 
-                default:
-                    break;
+                case 2:
+                    System.out.println("===Stok Cabang===");
+                    System.out.print("Nama Barang |");
+                    for (int i=0; i<cabang.length;i++){
+                        System.out.print( cabang[i] + "\t|");
+                    }
+                    System.out.println();
+
+                    for(int i=0;i<namaBrg.length;i++){
+                        System.out.print(namaBrg[i]);
+                        for(int j=0; j<stokCabang.length;j++){
+                            System.out.print(" |\t "+ stokCabang[j][i]);
+                        }
+                        System.out.println("|");
+                    }
+                    break; //break case 2
             }
 
-            }while (fitur != 0);
+            }while (fitur8 != 0);
                 break;//break menu8                 
         }
         } while (fitur != 0);
     
     }
 }
+
+
+
+
+
+
 
 // INI NOTE!!!
 
