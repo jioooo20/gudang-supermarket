@@ -314,23 +314,42 @@ public class indexV1 {
                             }
                             break;
                         case 3:
-                            for (int i = 0; i < namaBrg.length; i++) {
-                                if (namaBrg[i] == null) {
-                                    continue;
-                                } else {
-                                    System.out.println("Nama Barang: " + namaBrg[i]);
-                                System.out.println("Tipe Barang: " + tipeBrg[i]);
-                                System.out.println("Tanggal Produksi: " + prdDate[i]);
-                                System.out.println("Tanggal Kadaluarsa: " + expDate[i]);
-                                System.out.println("Supplier: " + supplier[i]);
-                                System.out.println("Kontak Supplier: " + konSupp[i]);
-                                System.out.println("Alamat Supplier: " + alamatSupp[i]);
-                                System.out.println("Harga: " + harga[i]);
-                                System.out.println("Stok: " + stokBrg[i]);
-                                System.out.println("====================");
-                                }
+                            System.out.println("================================================================================================================================================");
+                            System.out.println("|\t\t\t\t\t\t\t\t| DAFTAR STOK BARANG |\t\t\t\t\t\t\t\t|");
+                            System.out.println("================================================================================================================================================");
+                            System.out.println("| NO\t| NAMA BARANG\t\t\t| KATEGORI\t| TGL PRODUKSI\t| TGL KADALUWARSA\t| SUPPLIER\t\t| HARGA\t\t| STOK |");
+                            System.out.println("================================================================================================================================================");
+                            
+                            // Sorting dari jumlah stok barang paling sedikit ke yang paling banyak
+                            for (int i = 0; i < stokBrg.length - 1; i++) {
+                                for (int j = 0; j < stokBrg.length - i - 1; j++) {
+                                    if (stokBrg[j] > stokBrg[j+1]) {
+                                        // untuk ubah urutan nama
+                                        String tempNama = namaBrg[j];
+                                        namaBrg[j] = namaBrg[j + 1];
+                                        namaBrg[j + 1] = tempNama;
+
+                                        //untuk ubah urutan stok
+                                        int tempStok = stokBrg[j];
+                                        stokBrg[j] = stokBrg[j + 1];
+                                        stokBrg[j + 1] = tempStok;
+                                    }
+                                } 
                             }
-                    break;
+                            
+                            //menampilkan data barang
+                            int indexTampil = 1;
+                            for (int i = 0; i < namaBrg.length; i++) {
+                                if (namaBrg[i] == null || tipeBrg[i] == null || prdDate[i] == null || expDate[i] == null || supplier[i] == null || konSupp[i] == null || alamatSupp[i] == null || harga[i] == 0 || stokBrg[i] == 0) {
+                                    
+                                    continue;
+                                } else{
+                                    System.out.printf("%s %d\t| %-25s\t| %-10s\t| %-10s\t| %-15s\t| %-15s\t| %-10s\t| %-5s|%n", "|", indexTampil++, namaBrg[i], tipeBrg[i], prdDate[i], expDate[i], supplier[i], harga[i], stokBrg[i]);
+                                }
+                            }   
+                            System.out.println("================================================================================================================================================");
+
+                            break;
                         case 0:
                             break;
                         default:
