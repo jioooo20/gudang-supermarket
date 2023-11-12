@@ -42,190 +42,213 @@ public class indexV1 {
  
         switch (fitur) {
             case 1:
-            do{
-            int i=0;
-            System.out.println("========================================");
-            System.out.println("=========Item Entry and Storage=========");
-            System.out.println("========================================");
-            System.out.print("Masukkan Nama Supplier: ");
-            String newSupplier = input.nextLine();            
-            //buat array baru
-            int newSizeSupplier = supplier.length + 1;
-            String[] tempSuplier = new String[newSizeSupplier];
-            //copy 
-            for(int j=0; j<supplier.length; j++){
-                tempSuplier[j] = supplier[j];
-            }
-            //tambah nama supplier
-            tempSuplier[newSizeSupplier - 1] = newSupplier;
-            //tuker array lama ke baru
-            supplier[i] = tempSuplier[i];
-            input.next();
+                do{
+                int i=0;
+                System.out.println("========================================");
+                System.out.println("=========Item Entry and Storage=========");
+                System.out.println("========================================");
+                System.out.print("Masukkan Nama Supplier: ");
+                String newSupplier = input.nextLine();            
+                //buat array baru
+                int newSizeSupplier = supplier.length + 1;
+                String[] tempSuplier = new String[newSizeSupplier];
+                //copy 
+                for(int j=0; j<supplier.length; j++){
+                    tempSuplier[j] = supplier[j];
+                }
+                //tambah nama supplier
+                tempSuplier[newSizeSupplier - 1] = newSupplier;
+                //tuker array lama ke baru
+                supplier[i] = tempSuplier[i];
+                input.next();
 
-            System.out.print("Masukkan Nama Barang: ");
-            String newNama = input.nextLine();
-            int newSizeBarang = namaBrg.length + 1;
-            String[] tempnama = new String[newSizeBarang];
-            for(int j=0; j<namaBrg.length; j++){
-                tempnama[j]=namaBrg[j];
-            }
-            tempnama[newSizeBarang - 1] = newNama;
-            namaBrg = tempnama;
-            input.next();
+                System.out.print("Masukkan Nama Barang: ");
+                String newNama = input.nextLine();
+                int newSizeBarang = namaBrg.length + 1;
+                String[] tempnama = new String[newSizeBarang];
+                for(int j=0; j<namaBrg.length; j++){
+                    tempnama[j]=namaBrg[j];
+                }
+                tempnama[newSizeBarang - 1] = newNama;
+                namaBrg = tempnama;
+                input.next();
 
-            System.out.print("Masukkan Kategori Barang: ");
-            String newTipe = input.nextLine();
-            int newSizeTipe = tipeBrg.length + 1;
-            String[] tempTipe = new String[newSizeTipe];
-            for(int j=0; j<tipeBrg.length; j++){
-                tempTipe[j]=tipeBrg[j];
-            }
-            tempTipe[newSizeTipe - 1] = newTipe;
-            tipeBrg = tempTipe;
-            input.next();
+                System.out.print("Masukkan Kategori Barang: ");
+                String newTipe = input.nextLine();
+                int newSizeTipe = tipeBrg.length + 1;
+                String[] tempTipe = new String[newSizeTipe];
+                for(int j=0; j<tipeBrg.length; j++){
+                    tempTipe[j]=tipeBrg[j];
+                }
+                tempTipe[newSizeTipe - 1] = newTipe;
+                tipeBrg = tempTipe;
+                input.next();
 
-            System.out.print("Masukkan Tanggal Produksi Barang: ");
-            prdDate[i] = input.next();
-            input.nextLine();
+                System.out.print("Masukkan Tanggal Produksi Barang (dd-MM-yyyy): ");
+                prdDate[i] = input.next();
+                input.nextLine();
 
-            System.out.print("Masukkan Tanggal Kadaluarsa Barang: ");
-            expDate[i] = input.next();
-            input.nextLine();
+                System.out.print("Masukkan Tanggal Kadaluarsa Barang (dd-MM-yyyy): ");
+                expDate[i] = input.next();
+                input.nextLine();
 
-            System.out.print("Masukkan Harga Barang: ");
-            double newHarga = input.nextDouble();
-            int newSizeHarga = harga.length + 1;
-            double[] tempHarga = new double[newSizeHarga];
-            for(int j=0; j<harga.length;j++){
-                tempHarga[j] = harga[j];
-            }
-            tempHarga[newSizeHarga - 1] = newHarga;
-            harga = tempHarga;
-            
-            System.out.print("Masukkan Jumlah Stok Barang: ");
-            int newStok = input.nextInt();
-            int newSizeStok = stokBrg.length + 1;
-            int[] tempStok = new int[newSizeStok];
-            for(int j=0;j<stokBrg.length;j++){
-                tempStok[j] = stokBrg[j];
-            }
-            tempStok[newSizeStok - 1] = newStok;
-            stokBrg = tempStok;
-            
-            //coba ditampilkan(nnt dihapus)
-            for(int j=0;j<namaBrg.length; j++){
-                System.out.println((j+1) +" | "+ supplier[j]); //+" | "+ namaBrg[j] +" | "+tipeBrg[j]+" | "+prdDate[j]+" | "+harga[j]+" | "+stokBrg[j] );
-            }
+                System.out.print("Masukkan Harga Barang: ");
+                double newHarga = input.nextDouble();
+                int newSizeHarga = harga.length + 1;
+                double[] tempHarga = new double[newSizeHarga];
+                for(int j=0; j<harga.length;j++){
+                    tempHarga[j] = harga[j];
+                }
+                tempHarga[newSizeHarga - 1] = newHarga;
+                harga = tempHarga;
+                
+                System.out.print("Masukkan Jumlah Stok Barang: ");
+                int newStok = input.nextInt();
+                int newSizeStok = stokBrg.length + 1;
+                int[] tempStok = new int[newSizeStok];
+                for(int j=0;j<stokBrg.length;j++){
+                    tempStok[j] = stokBrg[j];
+                }
+                tempStok[newSizeStok - 1] = newStok;
+                stokBrg = tempStok;
+                
+                //coba ditampilkan(nnt dihapus)
+                for(int j=0;j<namaBrg.length; j++){
+                    System.out.println((j+1) +" | "+ supplier[j]); //+" | "+ namaBrg[j] +" | "+tipeBrg[j]+" | "+prdDate[j]+" | "+harga[j]+" | "+stokBrg[j] );
+                }
 
-            System.out.println("========================================");
-            System.out.println("Barang telah berhasil ditambahkan");
-            System.out.println("Masukkan data lagi?");
-            System.out.println("1. Iya");
-            System.out.println("0. Tidak");
+                System.out.println("========================================");
+                System.out.println("Barang telah berhasil ditambahkan");
+                System.out.println("Masukkan data lagi?");
+                System.out.println("1. Iya");
+                System.out.println("0. Tidak");
 
-            int pilihStop1 = input.nextInt();
-            if( pilihStop1 == 0){
-                stop = false; //kembali ke main menu
-            }else{
-                stop = true; // lanjut 
-            }
-            i++;
-            }while (stop);         
-            
-                break;
-                case 2:
-                    int menu2;
-                    int stop2 = 0;
-                    do {
-                        System.out.println("======Update Item Information======");
-                        System.out.println("Silahkan Pilih");
-                        System.out.println("1. Update");
-                        System.out.println("2. Hapus");
-                        System.out.println("3. Tampilkan Item");//Sementara
-                        System.out.println("0. Kembali");
-                        System.out.print("Masukkan Nomor: ");
-                        menu2 = input.nextInt();
-                        input.nextLine(); 
-                        int index = -1;
-                        switch (menu2) {
-                            case 1:
-                            System.out.println("=========================================");
-                            System.out.println("| NO\t| NAMA BARANG\t\t\t|");
-                            System.out.println("=========================================");
+                int pilihStop1 = input.nextInt();
+                if( pilihStop1 == 0){
+                    stop = false; //kembali ke main menu
+                }else{
+                    stop = true; // lanjut 
+                }
+                i++;
+                }while (stop);         
+                
+            break;
+            case 2:
+                int menu2;
+                int stop2 = 0;
+                do {
+                    System.out.println("-----------------------------------------");
+                    System.out.println("|\t Update Item Information \t|");
+                    System.out.println("-----------------------------------------");
+                    System.out.println("Silahkan Pilih");
+                    System.out.println("1. Update");
+                    System.out.println("2. Hapus");
+                    System.out.println("3. Tampilkan Item");
+                    System.out.println("0. Kembali");
+                    System.out.print("Masukkan Nomor: ");
+                    menu2 = input.nextInt();
+                    input.nextLine(); 
+                    int index = -1;
 
-                            for (int i = 0; i < namaBrg.length; i++) {
-                                System.out.printf("%s %d\t| %-25s\t|%n","|", (i + 1), namaBrg[i]);
+                    switch (menu2) {
+                        case 1:
+                        System.out.println("-------------------------");
+                        System.out.println("|\tUPDATE DATA \t|");
+                        System.out.println("-------------------------");
+                        System.out.println("=========================================");
+                        System.out.println("| NO\t| NAMA BARANG\t\t\t|");
+                        System.out.println("=========================================");
+                        //daftar barang
+                        for (int i = 0; i < namaBrg.length; i++) {
+                            System.out.printf("%s %d\t| %-25s\t|%n","|", (i + 1), namaBrg[i]);
+                        }
+                        System.out.println("=========================================");
+                        System.out.print("Masukkan Nomor Barang: ");
+                        int noBrgUpdate = input.nextInt();
+                        //cari index barang
+                        for (int i = 0; i < namaBrg.length; i++) {
+                            if (noBrgUpdate >= 1 && noBrgUpdate <= namaBrg.length) {
+                                index = noBrgUpdate-1;
+                                break;
                             }
+                        }
+                        
+                        //daftar part update
+                        if (index != -1) {
+                            System.out.println("============================");
+                            System.out.println("Part yang ingin anda ubah:");
+                            System.out.println("1. Nama Barang");
+                            System.out.println("2. Kategori Barang");
+                            System.out.println("3. Tanggal Produksi Barang");
+                            System.out.println("4. Tanggal Kadaluarsa Barang");
+                            System.out.println("5. Harga Barang");
+                            System.out.println("6. Jumlah Stok Barang");
+                            System.out.println("7. Supplier");
+                            System.out.println("8. Kontak Supplier");
+                            System.out.println("8. Alamat Supplier");
+                            System.out.println("0. Selesai");
+                            System.out.print("Pilih menu: ");
+                            int pilihan = input.nextInt();
+                            input.nextLine(); 
 
-                            System.out.println("=========================================");
-                            System.out.print("Masukkan Nomor barang: ");
-                            int noBrgUpdate = input.nextInt();
-
-                            for (int i = 0; i < namaBrg.length; i++) {
-                                if (noBrgUpdate >= 1 && noBrgUpdate <= namaBrg.length) {
-                                    index = noBrgUpdate-1;
+                            //update element data
+                            switch (pilihan) {
+                                case 1:
+                                    System.out.print("Masukkan Nama Barang Baru: ");
+                                    namaBrg[index] = input.nextLine();
                                     break;
-                                }
+                                case 2:
+                                    System.out.print("Masukkan Kategori Barang Baru: ");
+                                    tipeBrg[index] = input.nextLine();
+                                    break;
+                                case 3:
+                                    System.out.print("Masukkan Tanggal Produksi Baru: ");
+                                    prdDate[index] = input.nextLine();
+                                    break;
+                                case 4:
+                                    System.out.print("Masukkan Tanggal Kadaluarsa Baru: ");
+                                    expDate[index] = input.nextLine();
+                                    break;
+                                case 5:
+                                    System.out.print("Masukkan Harga Barang Baru: ");
+                                    harga[index] = input.nextDouble();
+                                    break;
+                                case 6:
+                                    System.out.print("Masukkan Jumlah Stok Barang Baru: ");
+                                    stokBrg[index] = input.nextInt();
+                                    break;
+                                case 7:
+                                    System.out.print("Masukkan Supplier Barang Baru: ");
+                                    supplier[index] = input.nextLine();
+                                    break;
+                                case 8:
+                                    System.out.print("Masukkan Kontak Supplier Barang Baru: ");
+                                    konSupp[index] = input.nextLine();
+                                    break;
+                                case 9:
+                                    System.out.print("Masukkan Alamat Supplier Barang Baru: ");
+                                    alamatSupp[index] = input.nextLine();
+                                    break;
+                                case 0:
+                                    System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
+                                    break;
+                                default:
+                                    System.out.println("Pilihan tidak valid.");
                             }
-                            
-                            if (index != -1) {
-                                System.out.println("============================");
-                                System.out.println("Part yang ingin anda ubah:");
-                                System.out.println("1. Nama Barang");
-                                System.out.println("2. Kategori Barang");
-                                System.out.println("3. Tanggal Produksi Barang");
-                                System.out.println("4. Tanggal Kadaluarsa Barang");
-                                System.out.println("5. Harga Barang");
-                                System.out.println("6. Jumlah Stok Barang");
-                                System.out.println("7. Harga Barang");
-                                System.out.println("8. Jumlah Stok Barang");
-                                System.out.println("0. Selesai");
-                                System.out.print("Pilih menu: ");
-                                int pilihan = input.nextInt();
-                                input.nextLine(); 
-
-                                //update element data
-                                switch (pilihan) {
-                                    case 1:
-                                        System.out.print("Masukkan Nama Barang Baru: ");
-                                        namaBrg[index] = input.nextLine();
-                                        break;
-                                    case 2:
-                                        System.out.print("Masukkan Kategori Barang Baru: ");
-                                        tipeBrg[index] = input.nextLine();
-                                        break;
-                                    case 3:
-                                        System.out.print("Masukkan Tanggal Produksi Baru: ");
-                                        prdDate[index] = input.nextLine();
-                                        break;
-                                    case 4:
-                                        System.out.print("Masukkan Tanggal Kadaluarsa Baru: ");
-                                        expDate[index] = input.nextLine();
-                                        break;
-                                    case 5:
-                                        System.out.print("Masukkan Harga Barang Baru: ");
-                                        harga[index] = input.nextDouble();
-                                        break;
-                                    case 6:
-                                        System.out.print("Masukkan Jumlah Stok Barang Baru: ");
-                                        stokBrg[index] = input.nextInt();
-                                        break;
-                                    case 0:
-                                        System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
-                                        break;
-                                    default:
-                                        System.out.println("Pilihan tidak valid.");
-                                }
-                                System.out.println("Barang " + namaBrg[index] + " berhasil diperbarui ");
-                            } else {
-                                System.out.println("Barang tidak ditemukan");
-                            }
-                            break;
+                            System.out.println("Barang " + namaBrg[index] + " berhasil diperbarui ");
+                        } else {
+                            System.out.println("Barang tidak ditemukan");
+                        }
+                        break;
                         case 2:
+                            System.out.println("-------------------------");
+                            System.out.println("|\tHAPUS DATA \t|");
+                            System.out.println("-------------------------");
+                            //daftar barang
                             System.out.println("=========================================");
                             System.out.println("| NO\t| NAMA BARANG\t\t\t|");
                             System.out.println("=========================================");
-
+                            
                             for (int i = 0; i < namaBrg.length; i++) {
                                 System.out.printf("%s %d\t| %-25s\t|%n","|", (i + 1), namaBrg[i]);
                             }
@@ -234,14 +257,14 @@ public class indexV1 {
                             System.out.print("Masukkan Nomor barang: ");
                             int noBrgHapus = input.nextInt();
                             int hapus = -1;
-
+                            
+                            //cari index barang
                             for (int i = 0; i < namaBrg.length; i++) {
                                 if (noBrgHapus >= 1 && noBrgHapus <= namaBrg.length) {
                                     hapus = noBrgHapus-1;
                                     break;
                                 }
                             }
-                            
                             
                             //hapus data barang
                             if (hapus != -1) {
@@ -257,7 +280,7 @@ public class indexV1 {
                                     stokBrg[i] = stokBrg[i + 1];
                                 }
 
-                                //ubah ke nilai default
+                                //mengubah ke nilai default
                                 int setHapus = namaBrg.length - 1;
                                 namaBrg[setHapus] = null;
                                 tipeBrg[setHapus] = null;
@@ -309,7 +332,7 @@ public class indexV1 {
                             } else {
                                 System.out.println("Barang tidak ditemukan");
                             }
-                            break;
+                        break;
                         case 3:
                             System.out.println("================================================================================================================================================");
                             System.out.println("|\t\t\t\t\t\t\t\t| DAFTAR STOK BARANG |\t\t\t\t\t\t\t\t|");
@@ -345,24 +368,23 @@ public class indexV1 {
                                 }
                             }   
                             System.out.println("================================================================================================================================================");
-
-                            break;
+                        break;
                         case 0:
                             break;
                         default:
                             System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1, 2, atau 3");
                             break;
-                    }
-                } while (menu2 != stop2);
-                break;
-            default:
+                        }
+                    } while (menu2 != stop2);
+                    break;
+                default:
                 System.out.println("Pilihan tidak valid.");
                 break;
 
-            // case 3:
-                // System.out.println("===========Item Categorization===========");
+            case 3:
+                System.out.println("===========Item Categorization===========");
 
-            //     break;
+            break;
             case 4:
             // loop nya ada yang ilang, lagi nyoba array. udah ketemu cara nambahin sesuai urutan, cuma lek ada lebih dr 1 produk carra ngatur supplier ini gimanaaa saya bingung
             int menu4;
@@ -663,9 +685,9 @@ public class indexV1 {
                 break;//break menu8                 
         }
         } while (fitur != 0);
-    
+
     }
-}
+    }
 
 
 
@@ -673,42 +695,42 @@ public class indexV1 {
 
 
 
-// INI NOTE!!!
+    // INI NOTE!!!
 
-//  case 1:
-//             do{
-//             int i=0;
-//             System.out.println("=====Item Entry and Storage=====");
-//             System.out.print("Masukkan Nama Supplier: ");
-//             supplier[i] = input.nextLine();
-//             input.nextLine();
-//             System.out.print("Masukkan Nama Barang: ");
-//             namaBrg[i] = input.nextLine();
-//             System.out.print("Masukkan Kategori Barang: ");
-//             tipeBrg[i] = input.nextLine();
-//             System.out.print("Masukkan Tanggal Produksi Barang: ");
-//             prdDate[i] = input.next();
-//             input.nextLine();
-//             System.out.print("Masukkan Tanggal Kadaluarsa Barang: ");
-//             expDate[i] = input.next();
-//             input.nextLine();
-//             System.out.print("Masukkan Harga Barang: ");
-//             harga[i] = input.nextDouble();
-//             input.nextLine();
-//             System.out.print("Masukkan Jumlah Stok Barang: ");
-//             stokBrg[i] = input.nextInt();
-//             input.nextLine();
-//             System.out.println("===========================================================================");
-//             System.out.println("Barang telah berhasil ditambahkan");
-//             System.out.println("Masukkan data lagi?");
-//             System.out.println("1. Iya");
-//             System.out.println("0. Kembali");
-//             int pilihStop1 = input.nextInt();
-//             if( pilihStop1 == 0){
-//                 stop = false; //kembali ke main menu
-//             }else{
-//                 stop = true; // lanjut 
-//             }
-//             i++;
-//             }while (stop);                     
-//                 break;
+    //  case 1:
+    //             do{
+    //             int i=0;
+    //             System.out.println("=====Item Entry and Storage=====");
+    //             System.out.print("Masukkan Nama Supplier: ");
+    //             supplier[i] = input.nextLine();
+    //             input.nextLine();
+    //             System.out.print("Masukkan Nama Barang: ");
+    //             namaBrg[i] = input.nextLine();
+    //             System.out.print("Masukkan Kategori Barang: ");
+    //             tipeBrg[i] = input.nextLine();
+    //             System.out.print("Masukkan Tanggal Produksi Barang: ");
+    //             prdDate[i] = input.next();
+    //             input.nextLine();
+    //             System.out.print("Masukkan Tanggal Kadaluarsa Barang: ");
+    //             expDate[i] = input.next();
+    //             input.nextLine();
+    //             System.out.print("Masukkan Harga Barang: ");
+    //             harga[i] = input.nextDouble();
+    //             input.nextLine();
+    //             System.out.print("Masukkan Jumlah Stok Barang: ");
+    //             stokBrg[i] = input.nextInt();
+    //             input.nextLine();
+    //             System.out.println("===========================================================================");
+    //             System.out.println("Barang telah berhasil ditambahkan");
+    //             System.out.println("Masukkan data lagi?");
+    //             System.out.println("1. Iya");
+    //             System.out.println("0. Kembali");
+    //             int pilihStop1 = input.nextInt();
+    //             if( pilihStop1 == 0){
+    //                 stop = false; //kembali ke main menu
+    //             }else{
+    //                 stop = true; // lanjut 
+    //             }
+    //             i++;
+    //             }while (stop);                     
+    //                 break;
