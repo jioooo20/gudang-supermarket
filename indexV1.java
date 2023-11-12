@@ -134,35 +134,42 @@ public class indexV1 {
             
                 break;
                 case 2:
-                int menu2;
-                int stop2 = 0;
-                do {
-                    System.out.println("========================================");
-                    System.out.println("========Update Item Information=========");
-                    System.out.println("========================================");
-                    System.out.println("Silahkan Pilih");
-                    System.out.println("1. Update");
-                    System.out.println("2. Hapus");
-                    System.out.println("3. Tampilkan Item");//Sementara
-                    System.out.println("0. Kembali");
-                    System.out.print("Masukkan Nomor: ");
-                    menu2 = input.nextInt();
-                    input.nextLine(); 
-                    int index = -1;
-                    switch (menu2) {
-                        case 1:
-                            System.out.print("Masukkan Nama Barang yang ingin anda ubah: ");
-                            String namaBrgUpdate = input.nextLine();
+                    int menu2;
+                    int stop2 = 0;
+                    do {
+                        System.out.println("======Update Item Information======");
+                        System.out.println("Silahkan Pilih");
+                        System.out.println("1. Update");
+                        System.out.println("2. Hapus");
+                        System.out.println("3. Tampilkan Item");//Sementara
+                        System.out.println("0. Kembali");
+                        System.out.print("Masukkan Nomor: ");
+                        menu2 = input.nextInt();
+                        input.nextLine(); 
+                        int index = -1;
+                        switch (menu2) {
+                            case 1:
+                            System.out.println("=========================================");
+                            System.out.println("| NO\t| NAMA BARANG\t\t\t|");
+                            System.out.println("=========================================");
 
                             for (int i = 0; i < namaBrg.length; i++) {
-                                if (namaBrg[i].equalsIgnoreCase(namaBrgUpdate)) {
-                                    index = i;
+                                System.out.printf("%s %d\t| %-25s\t|%n","|", (i + 1), namaBrg[i]);
+                            }
+
+                            System.out.println("=========================================");
+                            System.out.print("Masukkan Nomor barang: ");
+                            int noBrgUpdate = input.nextInt();
+
+                            for (int i = 0; i < namaBrg.length; i++) {
+                                if (noBrgUpdate >= 1 && noBrgUpdate <= namaBrg.length) {
+                                    index = noBrgUpdate-1;
                                     break;
                                 }
                             }
                             
                             if (index != -1) {
-                                System.out.println("========================================");
+                                System.out.println("============================");
                                 System.out.println("Part yang ingin anda ubah:");
                                 System.out.println("1. Nama Barang");
                                 System.out.println("2. Kategori Barang");
@@ -170,11 +177,14 @@ public class indexV1 {
                                 System.out.println("4. Tanggal Kadaluarsa Barang");
                                 System.out.println("5. Harga Barang");
                                 System.out.println("6. Jumlah Stok Barang");
+                                System.out.println("7. Harga Barang");
+                                System.out.println("8. Jumlah Stok Barang");
                                 System.out.println("0. Selesai");
                                 System.out.print("Pilih menu: ");
                                 int pilihan = input.nextInt();
-                                input.nextLine(); // Consume newline character
+                                input.nextLine(); 
 
+                                //update element data
                                 switch (pilihan) {
                                     case 1:
                                         System.out.print("Masukkan Nama Barang Baru: ");
