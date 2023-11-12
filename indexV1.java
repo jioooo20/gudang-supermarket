@@ -222,19 +222,30 @@ public class indexV1 {
                             }
                             break;
                         case 2:
-                            System.out.print("Masukkan Nama Barang yang ingin dihapus: ");
-                            String namaBarangHapus = input.nextLine();
+                            System.out.println("=========================================");
+                            System.out.println("| NO\t| NAMA BARANG\t\t\t|");
+                            System.out.println("=========================================");
 
-                            int indexHapus = -1;
                             for (int i = 0; i < namaBrg.length; i++) {
-                                if (namaBrg[i].equalsIgnoreCase(namaBarangHapus)) {
-                                    indexHapus = i;
+                                System.out.printf("%s %d\t| %-25s\t|%n","|", (i + 1), namaBrg[i]);
+                            }
+
+                            System.out.println("=========================================");
+                            System.out.print("Masukkan Nomor barang: ");
+                            int noBrgHapus = input.nextInt();
+                            int hapus = -1;
+
+                            for (int i = 0; i < namaBrg.length; i++) {
+                                if (noBrgHapus >= 1 && noBrgHapus <= namaBrg.length) {
+                                    hapus = noBrgHapus-1;
                                     break;
                                 }
                             }
                             
-                            if (indexHapus != -1) {
-                                for (int i = indexHapus; i < namaBrg.length - 1; i++) {
+                            
+                            //hapus data barang
+                            if (hapus != -1) {
+                                for (int i = hapus; i < namaBrg.length - 1; i++) {
                                     namaBrg[i] = namaBrg[i + 1];
                                     tipeBrg[i] = tipeBrg[i + 1];
                                     prdDate[i] = prdDate[i + 1];
@@ -246,18 +257,55 @@ public class indexV1 {
                                     stokBrg[i] = stokBrg[i + 1];
                                 }
 
-                                int hapus = namaBrg.length - 1;
-                                namaBrg[hapus] = null;
-                                tipeBrg[hapus] = null;
-                                prdDate[hapus] = null;
-                                expDate[hapus] = null;
-                                supplier[hapus] = null;
-                                konSupp[hapus] = null;
-                                alamatSupp[hapus] = null;
-                                harga[hapus] = 0;
-                                stokBrg[hapus] = 0;
+                                //ubah ke nilai default
+                                int setHapus = namaBrg.length - 1;
+                                namaBrg[setHapus] = null;
+                                tipeBrg[setHapus] = null;
+                                prdDate[setHapus] = null;
+                                expDate[setHapus] = null;
+                                supplier[setHapus] = null;
+                                konSupp[setHapus] = null;
+                                alamatSupp[setHapus] = null;
+                                harga[setHapus] = 0;
+                                stokBrg[setHapus] = 0;
+
+                                // Kurangi panjang array
+                                int newHapus = namaBrg.length - 1;
+
+                                String[] newNamaBrg = new String[newHapus];
+                                String[] newTipeBrg = new String[newHapus];
+                                String[] newPrdDate = new String[newHapus];
+                                String[] newExpDate = new String[newHapus];
+                                String[] newSupplier = new String[newHapus];
+                                String[] newKonSupp = new String[newHapus];
+                                String[] newAlamatSupp = new String[newHapus];
+                                double[] newHarga = new double[newHapus];
+                                int[] newStokBrg = new int[newHapus];
+
+                                for (int i = 0; i < newHapus; i++) {
+                                    newNamaBrg[i] = namaBrg[i];
+                                    newTipeBrg[i] = tipeBrg[i];
+                                    newPrdDate[i] = prdDate[i];
+                                    newExpDate[i] = expDate[i];
+                                    newSupplier[i] = supplier[i];
+                                    newKonSupp[i] = konSupp[i];
+                                    newAlamatSupp[i] = alamatSupp[i];
+                                    newHarga[i] = harga[i];
+                                    newStokBrg[i] = stokBrg[i];
+                                }
+
+                                namaBrg = newNamaBrg;
+                                tipeBrg = newTipeBrg;
+                                prdDate = newPrdDate;
+                                expDate = newExpDate;
+                                supplier = newSupplier;
+                                konSupp = newKonSupp;
+                                alamatSupp = newAlamatSupp;
+                                harga = newHarga;
+                                stokBrg = newStokBrg;
+
                                 
-                                System.out.println("Data barang " + namaBarangHapus + " telah berhasil dihapus");
+                                System.out.println("Data barang " + namaBrg[hapus] + " telah berhasil dihapus");
                             } else {
                                 System.out.println("Barang tidak ditemukan");
                             }
