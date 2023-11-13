@@ -381,9 +381,44 @@ public class indexV1 {
                 System.out.println("Pilihan tidak valid.");
                 break;
 
-            case 3:
-                System.out.println("===========Item Categorization===========");
+                case 3:
+                System.out.println("=====Item Categorization=====");
+                System.out.println("=========================================");
+                System.out.println("| NO\t| KATEGORI BARANG\t\t|");
+                System.out.println("=========================================");
 
+                // menampilkan kategori tanpa duplikat
+                for (int i = 0; i < tipeBrg.length; i++) {
+                    boolean isDuplicate = false;
+
+                    // cek duplikasi
+                    for (int j = 0; j < i; j++) {
+                        if (tipeBrg[i].equals(tipeBrg[j])) {
+                            isDuplicate = true;
+                            break;
+                        }
+                    }
+
+                    // tampilkan kategori jika tidak ada duplikasi
+                    if (!isDuplicate) {
+                        System.out.printf("%s %d\t| %-25s\t|%n", "|", (i + 1), tipeBrg[i]);
+                    }
+                }
+
+                // input barang
+                System.out.println("=========================================");
+                System.out.print("Masukkan Nomor Kategori: ");
+                int noTipeBrg = input.nextInt();
+
+                // validasi nomor barang valid
+                if (noTipeBrg >= 1 && noTipeBrg <= tipeBrg.length) {
+                    System.out.println("Nomor barang valid.");
+                    
+
+
+                } else {
+                    System.out.println("Nomor barang tidak valid.");
+                }
             break;
             case 4:
             // loop nya ada yang ilang, lagi nyoba array. udah ketemu cara nambahin sesuai urutan, cuma lek ada lebih dr 1 produk carra ngatur supplier ini gimanaaa saya bingung
