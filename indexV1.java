@@ -46,94 +46,94 @@ public class indexV1 {
  
         switch (fitur) {
             case 1:
-            do{
-            int i=0;
-            System.out.println("=====Item Entry and Storage=====");
-            System.out.print("Masukkan Nama Supplier: ");
-            String newSupplier = input.nextLine();            
-            //buat array baru
-            int newSizeSupplier = supplier.length + 1;
-            String[] tempSuplier = new String[newSizeSupplier];
-            //copy 
-            for(int j=0; j<supplier.length; j++){
-                tempSuplier[j] = supplier[j];
-            }
-            //tambah nama supplier
-            tempSuplier[newSizeSupplier - 1] = newSupplier;
-            //tuker array lama ke baru
-            supplier[i] = tempSuplier[i];
-            input.next();
+                do{
+                int i=0;
+                System.out.println("=====Item Entry and Storage=====");
+                System.out.print("Masukkan Nama Supplier: ");
+                String newSupplier = input.nextLine();            
+                //buat array baru
+                int newSizeSupplier = supplier.length + 1;
+                String[] tempSuplier = new String[newSizeSupplier];
+                //copy 
+                for(int j=0; j<supplier.length; j++){
+                    tempSuplier[j] = supplier[j];
+                }
+                //tambah nama supplier
+                tempSuplier[newSizeSupplier - 1] = newSupplier;
+                //tuker array lama ke baru
+                supplier[i] = tempSuplier[i];
+                input.next();
 
-            System.out.print("Masukkan Nama Barang: ");
-            String newNama = input.nextLine();
-            int newSizeBarang = namaBrg.length + 1;
-            String[] tempnama = new String[newSizeBarang];
-            for(int j=0; j<namaBrg.length; j++){
-                tempnama[j]=namaBrg[j];
-            }
-            tempnama[newSizeBarang - 1] = newNama;
-            namaBrg = tempnama;
-            input.next();
+                System.out.print("Masukkan Nama Barang: ");
+                String newNama = input.nextLine();
+                int newSizeBarang = namaBrg.length + 1;
+                String[] tempnama = new String[newSizeBarang];
+                for(int j=0; j<namaBrg.length; j++){
+                    tempnama[j]=namaBrg[j];
+                }
+                tempnama[newSizeBarang - 1] = newNama;
+                namaBrg = tempnama;
+                input.next();
 
-            System.out.print("Masukkan Kategori Barang: ");
-            String newTipe = input.nextLine();
-            int newSizeTipe = tipeBrg.length + 1;
-            String[] tempTipe = new String[newSizeTipe];
-            for(int j=0; j<tipeBrg.length; j++){
-                tempTipe[j]=tipeBrg[j];
-            }
-            tempTipe[newSizeTipe - 1] = newTipe;
-            tipeBrg = tempTipe;
-            input.next();
+                System.out.print("Masukkan Kategori Barang: ");
+                String newTipe = input.nextLine();
+                int newSizeTipe = tipeBrg.length + 1;
+                String[] tempTipe = new String[newSizeTipe];
+                for(int j=0; j<tipeBrg.length; j++){
+                    tempTipe[j]=tipeBrg[j];
+                }
+                tempTipe[newSizeTipe - 1] = newTipe;
+                tipeBrg = tempTipe;
+                input.next();
 
-            System.out.print("Masukkan Tanggal Produksi Barang: ");
-            prdDate[i] = input.next();
-            input.nextLine();
+                System.out.print("Masukkan Tanggal Produksi Barang: ");
+                prdDate[i] = input.next();
+                input.nextLine();
 
-            System.out.print("Masukkan Tanggal Kadaluarsa Barang: ");
-            expDate[i] = input.next();
-            input.nextLine();
+                System.out.print("Masukkan Tanggal Kadaluarsa Barang: ");
+                expDate[i] = input.next();
+                input.nextLine();
 
-            System.out.print("Masukkan Harga Barang: ");
-            double newHarga = input.nextDouble();
-            int newSizeHarga = harga.length + 1;
-            double[] tempHarga = new double[newSizeHarga];
-            for(int j=0; j<harga.length;j++){
-                tempHarga[j] = harga[j];
-            }
-            tempHarga[newSizeHarga - 1] = newHarga;
-            harga = tempHarga;
-            
-            System.out.print("Masukkan Jumlah Stok Barang: ");
-            int newStok = input.nextInt();
-            int newSizeStok = stokBrg.length + 1;
-            int[] tempStok = new int[newSizeStok];
-            for(int j=0;j<stokBrg.length;j++){
-                tempStok[j] = stokBrg[j];
-            }
-            tempStok[newSizeStok - 1] = newStok;
-            stokBrg = tempStok;
-            
-            //coba ditampilkan(nnt dihapus)
-            for(int j=0;j<namaBrg.length; j++){
-                System.out.println((j+1) +" | "+ supplier[j]); //+" | "+ namaBrg[j] +" | "+tipeBrg[j]+" | "+prdDate[j]+" | "+harga[j]+" | "+stokBrg[j] );
-            }
+                System.out.print("Masukkan Harga Barang: ");
+                double newHarga = input.nextDouble();
+                int newSizeHarga = harga.length + 1;
+                double[] tempHarga = new double[newSizeHarga];
+                for(int j=0; j<harga.length;j++){
+                    tempHarga[j] = harga[j];
+                }
+                tempHarga[newSizeHarga - 1] = newHarga;
+                harga = tempHarga;
+                
+                System.out.print("Masukkan Jumlah Stok Barang: ");
+                int newStok = input.nextInt();
+                int newSizeStok = stokBrg.length + 1;
+                int[] tempStok = new int[newSizeStok];
+                for(int j=0;j<stokBrg.length;j++){
+                    tempStok[j] = stokBrg[j];
+                }
+                tempStok[newSizeStok - 1] = newStok;
+                stokBrg = tempStok;
+                
+                //coba ditampilkan(nnt dihapus)
+                for(int j=0;j<namaBrg.length; j++){
+                    System.out.println((j+1) +" | "+ supplier[j]); //+" | "+ namaBrg[j] +" | "+tipeBrg[j]+" | "+prdDate[j]+" | "+harga[j]+" | "+stokBrg[j] );
+                }
 
-            System.out.println("===========================================================================");
-            System.out.println("Barang telah berhasil ditambahkan");
-            System.out.println("Masukkan data lagi?");
-            System.out.println("1. Iya");
-            System.out.println("0. Kembali");
+                System.out.println("===========================================================================");
+                System.out.println("Barang telah berhasil ditambahkan");
+                System.out.println("Masukkan data lagi?");
+                System.out.println("1. Iya");
+                System.out.println("0. Kembali");
 
-            int pilihStop1 = input.nextInt();
-            if( pilihStop1 == 0){
-                stop = false; //kembali ke main menu
-            }else{
-                stop = true; // lanjut 
-            }
-            i++;
-            }while (stop);         
-            
+                int pilihStop1 = input.nextInt();
+                if( pilihStop1 == 0){
+                    stop = false; //kembali ke main menu
+                }else{
+                    stop = true; // lanjut 
+                }
+                i++;
+                }while (stop);         
+                
                 break;
                 case 2:
                     int menu2;
@@ -358,14 +358,48 @@ public class indexV1 {
                     }
                 } while (menu2 != stop2);
                 break;
-            default:
+                default:
                 System.out.println("Pilihan tidak valid.");
-                break;
+            break;
+            case 3:
+                System.out.println("=====Item Categorization=====");
+                System.out.println("=========================================");
+                System.out.println("| NO\t| KATEGORI BARANG\t\t|");
+                System.out.println("=========================================");
 
-            // case 3:
-            //     System.out.println("=====Item Categorization=====");
+                // menampilkan kategori tanpa duplikat
+                for (int i = 0; i < tipeBrg.length; i++) {
+                    boolean isDuplicate = false;
 
-            //     break;
+                    // cek duplikasi
+                    for (int j = 0; j < i; j++) {
+                        if (tipeBrg[i].equals(tipeBrg[j])) {
+                            isDuplicate = true;
+                            break;
+                        }
+                    }
+
+                    // tampilkan kategori jika tidak ada duplikasi
+                    if (!isDuplicate) {
+                        System.out.printf("%s %d\t| %-25s\t|%n", "|", (i + 1), tipeBrg[i]);
+                    }
+                }
+
+                // input barang
+                System.out.println("=========================================");
+                System.out.print("Masukkan Nomor Kategori: ");
+                int noTipeBrg = input.nextInt();
+
+                // validasi nomor barang valid
+                if (noTipeBrg >= 1 && noTipeBrg <= tipeBrg.length) {
+                    System.out.println("Nomor barang valid.");
+                    
+
+
+                } else {
+                    System.out.println("Nomor barang tidak valid.");
+                }
+            break;
             case 4:
             // loop nya ada yang ilang, lagi nyoba array. udah ketemu cara nambahin sesuai urutan, cuma lek ada lebih dr 1 produk carra ngatur supplier ini gimanaaa saya bingung
             int menu4;
@@ -487,84 +521,85 @@ public class indexV1 {
             //     break;
             
             case 7:
-                int menu7;
-                int stop7 = 0;
-                do {
-                System.out.println("=====Expiry Date Tracking=====");
-                System.out.println("Silahkan pilih menu:");
-                System.out.println("1. Cek tanggal kadaluarsa");
-                System.out.println("2. Tampilkan daftar kadaluarsa");
-                System.out.println("0. Kembali");
-                System.out.print("Pilih menu: ");
-                menu7 = input.nextInt();
-                int index = 0;
+            //     int menu7;
+            //     int stop7 = 0;
+            //     do {
+            //     System.out.println("=====Expiry Date Tracking=====");
+            //     System.out.println("Silahkan pilih menu:");
+            //     System.out.println("1. Cek tanggal kadaluarsa");
+            //     System.out.println("2. Tampilkan daftar kadaluarsa");
+            //     System.out.println("0. Kembali");
+            //     System.out.print("Pilih menu: ");
+            //     menu7 = input.nextInt();
+            //     int index = 0;
                 
-                switch (menu7) {
-                    case 1:
-                            System.out.println("Daftar Barang:");
-                            for (int i = 0; i < namaBrg.length; i++) {
-                                System.out.println((i+1) +". "+namaBrg[i]);
-                            }
+            //     switch (menu7) {
+            //         case 1:
+            //             //menampilkan daftar barang
+            //             System.out.println("Daftar Barang:");
+            //             for (int i = 0; i < namaBrg.length; i++) {
+            //                 System.out.println((i+1) +". "+namaBrg[i]);
+            //             }
 
-                            System.out.print("Masukkan Nomor barang: ");
-                            int noBarangCek = input.nextInt();
+            //             System.out.print("Masukkan Nomor barang: ");
+            //             int noBarangCek = input.nextInt();
 
-                            // Mengonversi tanggal kadaluwarsa dari string ke Date
-                            Date expDateCek = dateFormat.parse(expDate[index]);
+            //             // Mengonversi tanggal kadaluwarsa dari string ke Date
+            //             Date expDateCek = dateFormat.parse(expDate[index]);
 
-                            if (noBarangCek >= 1 && noBarangCek <= namaBrg.length) {
-                                index = noBarangCek - 1;
-                                //cek tanggal
-                                if (today.after(expDateCek)) {
-                                    System.out.println("Barang sudah kadaluwarsa");
-                                } else {
-                                    System.out.println("Barang belum kadaluwarsa");
-                                }
-                            } else {
-                                System.out.println("Indeks tidak valid.");
-                            }
-                            System.out.println("--------------------------------");
+            //             if (noBarangCek >= 1 && noBarangCek <= namaBrg.length) {
+            //                 index = noBarangCek - 1;
+            //                 //cek tanggal
+            //                 if (today.after(expDateCek)) {
+            //                     System.out.println("Barang sudah kadaluwarsa");
+            //                 } else {
+            //                     System.out.println("Barang belum kadaluwarsa");
+            //                 }
+            //             } else {
+            //                 System.out.println("Indeks tidak valid.");
+            //             }
+            //             System.out.println("--------------------------------");
                         
                             
-                    case 2:
-                        System.out.println("Daftar Barang Kadaluwarsa:");
-                        System.out.println("No\t| Nama Barang\t\t\t\t| Tanggal Kadaluwarsa\t| Status");
+            //         case 2:
+            //             System.out.println("Daftar Barang Kadaluwarsa:");
+            //             System.out.println("No\t| Nama Barang\t\t\t\t| Tanggal Kadaluwarsa\t| Status");
                         
-                        // Sorting tanggal kadaluwarsa terdekat
-                        for (int i = 0; i < namaBrg.length - 1; i++) {
-                            for (int j = 0; j < namaBrg.length - i - 1; j++) {
-                                Date date1 = dateFormat.parse(expDate[j]);
-                                Date date2 = dateFormat.parse(expDate[j + 1]);
+            //             // Sorting tanggal kadaluwarsa terdekat
+            //             for (int i = 0; i < namaBrg.length - 1; i++) {
+            //                 for (int j = 0; j < namaBrg.length - i - 1; j++) {
+            //                     Date date1 = dateFormat.parse(expDate[j]);
+            //                     Date date2 = dateFormat.parse(expDate[j + 1]);
 
-                                if (date1.after(date2)) {
-                                    // untuk ubah urutan nama
-                                    String tempNama = namaBrg[j];
-                                    namaBrg[j] = namaBrg[j + 1];
-                                    namaBrg[j + 1] = tempNama;
+            //                     if (date1.after(date2)) {
+            //                         // untuk ubah urutan nama
+            //                         String tempNama = namaBrg[j];
+            //                         namaBrg[j] = namaBrg[j + 1];
+            //                         namaBrg[j + 1] = tempNama;
 
-                                    //untuk ubah urutan tanggal kadaluwarsa
-                                    String tempDate = expDate[j];
-                                    expDate[j] = expDate[j + 1];
-                                    expDate[j + 1] = tempDate;
-                                }
-                            }
-                        }
-                        //menampilkan
-                        for (int i = 0; i < namaBrg.length; i++) {
-                            Date expDateDaftar = dateFormat.parse(expDate[i]);
+            //                         //untuk ubah urutan tanggal kadaluwarsa
+            //                         String tempDate = expDate[j];
+            //                         expDate[j] = expDate[j + 1];
+            //                         expDate[j + 1] = tempDate;
+            //                     }
+            //                 }
+            //             }
+            //             //menampilkan
+            //             for (int i = 0; i < namaBrg.length; i++) {
+            //                 Date expDateDaftar = dateFormat.parse(expDate[i]);
 
-                            if (today.after(expDateDaftar)) {
-                                System.out.printf("%d\t| %-30s\t| %-20s\t| %s%n", (i + 1), namaBrg[i], expDate[i], "Kadaluwarsa" );
-                            } else{
-                                System.out.printf("%d\t| %-30s\t| %-20s\t| %s%n", (i + 1), namaBrg[i], expDate[i], " (Belum Kadaluwarsa)" );
-                            }
-                        }
-                        System.out.println("--------------------------------------------------------------------------------------------");
-                    break;
-                    case 0:
-                    break;
-                }
-            } while (menu7 != stop7);
+            //                 if (today.after(expDateDaftar)) {
+            //                     System.out.printf("%d\t| %-30s\t| %-20s\t| %s%n", (i + 1), namaBrg[i], expDate[i], "Kadaluwarsa" );
+            //                 } else{
+            //                     System.out.printf("%d\t| %-30s\t| %-20s\t| %s%n", (i + 1), namaBrg[i], expDate[i], " (Belum Kadaluwarsa)" );
+            //                 }
+            //             }
+            //             System.out.println("--------------------------------------------------------------------------------------------");
+            //         break;
+            //         case 0:
+            //         break;
+            //     }
+            // } while (menu7 != stop7);
             break;
 
             case 8:
