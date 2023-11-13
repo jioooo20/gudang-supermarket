@@ -30,7 +30,7 @@ public class indexV1 {
         System.out.println("3.Item Categorization");
         System.out.println("4.Supplier Management");
         System.out.println("5.Stock Checking");
-        System.out.println("6.Code Scanning");
+        System.out.println("6.Item Scanning");
         System.out.println("7.Expiry Date Tracking ");
         System.out.println("8.Delivery");
         System.out.println("0.Keluar");
@@ -489,44 +489,50 @@ public class indexV1 {
 
             }while (menu4 != 0);
                 break;
-            // case 5:
-            //     int menu5;
-            //     int stop5 = 0;
-            //     do {
-            //     System.out.println("=====Stock Checking=====");
-            //     System.out.println("1. Cek Semua Stok Barang");
-            //     System.out.println("2. Cek Stok Berdasarkan Nama Barang");
-            //     System.out.println("0. Kembali");
-            //     System.out.print("Pilih Nomor : ");
-            //     menu5 = input.nextInt();
+                
+            case 5:
+                int menu5;
+                int stop5 = 0;
+                do {
+                System.out.println("=======================Stock Checking========================");
+                System.out.println("1. Cek Semua Stok Barang");
+                System.out.println("2. Cek Stok Berdasarkan Nama Barang");
+                System.out.println("0. Kembali");
+                System.out.print("Pilih Nomor : ");
+                menu5 = input.nextInt();
 
-            // switch (menu5) {
-            //     case 1:
-            //         System.out.println("Stok Barang :");
-            //         System.out.println("Nama Barang           : " + namaBrg );
-            //         System.out.println("Kategori Barang       : " + tipeBrg );
-            //         System.out.println("Harga Barang          : " + harga );
-            //         break;
-            //     case 2:
-            //         System.out.println("Masukkan Nama Barang Yang Ingin Anda Cek :");
-            //         namaBrg = input.next();
-            //         input.nextLine();
-            //         System.out.println("Nama Barang           : " );
-            //         System.out.println("Kategori Barang       : " );
-            //         System.out.println("Jumlah Stok Barang    : " );
-            //         break;
-            //     case 0:
-            //         break;
-            //     default:
-            //         System.out.println("Nomor menu yang anda masukkan salah");
-            //         break;
-            // }
-            // } while (menu5 != stop5);
-            //     break;
+            switch (menu5) {
+                case 1:
+                System.out.println("=============================================================");
+                System.out.println("======================Stok Semua Barang======================");
+                System.out.println("=============================================================");
+                System.out.printf("%-3s| %-25s| %-18s| %-8s| \n", "No", "Nama Barang", "Kategori", "Stok");
+                            for (int i=0;i<namaBrg.length; i++){
+                                System.out.printf("%-3d| %-25s| %-18s| %-8s| \n", (i+1), namaBrg[i], tipeBrg[i], stokBrg[i]);
+                            }
+                            
+                    break;
+
+                // case 2:
+                //     System.out.print("Masukkan Nama Barang : ");
+                //     String newNama = input.nextLine();
+                //     input.nextLine();
+                //     break;
+
+                case 0:
+                    break;
+
+                default:
+                    System.out.println("Nomor menu yang anda masukkan salah");
+                    break;
+            }
+            } while (menu5 != stop5);
+                break;
+
             // case 6:
             
             //     System.out.println("=====Item Scanning=====");
-            //     System.out.print("Masukkan nama Barang Yang Ingin Anda Scan: ");
+            //     System.out.print("Masukkan Nama Barang Yang Ingin Anda Scan: ");
             //     namaBrg = input.next();
             //     input.nextLine();
 
@@ -540,6 +546,7 @@ public class indexV1 {
             //     System.out.println("Jumlah Stok Barang        : \n" );
 
             //     break;
+
             // case 7:
             //     int menu7;
             //     int stop7 = 0;
