@@ -243,10 +243,46 @@ public class UpdateItem {
                                 namaBrg[j] = namaBrg[j + 1];
                                 namaBrg[j + 1] = tempNama;
 
+                                // untuk ubah urutan kategori
+                                String tempTipe = tipeBrg[j];
+                                tipeBrg[j] = tipeBrg[j + 1];
+                                tipeBrg[j + 1] = tempTipe;
+
+                                // untuk ubah urutan Tgl Produksi
+                                String tempPrdDate = prdDate[j];
+                                prdDate[j] = prdDate[j + 1];
+                                prdDate[j + 1] = tempPrdDate;
+
+                                // untuk ubah urutan Tgl kadaluwarsa
+                                String tempExpDate = expDate[j];
+                                expDate[j] = expDate[j + 1];
+                                expDate[j + 1] = tempExpDate;
+
+                                // untuk ubah urutan Supplier
+                                String tempSupplier = supplier[j];
+                                supplier[j] = supplier[j + 1];
+                                supplier[j + 1] = tempSupplier;
+
+                                // untuk ubah urutan Kontak Supplier
+                                String tempKonSupp = konSupp[j];
+                                konSupp[j] = konSupp[j + 1];
+                                konSupp[j + 1] = tempKonSupp;
+
+                                // untuk ubah urutan Alamat Supplier
+                                String tempAlamatSupp = alamatSupp[j];
+                                alamatSupp[j] = alamatSupp[j + 1];
+                                alamatSupp[j + 1] = tempAlamatSupp;
+
+                                //untuk ubah urutan stok
+                                double tempHarga = harga [j];
+                                harga[j] = harga[j + 1];
+                                harga[j + 1] = tempHarga;
+
                                 //untuk ubah urutan stok
                                 int tempStok = stokBrg[j];
                                 stokBrg[j] = stokBrg[j + 1];
                                 stokBrg[j + 1] = tempStok;
+
                             }
                         } 
                     }
