@@ -581,10 +581,7 @@ public class indexV1 {
             //     }
             // } while (menu7 != stop7);
             // break;
-            // case 0:
-            //     System.out.println("!!Anda keluar dari menu!!");
-            //     System.exit(0);
-            //     break;
+           
             case 8:
             int fitur8;
             do{       
@@ -724,55 +721,14 @@ public class indexV1 {
             }
 
             }while (fitur8 != 0);
-                break;//break menu8                 
+            break;//break menu8   
+            
+            case 0:
+            System.out.println("!!Anda keluar dari menu!!");
+            System.exit(0);
+            break;              
         }
         } while (fitur != 0);
 
     }
     }
-
-
-
-
-
-
-
-    // INI NOTE!!!
-
-    //  case 1:
-    //             do{
-    //             int i=0;
-    //             System.out.println("=====Item Entry and Storage=====");
-    //             System.out.print("Masukkan Nama Supplier: ");
-    //             supplier[i] = input.nextLine();
-    //             input.nextLine();
-    //             System.out.print("Masukkan Nama Barang: ");
-    //             namaBrg[i] = input.nextLine();
-    //             System.out.print("Masukkan Kategori Barang: ");
-    //             tipeBrg[i] = input.nextLine();
-    //             System.out.print("Masukkan Tanggal Produksi Barang: ");
-    //             prdDate[i] = input.next();
-    //             input.nextLine();
-    //             System.out.print("Masukkan Tanggal Kadaluarsa Barang: ");
-    //             expDate[i] = input.next();
-    //             input.nextLine();
-    //             System.out.print("Masukkan Harga Barang: ");
-    //             harga[i] = input.nextDouble();
-    //             input.nextLine();
-    //             System.out.print("Masukkan Jumlah Stok Barang: ");
-    //             stokBrg[i] = input.nextInt();
-    //             input.nextLine();
-    //             System.out.println("===========================================================================");
-    //             System.out.println("Barang telah berhasil ditambahkan");
-    //             System.out.println("Masukkan data lagi?");
-    //             System.out.println("1. Iya");
-    //             System.out.println("0. Kembali");
-    //             int pilihStop1 = input.nextInt();
-    //             if( pilihStop1 == 0){
-    //                 stop = false; //kembali ke main menu
-    //             }else{
-    //                 stop = true; // lanjut 
-    //             }
-    //             i++;
-    //             }while (stop);                     
-    //                 break;
