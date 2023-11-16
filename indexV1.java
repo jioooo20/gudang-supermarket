@@ -529,23 +529,38 @@ public class indexV1 {
             } while (menu5 != stop5);
                 break;
 
-            // case 6:
-            
-            //     System.out.println("=====Item Scanning=====");
-            //     System.out.print("Masukkan Nama Barang Yang Ingin Anda Scan: ");
-            //     namaBrg = input.next();
-            //     input.nextLine();
+            case 6:
+            int index = -1;
 
-            //     System.out.println("=====Data Barang yang Dicari=====");
-            //     System.out.println("Nama Barang               : \n" );
-            //     System.out.println("Kategori Barang           : \n" );
-            //     System.out.println("Nama Supplier             : \n" );
-            //     System.out.println("Tanggal Produksi Barang   : \n" );
-            //     System.out.println("Tanggal Kadaluarsa Barang : \n" );
-            //     System.out.println("Harga Barang              : \n" );
-            //     System.out.println("Jumlah Stok Barang        : \n" );
+                System.out.println("==============Item Scanning==============");
+                System.out.println("=========================================");
+                for (int i = 0; i < namaBrg.length; i++) {
+                            System.out.printf("%s %d\t| %-25s\t|%n","|", (i + 1), namaBrg[i]);
+                        }
+                        System.out.println("=========================================");
+                        System.out.print("Masukkan Nomor Barang: ");
+                        int cariBrg = input.nextInt();
+                        //cari index barang
+                        for (int i = 0; i < namaBrg.length; i++) {
+                            if (cariBrg >= 1 && cariBrg <= namaBrg.length) {
+                                index = cariBrg-1;
+                                break;
+                            }
+                        }
+                        if (index != -1) {
+                            System.out.println("Nama Barang         : "+ namaBrg[index]);
+                            System.out.println("Kategori Barang     : "+ tipeBrg[index]);
+                            System.out.println("Tanggal Produksi    : "+ prdDate[index]);
+                            System.out.println("Tanggal Kedaluwarsa : "+ expDate[index]);
+                            System.out.println("Nama Supplier       : "+ supplier[index]);
+                            System.out.println("Kontak Supplier     : "+ konSupp[index]);
+                            System.out.println("Alamat Supplier     : "+ alamatSupp[index]);
+                            System.out.println("Harga Barang        : "+ harga[index]);
+                        } else {
+                            System.out.println("Barang tidak ditemukan");
+                        }
 
-            //     break;
+                break;
 
             // case 7:
             //     int menu7;
