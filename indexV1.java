@@ -349,6 +349,41 @@ public class indexV1 {
                                         namaBrg[j] = namaBrg[j + 1];
                                         namaBrg[j + 1] = tempNama;
 
+                                        // untuk ubah urutan kategori
+                                        String tempTipe = tipeBrg[j];
+                                        tipeBrg[j] = tipeBrg[j + 1];
+                                        tipeBrg[j + 1] = tempTipe;
+
+                                        // untuk ubah urutan Tgl Produksi
+                                        String tempPrdDate = prdDate[j];
+                                        prdDate[j] = prdDate[j + 1];
+                                        prdDate[j + 1] = tempPrdDate;
+
+                                        // untuk ubah urutan Tgl kadaluwarsa
+                                        String tempExpDate = expDate[j];
+                                        expDate[j] = expDate[j + 1];
+                                        expDate[j + 1] = tempExpDate;
+
+                                        // untuk ubah urutan Supplier
+                                        String tempSupplier = supplier[j];
+                                        supplier[j] = supplier[j + 1];
+                                        supplier[j + 1] = tempSupplier;
+
+                                        // untuk ubah urutan Kontak Supplier
+                                        String tempKonSupp = konSupp[j];
+                                        konSupp[j] = konSupp[j + 1];
+                                        konSupp[j + 1] = tempKonSupp;
+
+                                        // untuk ubah urutan Alamat Supplier
+                                        String tempAlamatSupp = alamatSupp[j];
+                                        alamatSupp[j] = alamatSupp[j + 1];
+                                        alamatSupp[j + 1] = tempAlamatSupp;
+
+                                        //untuk ubah urutan stok
+                                        double tempHarga = harga [j];
+                                        harga[j] = harga[j + 1];
+                                        harga[j + 1] = tempHarga;
+
                                         //untuk ubah urutan stok
                                         int tempStok = stokBrg[j];
                                         stokBrg[j] = stokBrg[j + 1];
@@ -420,79 +455,113 @@ public class indexV1 {
                     System.out.println("Nomor barang tidak valid.");
                 }
             break;
+            
             case 4:
-            // loop nya ada yang ilang, lagi nyoba array. udah ketemu cara nambahin sesuai urutan, cuma lek ada lebih dr 1 produk carra ngatur supplier ini gimanaaa saya bingung
-            int menu4;
-            do{
-                System.out.println("===========Supplier Management==========");
-                System.out.println("1.Masukkan Supplier Baru");
-                System.out.println("2.Lihat Informasi Supplier");
-                System.out.println("0.Kembali");
-                System.out.print("Masukkan Nomor: ");
-                menu4 = input.nextInt();
-                if (menu4 == 0 ) {
-                    break;
-                }
-                switch(menu4){
-                    case 1 :
-                    int stop4 = 0;
-                    do{
-                    // String cariSupplier;
-                    int hasil = -1;                        
-                        // if(stop4 != 0 && stop4 != 1){
-                        //     System.out.println("=========================");
-                        //     System.out.println("Masukkan Data Supplier Lagi?");
-                        //     System.out.println("1. Iya");
-                        //     System.out.println("0. Tidak");
-                        //     System.out.print("Pilih angka 1 atau 0: ");                                                      
-                        //     stop4 = input.nextInt();         
-                        //     continue;         
-                        // }
-                    System.out.println("=========Masukkan Supplier Baru=========");
-                    System.out.print("Masukkan Supplier: ");
-                    String cariSupplier = input.next();
-                    for(int i=0; i<supplier.length; i++){
-                        if(supplier[i].equalsIgnoreCase(cariSupplier)){
-                            hasil=i;
+            // loop nya ada yang ilang, lagi nyoba array. udah ketemu cara nambahin sesuai
+                    // urutan, cuma lek ada lebih dr 1 produk carra ngatur supplier ini gimanaaa
+                    // saya bingung
+                    int menu4;
+                    do {
+                        System.out.println("===========Supplier Management==========");
+                        System.out.println("1.Edit Data Supplier");
+                        System.out.println("2.Lihat Informasi Supplier");
+                        System.out.println("0.Kembali");
+                        System.out.print("Masukkan Nomor: ");
+                        menu4 = input.nextInt();
+                        input.nextLine();
+                        if (menu4 == 0) {
                             break;
                         }
-                    }
-                    if (hasil == -1) {
-                    System.out.print("Masukkan Kontak Supplier: ");
-                    konSupp[hasil] = input.next();
-                    System.out.print("Masukkan Alamat Supplier: ");
-                    alamatSupp[hasil] = input.next();
-                    // System.out.println("=============================");
-                    // System.out.println("Masukkan Data Supplier Lagi?");
-                    // System.out.println("1. Iya");
-                    // System.out.println("0. Tidak");
-                    // System.out.print("Masukkan Nomer: ");
-                    // stop4 = input.nextInt();
-                    // if(stop4 != 0 && stop4 != 1 && stop4 >= 2){
-                    //     System.out.println("============================");
-                    //     System.out.println("Masukkan angka 0 atau 1");
-                    //     continue;
-                    // }
-                    } else {
-                        System.out.println("Supplier sudah ada");
-                    }
-                    } while (stop4 != 0);
-                    
-                    break;
-                    case 2:
-                    System.out.println("========================================");
-                    System.out.println("==============List Supplier=============");
-                    System.out.println("========================================");
-                    System.out.println("No |"+" Supplier \t| Kontak \t| Alamat  ");
-                    for(int i=0; i<supplier.length;i++){
-                        System.out.println((i+1)+"  | "+ supplier[i]+" \t| "+konSupp[i]+" \t| "+alamatSupp[i]);
-                    }
-                    System.out.println("========================================");                    
-                        break;
-                }
+                        switch (menu4) {
+                            case 1:
+                                int stop4 = 0;
+                                do {
+                                    // String cariSupplier;
+                                    int hasil = 0;
+                                    // if(stop4 != 0 && stop4 != 1){
+                                    // System.out.println("=========================");
+                                    // System.out.println("Masukkan Data Supplier Lagi?");
+                                    // System.out.println("1. Iya");
+                                    // System.out.println("0. Tidak");
+                                    // System.out.print("Pilih angka 1 atau 0: ");
+                                    // stop4 = input.nextInt();
+                                    // continue;
+                                    // }
+                                    System.out.println("=========Edit Data Supplier=========");
+                                    System.out.print("Masukkan Supplier: ");
+                                    String cariSupplier = input.next();
+                                    for (int i = 0; i < supplier.length; i++) {
+                                        if (supplier[i].equalsIgnoreCase(cariSupplier)) {
+                                            hasil = i;
+                                            break;
+                                        } else {
+                                            hasil = -1;
+                                        }
+                                    }
+                                    int count = 0;
+                                    for (int i = 0; i < supplier.length; i++) {
+                                        if (supplier[i].equalsIgnoreCase(cariSupplier)) {
+                                            count++;
+                                        }
+                                    }
+                                    if (hasil == -1) {
+                                        System.out.println("Barang Tidak Ada");
+                                    }
+                                    int[] lebihSatu = new int[count];
+                                    int currentIndex = 0;
+                                    if (count > 1) {
+                                        for (int i = 0; i < supplier.length; i++) {
+                                            if (supplier[i].equalsIgnoreCase(cariSupplier)) {
+                                                lebihSatu[currentIndex] = i;
+                                                currentIndex++;
+                                            }
+                                        }
+                                    }
 
-            }while (menu4 != 0);
-                break;
+                                    if (hasil >= 0 && hasil <= supplier.length) {
+                                        System.out.print("Masukkan Kontak Supplier: ");
+                                        String newKontak = input.next();
+                                        System.out.print("Masukkan Alamat Supplier: ");
+                                        String newAlamat = input.next();
+                                        if (count > 1) {
+                                            for (int i = 0; i < lebihSatu.length; i++) {
+                                                konSupp[lebihSatu[i]] = newKontak;
+                                                alamatSupp[lebihSatu[i]] = newAlamat;
+                                            }
+                                        }
+                                        konSupp[hasil] = newKontak;
+                                        alamatSupp[hasil] = newAlamat;
+                                    }
+                                    // System.out.println("=============================");
+                                    // System.out.println("Masukkan Data Supplier Lagi?");
+                                    // System.out.println("1. Iya");
+                                    // System.out.println("0. Tidak");
+                                    // System.out.print("Masukkan Nomer: ");
+                                    // stop4 = input.nextInt();
+                                    // if(stop4 != 0 && stop4 != 1 && stop4 >= 2){
+                                    // System.out.println("============================");
+                                    // System.out.println("Masukkan angka 0 atau 1");
+                                    // continue;
+                                    // }
+                                } while (stop4 != 0);
+
+                                break;
+                            case 2:
+                                System.out.println("========================================");
+                                System.out.println("==============List Supplier=============");
+                                System.out.println("========================================");
+                                System.out.printf("%-3s| %-15s| %-15s| %-10s|\n", "No", "Supplier", "Kontak",
+                                        " Alamat");
+                                for (int i = 0; i < supplier.length; i++) {
+                                    System.out.printf("%-3s| %-15s| %-15s| %-10s| \n", (i + 1), supplier[i], konSupp[i],
+                                            alamatSupp[i]);
+                                }
+                                System.out.println("========================================");
+                                break;
+                        } // "%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s
+
+                    } while (menu4 != 0);
+                    break;
                 
             case 5:
                 int menu5;
@@ -533,23 +602,39 @@ public class indexV1 {
             } while (menu5 != stop5);
                 break;
 
-            // case 6:
-            
-            //     System.out.println("=====Item Scanning=====");
-            //     System.out.print("Masukkan Nama Barang Yang Ingin Anda Scan: ");
-            //     namaBrg = input.next();
-            //     input.nextLine();
+            case 6:
+            int index = -1;
 
-            //     System.out.println("=====Data Barang yang Dicari=====");
-            //     System.out.println("Nama Barang               : \n" );
-            //     System.out.println("Kategori Barang           : \n" );
-            //     System.out.println("Nama Supplier             : \n" );
-            //     System.out.println("Tanggal Produksi Barang   : \n" );
-            //     System.out.println("Tanggal Kadaluarsa Barang : \n" );
-            //     System.out.println("Harga Barang              : \n" );
-            //     System.out.println("Jumlah Stok Barang        : \n" );
-
-            //     break;
+                System.out.println("==============Item Scanning==============");
+                System.out.println();
+                System.out.println("=========================================");
+                System.out.println("===============Pilih Barang==============");
+                for (int i = 0; i < namaBrg.length; i++) {
+                            System.out.printf("%s %d\t| %-25s\t|%n","|", (i + 1), namaBrg[i]);
+                        }
+                        System.out.println("=========================================");
+                        System.out.print("Pilih Nomor : ");
+                        int cariBrg = input.nextInt();
+                        //cari index barang
+                        for (int i = 0; i < namaBrg.length; i++) {
+                            if (cariBrg >= 1 && cariBrg <= namaBrg.length) {
+                                index = cariBrg-1;
+                                break;
+                            }
+                        }
+                        if (index != -1) {
+                            System.out.println("Nama Barang         : "+ namaBrg[index]);
+                            System.out.println("Kategori Barang     : "+ tipeBrg[index]);
+                            System.out.println("Tanggal Produksi    : "+ prdDate[index]);
+                            System.out.println("Tanggal Kedaluwarsa : "+ expDate[index]);
+                            System.out.println("Nama Supplier       : "+ supplier[index]);
+                            System.out.println("Kontak Supplier     : "+ konSupp[index]);
+                            System.out.println("Alamat Supplier     : "+ alamatSupp[index]);
+                            System.out.println("Harga Barang        : "+ harga[index]);
+                        } else {
+                            System.out.println("Nomor yang anda masukkan salah");
+                        }
+                break;
 
             // case 7:
             //     int menu7;
@@ -588,151 +673,181 @@ public class indexV1 {
            
             case 8:
             int fitur8;
-            do{       
-            System.out.println("================Delivery================");
-            System.out.println("1. Pengiriman");
-            System.out.println("2. Lihat Stok Cabang");
-            System.out.println("0. Kembali");
-            System.out.print("Masukkan Nomor Menu: ");
-            fitur8 = input.nextInt();
-            input.nextLine(); 
+                    do {
+                        System.out.println("================Delivery================");
+                        System.out.println("1. Pengiriman");
+                        System.out.println("2. Lihat Stok Cabang");
+                        System.out.println("0. Kembali");
+                        System.out.print("Masukkan Nomor Menu: ");
+                        fitur8 = input.nextInt();
+                        input.nextLine();
 
-            switch (fitur8) {
-                case 1:
-                    int stop81 = -1;
-                        int indeks=0;            
-                        int jumKirBarang; 
-                    do{                     
-                        System.out.println("=====Pilih Cabang Yang Akan Dikirim=====");                                                       
-                        System.out.println("1.Malang");
-                        System.out.println("2.Blitar");
-                        System.out.println("3.Tuban");
-                        System.out.println("0.Kembali");
-                        System.out.print("Masukkan Nomor Cabang: ");
-                        int kirim_cabang = input.nextInt();
-                        stop81 = kirim_cabang;// angka pada stop81 mengikuti input dari menu pilih cabang
-                        switch(kirim_cabang){
-                            case 1: 
-                            System.out.println("==============================================================================================================");
-                            System.out.println("=============================================Kirim Cabang Malang==============================================");
-                            System.out.println("==============================================================================================================");
-                            System.out.println("=================================================Stok Gudang==================================================");
-                            System.out.println("==============================================================================================================");
-                            System.out.printf("%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No", "Barang", "Supplier", "Kategori", "Produksi", "Kedaluwarsa", "Harga", "Stok");
-                            for (int i=0;i<namaBrg.length; i++){
-                                System.out.printf("%-3d| %-25s| %-18s| %-10s| %-12s| %-12s| %-10.1f| %-4d | \n", (i+1), namaBrg[i], supplier[i], tipeBrg[i], prdDate[i], expDate[i], harga[i], stokBrg[i]);
-                            }   //menampilkan informasi barang dalam gudang
-                            
-                            System.out.print("Masukkan Nomor Urut Barang: ");
-                            int cariNomorBarangMalang = input.nextInt();
+                        switch (fitur8) {
+                            case 1:
+                                int stop81 = -1;
+                                int indeks = 0;
+                                int jumKirBarang;
+                                do {
+                                    System.out.println("=====Pilih Cabang Yang Akan Dikirim=====");
+                                    System.out.println("1.Malang");
+                                    System.out.println("2.Blitar");
+                                    System.out.println("3.Tuban");
+                                    System.out.println("0.Kembali");
+                                    System.out.print("Masukkan Nomor Cabang: ");
+                                    int kirim_cabang = input.nextInt();
+                                    stop81 = kirim_cabang;// angka pada stop81 mengikuti input dari menu pilih cabang
+                                    switch (kirim_cabang) {
+                                        case 1:
+                                            System.out.println(
+                                                    "==============================================================================================================");
+                                            System.out.println(
+                                                    "=============================================Kirim Cabang Malang==============================================");
+                                            System.out.println(
+                                                    "==============================================================================================================");
+                                            System.out.println(
+                                                    "=================================================Stok Gudang==================================================");
+                                            System.out.println(
+                                                    "==============================================================================================================");
+                                            System.out.printf(
+                                                    "%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No",
+                                                    "Barang", "Supplier", "Kategori", "Produksi", "Kedaluwarsa",
+                                                    "Harga", "Stok");
+                                            for (int i = 0; i < namaBrg.length; i++) {
+                                                System.out.printf(
+                                                        "%-3d| %-25s| %-18s| %-10s| %-12s| %-12s| %-10.1f| %-4d | \n",
+                                                        (i + 1), namaBrg[i], supplier[i], tipeBrg[i], prdDate[i],
+                                                        expDate[i], harga[i], stokBrg[i]);
+                                            } // menampilkan informasi barang dalam gudang
 
-                            if (cariNomorBarangMalang >= 1 && cariNomorBarangMalang <= namaBrg.length) {
-                                indeks = cariNomorBarangMalang - 1;
-                                System.out.println("Barang yang akan dikirim adalah " + namaBrg[indeks]);
-                            } else {
-                                System.out.println("Indeks tidak valid.");
-                            }//mencari posisi index barang
+                                            System.out.print("Masukkan Nomor Urut Barang: ");
+                                            int cariNomorBarangMalang = input.nextInt();
 
-                            System.out.print("Masukkan Jumlah Barang: ");
-                            jumKirBarang = input.nextInt();
-                            stokBrg[indeks] -= jumKirBarang;  //mengurangi stok gudang
-                            stokCabang[0][indeks] += jumKirBarang; //menambah stok di cabang
+                                            if (cariNomorBarangMalang >= 1 && cariNomorBarangMalang <= namaBrg.length) {
+                                                indeks = cariNomorBarangMalang - 1;
+                                                System.out
+                                                        .println("Barang yang akan dikirim adalah " + namaBrg[indeks]);
+                                            } else {
+                                                System.out.println("Indeks tidak valid.");
+                                            } // mencari posisi index barang
 
+                                            System.out.print("Masukkan Jumlah Barang: ");
+                                            jumKirBarang = input.nextInt();
+                                            stokBrg[indeks] -= jumKirBarang; // mengurangi stok gudang
+                                            stokCabang[0][indeks] += jumKirBarang; // menambah stok di cabang
 
-                            break;
-                            case 2: 
-                            System.out.println("==============================================================================================================");
-                            System.out.println("===============================================Kirim Cabang Blitar============================================");
-                            System.out.println("==============================================================================================================");
-                            System.out.println("===================================================Stok Gudang================================================");
-                            System.out.println("==============================================================================================================");
-                            System.out.printf("%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No", "Barang", "Supplier", "Kategori", "Produksi", "Kedaluwarsa", "Harga", "Stok");
-                            for (int i=0;i<namaBrg.length; i++){
-                                System.out.printf("%-3d| %-25s| %-18s| %-10s| %-12s| %-12s| %-10.1f| %-4d | \n", (i+1), namaBrg[i], supplier[i], tipeBrg[i], prdDate[i], expDate[i], harga[i], stokBrg[i]);
-                            }   //menampilkan informasi barang dalam gudang
-                            
-                            System.out.print("Masukkan Nomor Urut Barang: ");
-                            int cariNomorBarangBlitar = input.nextInt();
+                                            break;
+                                        case 2:
+                                            System.out.println(
+                                                    "==============================================================================================================");
+                                            System.out.println(
+                                                    "===============================================Kirim Cabang Blitar============================================");
+                                            System.out.println(
+                                                    "==============================================================================================================");
+                                            System.out.println(
+                                                    "===================================================Stok Gudang================================================");
+                                            System.out.println(
+                                                    "==============================================================================================================");
+                                            System.out.printf(
+                                                    "%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No",
+                                                    "Barang", "Supplier", "Kategori", "Produksi", "Kedaluwarsa",
+                                                    "Harga", "Stok");
+                                            for (int i = 0; i < namaBrg.length; i++) {
+                                                System.out.printf(
+                                                        "%-3d| %-25s| %-18s| %-10s| %-12s| %-12s| %-10.1f| %-4d | \n",
+                                                        (i + 1), namaBrg[i], supplier[i], tipeBrg[i], prdDate[i],
+                                                        expDate[i], harga[i], stokBrg[i]);
+                                            } // menampilkan informasi barang dalam gudang
 
-                            if (cariNomorBarangBlitar >= 1 && cariNomorBarangBlitar <= namaBrg.length) {
-                                indeks = cariNomorBarangBlitar - 1;
-                                System.out.println("Barang yang akan dikirim adalah " + namaBrg[indeks]);
-                            } else {
-                                System.out.println("Indeks tidak valid.");
-                            }//mencari posisi index barang
+                                            System.out.print("Masukkan Nomor Urut Barang: ");
+                                            int cariNomorBarangBlitar = input.nextInt();
 
-                            System.out.print("Masukkan Jumlah Barang: ");
-                            jumKirBarang = input.nextInt();
-                            stokBrg[indeks] -= jumKirBarang;  //mengurangi stok gudang
-                            stokCabang[1][indeks] += jumKirBarang; //menambah stok di cabang                            
+                                            if (cariNomorBarangBlitar >= 1 && cariNomorBarangBlitar <= namaBrg.length) {
+                                                indeks = cariNomorBarangBlitar - 1;
+                                                System.out
+                                                        .println("Barang yang akan dikirim adalah " + namaBrg[indeks]);
+                                            } else {
+                                                System.out.println("Indeks tidak valid.");
+                                            } // mencari posisi index barang
 
-                            break;
-                            case 3: 
-                            System.out.println("==============================================================================================================");
-                            System.out.println("==============================================Kirim Cabang Tuban==============================================");
-                            System.out.println("==============================================================================================================");
-                            System.out.println("==================================================Stok Gudang=================================================");
-                            System.out.println("==============================================================================================================");
-                            System.out.printf("%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No", "Barang", "Supplier", "Kategori", "Produksi", "Kedaluwarsa", "Harga", "Stok");
-                            for (int i=0;i<namaBrg.length; i++){
-                                System.out.printf("%-3d| %-25s| %-18s| %-10s| %-12s| %-12s| %-10.1f| %-4d | \n", (i+1), namaBrg[i], supplier[i], tipeBrg[i], prdDate[i], expDate[i], harga[i], stokBrg[i]);
-                            }   //menampilkan informasi barang dalam gudang
-                            
-                            System.out.print("Masukkan Nomor Urut Barang: ");
-                            int cariNomorBarangTuban = input.nextInt();
+                                            System.out.print("Masukkan Jumlah Barang: ");
+                                            jumKirBarang = input.nextInt();
+                                            stokBrg[indeks] -= jumKirBarang; // mengurangi stok gudang
+                                            stokCabang[1][indeks] += jumKirBarang; // menambah stok di cabang
 
-                            if (cariNomorBarangTuban >= 1 && cariNomorBarangTuban <= namaBrg.length) {
-                                indeks = cariNomorBarangTuban - 1;
-                                System.out.println("Barang yang akan dikirim adalah " + namaBrg[indeks]);
-                            } else {
-                                System.out.println("Indeks tidak valid.");
-                            }//mencari posisi index barang
+                                            break;
+                                        case 3:
+                                            System.out.println(
+                                                    "==============================================================================================================");
+                                            System.out.println(
+                                                    "==============================================Kirim Cabang Tuban==============================================");
+                                            System.out.println(
+                                                    "==============================================================================================================");
+                                            System.out.println(
+                                                    "==================================================Stok Gudang=================================================");
+                                            System.out.println(
+                                                    "==============================================================================================================");
+                                            System.out.printf(
+                                                    "%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No",
+                                                    "Barang", "Supplier", "Kategori", "Produksi", "Kedaluwarsa",
+                                                    "Harga", "Stok");
+                                            for (int i = 0; i < namaBrg.length; i++) {
+                                                System.out.printf(
+                                                        "%-3d| %-25s| %-18s| %-10s| %-12s| %-12s| %-10.1f| %-4d | \n",
+                                                        (i + 1), namaBrg[i], supplier[i], tipeBrg[i], prdDate[i],
+                                                        expDate[i], harga[i], stokBrg[i]);
+                                            } // menampilkan informasi barang dalam gudang
 
-                            System.out.print("Masukkan Jumlah Barang: ");
-                            jumKirBarang = input.nextInt();
-                            stokBrg[indeks] -= jumKirBarang;  //mengurangi stok gudang
-                            stokCabang[2][indeks] += jumKirBarang; //menambah stok di cabang                              
+                                            System.out.print("Masukkan Nomor Urut Barang: ");
+                                            int cariNomorBarangTuban = input.nextInt();
 
-                            break;
-                            default:
-                            System.out.println("Pilih Nomor Cabang!!!");
-                            break;
+                                            if (cariNomorBarangTuban >= 1 && cariNomorBarangTuban <= namaBrg.length) {
+                                                indeks = cariNomorBarangTuban - 1;
+                                                System.out
+                                                        .println("Barang yang akan dikirim adalah " + namaBrg[indeks]);
+                                            } else {
+                                                System.out.println("Indeks tidak valid.");
+                                            } // mencari posisi index barang
+
+                                            System.out.print("Masukkan Jumlah Barang: ");
+                                            jumKirBarang = input.nextInt();
+                                            stokBrg[indeks] -= jumKirBarang; // mengurangi stok gudang
+                                            stokCabang[2][indeks] += jumKirBarang; // menambah stok di cabang
+
+                                            break;
+                                        default:
+                                            System.out.println("Pilih Nomor Cabang!!!");
+                                            break;
+                                    }
+
+                                } while (stop81 != 0);
+                                break;
+
+                            case 2:// tampilkan stok cabang
+                                System.out.println("==============================================");
+                                System.out.println("==================Stok Cabang=================");
+                                System.out.println("==============================================");
+                                System.out.printf("%-23s |", "Nama Barang");
+                                for (int i = 0; i < cabang.length; i++) {
+                                    System.out.printf("%-6s|", cabang[i]);
+                                }
+                                System.out.println();
+                                System.out.println("==============================================");
+
+                                for (int i = 0; i < namaBrg.length; i++) {
+                                    System.out.printf("%-24s", namaBrg[i]);
+                                    for (int j = 0; j < stokCabang.length; j++) {
+                                        System.out.printf("|  %-4d", stokCabang[j][i]);
+                                    }
+                                    System.out.println("|");
+                                }
+                                break; // break case 2
                         }
 
-
-                        } while (stop81 != 0);
-                    break;
-
-                case 2:// tampilkan stok cabang
-                    System.out.println("==============================================");
-                    System.out.println("==================Stok Cabang=================");
-                    System.out.println("==============================================");
-                    System.out.printf("%-23s |","Nama Barang");
-                    for (int i=0; i<cabang.length;i++){
-                        System.out.printf( "%-6s|", cabang[i]);
-                    }
-                    System.out.println();
-                    System.out.println("==============================================");
-
-                    for(int i=0;i<namaBrg.length;i++){
-                        System.out.printf("%-24s", namaBrg[i]);
-                        for(int j=0; j<stokCabang.length;j++){
-                            System.out.printf("|  %-4d", stokCabang[j][i]);
-                        }
-                        System.out.println("|");
-                    }
-                    break; //break case 2
+                    } while (fitur8 != 0);
+                    break;// break menu8
             }
-
-            }while (fitur8 != 0);
-            break;//break menu8   
-            
-            case 0:
-            System.out.println("!!Anda keluar dari menu!!");
-            System.exit(0);
-            break;              
-        }
         } while (fitur != 0);
 
     }
-    }
+    
+}
