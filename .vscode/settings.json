@@ -1,0 +1,7 @@
+{
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  }
+}

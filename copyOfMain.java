@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class indexV1 {
+public class copyOfMain {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
@@ -214,6 +214,7 @@ public class indexV1 {
         stokCabang[2][12] = 0;
         stokCabang[2][13] = 0;
         stokCabang[2][14] = 0;
+
         int menu, fitur;
         boolean stop = true;
 
