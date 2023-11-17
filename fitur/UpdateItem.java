@@ -23,13 +23,9 @@ public class UpdateItem {
             {6, 15, 20, 9, 14, 8, 12, 7, 10, 13, 5, 11, 6, 15, 7},   // blitar
             {7, 20, 25, 10, 13, 6, 15, 8, 12, 9, 14, 7, 11, 10, 13}  // tuban
         };
-        Date today = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        int menu, fitur;
-        boolean stop = true; 
-
-        int menu2;
-        int stop2 = 0;
+        
+        int menu;
+        int stop = 0;
         do {
             System.out.println("-----------------------------------------");
             System.out.println("|\t Update Item Information \t|");
@@ -40,11 +36,11 @@ public class UpdateItem {
             System.out.println("3. Tampilkan Item");
             System.out.println("0. Kembali");
             System.out.print("Masukkan Nomor: ");
-            menu2 = input.nextInt();
+            menu = input.nextInt();
             input.nextLine(); 
             int index = -1;
 
-            switch (menu2) {
+            switch (menu) {
                 case 1:
                 System.out.println("-------------------------");
                 System.out.println("|\tUPDATE DATA \t|");
@@ -78,8 +74,8 @@ public class UpdateItem {
                     System.out.println("5. Harga Barang");
                     System.out.println("6. Jumlah Stok Barang");
                     System.out.println("7. Supplier");
-                    System.out.println("8. Kontak Supplier");
-                    System.out.println("8. Alamat Supplier");
+                    System.out.println("8. Kontak Supplier");//hapus
+                    System.out.println("8. Alamat Supplier");//hapus
                     System.out.println("0. Selesai");
                     System.out.print("Pilih menu: ");
                     int pilihan = input.nextInt();
@@ -305,6 +301,6 @@ public class UpdateItem {
                     System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1, 2, atau 3");
                     break;
             }
-        } while (menu2 != stop2);
+        } while (menu != stop);
     }
 }
