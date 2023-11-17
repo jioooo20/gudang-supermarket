@@ -26,10 +26,10 @@ public class indexV1 {
         do{
         System.out.println("=============Selamat Datang=============");
         System.out.println("1.Item Entry and Storage"); 
-        System.out.println("2.Update Item Information"); 
+        System.out.println("2.Item Management Information"); 
         System.out.println("3.Item Categorization");
         System.out.println("4.Supplier Management");
-        System.out.println("5.Stock Checking");
+        // System.out.println("5.Stock Checking");
         System.out.println("6.Item Scanning");
         System.out.println("7.Expiry Date Tracking ");
         System.out.println("8.Delivery");
@@ -138,7 +138,7 @@ public class indexV1 {
                 int stop2 = 0;
                 do {
                     System.out.println("-----------------------------------------");
-                    System.out.println("|\t Update Item Information \t|");
+                    System.out.println("|\t Item Management Information \t|");
                     System.out.println("-----------------------------------------");
                     System.out.println("Silahkan Pilih");
                     System.out.println("1. Update");
@@ -149,7 +149,7 @@ public class indexV1 {
                     menu2 = input.nextInt();
                     input.nextLine(); 
                     int index = -1;
-
+                    
                     switch (menu2) {
                         case 1:
                         System.out.println("-------------------------");
@@ -158,6 +158,7 @@ public class indexV1 {
                         System.out.println("=========================================");
                         System.out.println("| NO\t| NAMA BARANG\t\t\t|");
                         System.out.println("=========================================");
+
                         //daftar barang
                         for (int i = 0; i < namaBrg.length; i++) {
                             System.out.printf("%s %d\t| %-25s\t|%n","|", (i + 1), namaBrg[i]);
@@ -184,8 +185,8 @@ public class indexV1 {
                             System.out.println("5. Harga Barang");
                             System.out.println("6. Jumlah Stok Barang");
                             System.out.println("7. Supplier");
-                            System.out.println("8. Kontak Supplier");
-                            System.out.println("8. Alamat Supplier");
+                            System.out.println("8. Kontak Supplier");//hapus
+                            System.out.println("8. Alamat Supplier");//hapus
                             System.out.println("0. Selesai");
                             System.out.print("Pilih menu: ");
                             int pilihan = input.nextInt();
@@ -326,9 +327,8 @@ public class indexV1 {
                                 alamatSupp = newAlamatSupp;
                                 harga = newHarga;
                                 stokBrg = newStokBrg;
-
                                 
-                                System.out.println("Data barang " + namaBrg[hapus] + " telah berhasil dihapus");
+                                System.out.println("Data barang " + namaBrg[newHapus] + " telah berhasil dihapus");
                             } else {
                                 System.out.println("Barang tidak ditemukan");
                             }
@@ -438,7 +438,7 @@ public class indexV1 {
                     int stop4 = 0;
                     do{
                     // String cariSupplier;
-                    int hasil=0;                        
+                    int hasil = -1;                        
                         // if(stop4 != 0 && stop4 != 1){
                         //     System.out.println("=========================");
                         //     System.out.println("Masukkan Data Supplier Lagi?");
@@ -457,6 +457,7 @@ public class indexV1 {
                             break;
                         }
                     }
+                    if (hasil == -1) {
                     System.out.print("Masukkan Kontak Supplier: ");
                     konSupp[hasil] = input.next();
                     System.out.print("Masukkan Alamat Supplier: ");
@@ -472,8 +473,11 @@ public class indexV1 {
                     //     System.out.println("Masukkan angka 0 atau 1");
                     //     continue;
                     // }
+                    } else {
+                        System.out.println("Supplier sudah ada");
+                    }
                     } while (stop4 != 0);
-
+                    
                     break;
                     case 2:
                     System.out.println("========================================");
