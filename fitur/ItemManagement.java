@@ -244,9 +244,14 @@ public class ItemManagement {
                     System.out.println("| NO\t| NAMA BARANG\t\t\t|");
                     System.out.println("=========================================");
 
-                    // daftar barang
+                    //daftar barang
                     for (int i = 0; i < namaBrg.length; i++) {
-                        System.out.printf("%s %d\t| %-25s\t|%n", "|", (i + 1), namaBrg[i]);
+                        if (namaBrg[i] == null || tipeBrg[i] == null || prdDate[i] == null || expDate[i] == null || supplier[i] == null || konSupp[i] == null || alamatSupp[i] == null || harga[i] == 0 || stokBrg[i] == 0) {
+                            
+                            continue;
+                        } else {
+                        System.out.printf("%s %d\t| %-25s\t|%n","|", (i + 1), namaBrg[i]);
+                        }
                     }
 
                     System.out.println("=========================================");
@@ -280,30 +285,37 @@ public class ItemManagement {
                     // update element data
                     switch (pilihan) {
                         case 1:
-                            System.out.print("Masukkan Nama Barang Baru: ");
+                            System.out.println("Nama Barang Lama\t\t: " + namaBrg[index]);
+                            System.out.print("Masukkan Nama Barang Baru\t: ");
                             namaBrg[index] = input.nextLine();
                             break;
                         case 2:
+                            System.out.println("Kategori Barang Lama: " + tipeBrg[index]);
                             System.out.print("Masukkan Kategori Barang Baru: ");
                             tipeBrg[index] = input.nextLine();
                             break;
                         case 3:
+                            System.out.println("Tanggal Produksi Lama: " + prdDate[index]);
                             System.out.print("Masukkan Tanggal Produksi Baru: ");
                             prdDate[index] = input.nextLine();
                             break;
                         case 4:
-                            System.out.print("Masukkan Tanggal Kadaluarsa Baru: ");
+                            System.out.println("Tanggal Kadaluwarsa Lama: " + expDate[index]);
+                            System.out.print("Masukkan Tanggal Kadaluwarsa Baru: ");
                             expDate[index] = input.nextLine();
                             break;
                         case 5:
+                            System.out.println("Harga Barang Lama: " + harga[index]);
                             System.out.print("Masukkan Harga Barang Baru: ");
                             harga[index] = input.nextDouble();
                             break;
                         case 6:
+                            System.out.println("Jumlah Stok Barang Lama: " + stokBrg[index]);
                             System.out.print("Masukkan Jumlah Stok Barang Baru: ");
                             stokBrg[index] = input.nextInt();
                             break;
                         case 7:
+                            System.out.println("Supplier Barang Lama: " + stokBrg[index]);
                             System.out.print("Masukkan Supplier Barang Baru: ");
                             supplier[index] = input.nextLine();
                             break;
@@ -327,7 +339,12 @@ public class ItemManagement {
                     
                     //daftar barang
                     for (int i = 0; i < namaBrg.length; i++) {
+                        if (namaBrg[i] == null || tipeBrg[i] == null || prdDate[i] == null || expDate[i] == null || supplier[i] == null || konSupp[i] == null || alamatSupp[i] == null || harga[i] == 0 || stokBrg[i] == 0) {
+                            
+                            continue;
+                        } else {
                         System.out.printf("%s %d\t| %-25s\t|%n","|", (i + 1), namaBrg[i]);
+                        }
                     }
 
                     System.out.println("=========================================");
@@ -357,57 +374,21 @@ public class ItemManagement {
                             harga[i] = harga[i + 1];
                             stokBrg[i] = stokBrg[i + 1];
                         }
-
-                        //mengubah ke nilai default
-                        int setHapus = namaBrg.length - 1;
-                        namaBrg[setHapus] = null;
-                        tipeBrg[setHapus] = null;
-                        prdDate[setHapus] = null;
-                        expDate[setHapus] = null;
-                        supplier[setHapus] = null;
-                        konSupp[setHapus] = null;
-                        alamatSupp[setHapus] = null;
-                        harga[setHapus] = 0;
-                        stokBrg[setHapus] = 0;
-
-                        // Kurangi panjang array
-                        int newHapus = namaBrg.length - 1;
-
-                        String[] newNamaBrg = new String[newHapus];
-                        String[] newTipeBrg = new String[newHapus];
-                        String[] newPrdDate = new String[newHapus];
-                        String[] newExpDate = new String[newHapus];
-                        String[] newSupplier = new String[newHapus];
-                        String[] newKonSupp = new String[newHapus];
-                        String[] newAlamatSupp = new String[newHapus];
-                        double[] newHarga = new double[newHapus];
-                        int[] newStokBrg = new int[newHapus];
-
-                        for (int i = 0; i < newHapus; i++) {
-                            newNamaBrg[i] = namaBrg[i];
-                            newTipeBrg[i] = tipeBrg[i];
-                            newPrdDate[i] = prdDate[i];
-                            newExpDate[i] = expDate[i];
-                            newSupplier[i] = supplier[i];
-                            newKonSupp[i] = konSupp[i];
-                            newAlamatSupp[i] = alamatSupp[i];
-                            newHarga[i] = harga[i];
-                            newStokBrg[i] = stokBrg[i];
-                        }
-
-                        namaBrg = newNamaBrg;
-                        tipeBrg = newTipeBrg;
-                        prdDate = newPrdDate;
-                        expDate = newExpDate;
-                        supplier = newSupplier;
-                        konSupp = newKonSupp;
-                        alamatSupp = newAlamatSupp;
-                        harga = newHarga;
-                        stokBrg = newStokBrg;
-
+                    
+                        // // Set elemen terakhir ke null untuk menghapus data yang duplikat
+                        // int newHapus = namaBrg.length - 1;
+                        // namaBrg[newHapus] = null;
+                        // tipeBrg[newHapus] = null;
+                        // prdDate[newHapus] = null;
+                        // expDate[newHapus] = null;
+                        // supplier[newHapus] = null;
+                        // konSupp[newHapus] = null;
+                        // alamatSupp[newHapus] = null;
+                        // harga[newHapus] = 0;
+                        // stokBrg[newHapus] = 0;
                         
                         System.out.println("Data barang " + namaBrgHapus + " telah berhasil dihapus");
-                    } 
+                    }  
                 break;
                 case 3:
                     System.out.println("================================================================================================================================================");
