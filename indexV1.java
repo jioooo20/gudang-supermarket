@@ -511,76 +511,94 @@ public class indexV1 {
                                 System.out.println("| NO\t| NAMA BARANG\t\t\t| KATEGORI\t| TGL PRODUKSI\t| TGL KADALUWARSA\t| SUPPLIER\t\t| HARGA\t\t| STOK |");
                                 System.out.println("================================================================================================================================================");
                                 
-                                // // Sorting dari jumlah stok barang paling sedikit ke yang paling banyak
-                                // for (int i = 0; i < stokBrg.length - 1; i++) {
-                                //     for (int j = 0; j < stokBrg.length - i - 1; j++) {
-                                //         if (stokBrg[j] > stokBrg[j+1]) {
-                                //             // untuk ubah urutan nama
-                                //             String tempNama = namaBrg[j];
-                                //             namaBrg[j] = namaBrg[j + 1];
-                                //             namaBrg[j + 1] = tempNama;
-            
-                                //             // untuk ubah urutan kategori
-                                //             String tempTipe = tipeBrg[j];
-                                //             tipeBrg[j] = tipeBrg[j + 1];
-                                //             tipeBrg[j + 1] = tempTipe;
-            
-                                //             // untuk ubah urutan Tgl Produksi
-                                //             String tempPrdDate = prdDate[j];
-                                //             prdDate[j] = prdDate[j + 1];
-                                //             prdDate[j + 1] = tempPrdDate;
-            
-                                //             // untuk ubah urutan Tgl kadaluwarsa
-                                //             String tempExpDate = expDate[j];
-                                //             expDate[j] = expDate[j + 1];
-                                //             expDate[j + 1] = tempExpDate;
-            
-                                //             // untuk ubah urutan Supplier
-                                //             String tempSupplier = supplier[j];
-                                //             supplier[j] = supplier[j + 1];
-                                //             supplier[j + 1] = tempSupplier;
-            
-                                //             // untuk ubah urutan Kontak Supplier
-                                //             String tempKonSupp = konSupp[j];
-                                //             konSupp[j] = konSupp[j + 1];
-                                //             konSupp[j + 1] = tempKonSupp;
-            
-                                //             // untuk ubah urutan Alamat Supplier
-                                //             String tempAlamatSupp = alamatSupp[j];
-                                //             alamatSupp[j] = alamatSupp[j + 1];
-                                //             alamatSupp[j + 1] = tempAlamatSupp;
-            
-                                //             //untuk ubah urutan stok
-                                //             double tempHarga = harga [j];
-                                //             harga[j] = harga[j + 1];
-                                //             harga[j + 1] = tempHarga;
-            
-                                //             //untuk ubah urutan stok
-                                //             int tempStok = stokBrg[j];
-                                //             stokBrg[j] = stokBrg[j + 1];
-                                //             stokBrg[j + 1] = tempStok;
-            
-                                //         }
-                                //     } 
-                                // }
+                                // Salin array yang akan diurutkan secara manual
+                                String[] sortNamaBrg = new String[namaBrg.length];
+                                String[] sortTipeBrg = new String[tipeBrg.length];
+                                String[] sortPrdDate = new String[prdDate.length];
+                                String[] sortExpDate = new String[expDate.length];
+                                String[] sortSupplier = new String[supplier.length];
+                                String[] sortKonSupp = new String[konSupp.length];
+                                String[] sortAlamatSupp = new String[alamatSupp.length];
+                                double[] sortHarga = new double[harga.length];
+                                int[] sortStokBrg = new int[stokBrg.length];
+
+                                for (int i = 0; i < namaBrg.length; i++) {
+                                    sortNamaBrg[i] = namaBrg[i];
+                                    sortTipeBrg[i] = tipeBrg[i];
+                                    sortPrdDate[i] = prdDate[i];
+                                    sortExpDate[i] = expDate[i];
+                                    sortSupplier[i] = supplier[i];
+                                    sortKonSupp[i] = konSupp[i];
+                                    sortAlamatSupp[i] = alamatSupp[i];
+                                    sortHarga[i] = harga[i];
+                                    sortStokBrg[i] = stokBrg[i];
+                                }
+
+                                // Sorting dari jumlah stok barang paling sedikit ke yang paling banyak
+                                for (int i = 0; i < sortStokBrg.length - 1; i++) {
+                                    for (int j = 0; j < sortStokBrg.length - i - 1; j++) {
+                                        if (sortStokBrg[j] > sortStokBrg[j+1]) {
+                                            // untuk ubah urutan nama
+                                            String tempNama = sortNamaBrg[j];
+                                            sortNamaBrg[j] = sortNamaBrg[j + 1];
+                                            sortNamaBrg[j + 1] = tempNama;
+
+                                            // untuk ubah urutan kategori
+                                            String tempTipe = sortTipeBrg[j];
+                                            sortTipeBrg[j] = sortTipeBrg[j + 1];
+                                            sortTipeBrg[j + 1] = tempTipe;
+
+                                            // untuk ubah urutan Tgl Produksi
+                                            String tempPrdDate = sortPrdDate[j];
+                                            sortPrdDate[j] = sortPrdDate[j + 1];
+                                            sortPrdDate[j + 1] = tempPrdDate;
+
+                                            // untuk ubah urutan Tgl kadaluwarsa
+                                            String tempExpDate = sortExpDate[j];
+                                            sortExpDate[j] = sortExpDate[j + 1];
+                                            sortExpDate[j + 1] = tempExpDate;
+
+                                            // untuk ubah urutan Supplier
+                                            String tempSupplier = sortSupplier[j];
+                                            sortSupplier[j] = sortSupplier[j + 1];
+                                            sortSupplier[j + 1] = tempSupplier;
+
+                                            // untuk ubah urutan Kontak Supplier
+                                            String tempKonSupp = sortKonSupp[j];
+                                            sortKonSupp[j] = sortKonSupp[j + 1];
+                                            sortKonSupp[j + 1] = tempKonSupp;
+
+                                            // untuk ubah urutan Alamat Supplier
+                                            String tempAlamatSupp = sortAlamatSupp[j];
+                                            sortAlamatSupp[j] = sortAlamatSupp[j + 1];
+                                            sortAlamatSupp[j + 1] = tempAlamatSupp;
+
+                                            //untuk ubah urutan stok
+                                            double tempHarga = sortHarga [j];
+                                            sortHarga[j] = sortHarga[j + 1];
+                                            sortHarga[j + 1] = tempHarga;
+
+                                            //untuk ubah urutan stok
+                                            int tempStok = sortStokBrg[j];
+                                            sortStokBrg[j] = sortStokBrg[j + 1];
+                                            sortStokBrg[j + 1] = tempStok;
+
+                                        }
+                                    } 
+                                }
                                 
                                 //menampilkan data barang
                                 int indexTampil = 1;
-                                for (int i = 0; i < namaBrg.length; i++) {
-                                    if (namaBrg[i] == null || tipeBrg[i] == null || prdDate[i] == null || expDate[i] == null || supplier[i] == null || konSupp[i] == null || alamatSupp[i] == null || harga[i] == 0 || stokBrg[i] == 0) {
+                                for (int i = 0; i < sortNamaBrg.length; i++) {
+                                    if (sortNamaBrg[i] == null || sortTipeBrg[i] == null || sortPrdDate[i] == null || sortExpDate[i] == null || sortSupplier[i] == null || sortKonSupp[i] == null || sortAlamatSupp[i] == null || sortHarga[i] == 0 || sortStokBrg[i] == 0) {
                                         
                                         continue;
                                     } else{
-                                        System.out.printf("%s %d\t| %-25s\t| %-10s\t| %-10s\t| %-15s\t| %-15s\t| %-10s\t| %-5s|%n", "|", indexTampil++, namaBrg[i], tipeBrg[i], prdDate[i], expDate[i], supplier[i], harga[i], stokBrg[i]);
+                                        System.out.printf("%s %d\t| %-25s\t| %-10s\t| %-10s\t| %-15s\t| %-15s\t| %-10s\t| %-5s|%n", "|", indexTampil++, sortNamaBrg[i], sortTipeBrg[i], sortPrdDate[i], sortExpDate[i], sortSupplier[i], sortHarga[i], sortStokBrg[i]);
                                     }
                                 }   
                                 System.out.println("================================================================================================================================================");
                             break;
-                            case 0:
-                                break;
-                            default:
-                                System.out.println("Nomor menu yang anda masukkan salah, silahkan pilih antara 1, 2, atau 3");
-                                break;
                         }
                     } while (menu2 != stop2);
                 default:
