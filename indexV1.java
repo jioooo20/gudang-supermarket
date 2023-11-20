@@ -95,21 +95,21 @@ public class indexV1 {
         supplier[13] = "Coca-Cola";
         supplier[14] = "Cap Lang";
 
-        konSupp[0] = "08214141414";
-        konSupp[1] = "08515151521";
-        konSupp[2] = "08123456789";
-        konSupp[3] = "08765432100";
-        konSupp[4] = "08214141414";
-        konSupp[5] = "08515151521";
-        konSupp[6] = "08123456789";
-        konSupp[7] = "08765432100";
-        konSupp[8] = "08214141414";
-        konSupp[9] = "08515151521";
-        konSupp[10] = "08123456789";
-        konSupp[11] = "08765432100";
-        konSupp[12] = "08214141414";
-        konSupp[13] = "08515151521";
-        konSupp[14] = "08123456789";
+        konSupp[0] = "081010101001";
+        konSupp[1] = "082314312302";
+        konSupp[2] = "081348753403";
+        konSupp[3] = "087658328704";
+        konSupp[4] = "082384752405";
+        konSupp[5] = "085847539206";
+        konSupp[6] = "081234239307";
+        konSupp[7] = "087654321008";
+        konSupp[8] = "082141412009";
+        konSupp[9] = "085151515010";
+        konSupp[10] = "081234356011";
+        konSupp[11] = "087654432012";
+        konSupp[12] = "082145141413";
+        konSupp[13] = "085156151014";
+        konSupp[14] = "081237456015";
 
         alamatSupp[0] = "Jakarta";
         alamatSupp[1] = "Bandung";
@@ -164,55 +164,55 @@ public class indexV1 {
         cabang[2] = "Tuban";
 
         int[][] stokCabang = new int[3][20];
-        // malang
+        // malang/warteg
         stokCabang[0][0] = 5;
         stokCabang[0][1] = 10;
-        stokCabang[0][2] = 15;
-        stokCabang[0][3] = 8;
+        stokCabang[0][2] = 0;
+        stokCabang[0][3] = 0;
         stokCabang[0][4] = 12;
         stokCabang[0][5] = 7;
-        stokCabang[0][6] = 14;
-        stokCabang[0][7] = 6;
+        stokCabang[0][6] = 0;
+        stokCabang[0][7] = 0;
         stokCabang[0][8] = 9;
         stokCabang[0][9] = 11;
         stokCabang[0][10] = 0;
         stokCabang[0][11] = 0;
-        stokCabang[0][12] = 0;
-        stokCabang[0][13] = 0;
+        stokCabang[0][12] = 10;
+        stokCabang[0][13] = 20;
         stokCabang[0][14] = 0;
 
-        // blitar
-        stokCabang[1][0] = 6;
+        // blitar/apotek
+        stokCabang[1][0] = 0;
         stokCabang[1][1] = 15;
         stokCabang[1][2] = 20;
-        stokCabang[1][3] = 9;
+        stokCabang[1][3] = 0;
         stokCabang[1][4] = 14;
         stokCabang[1][5] = 8;
         stokCabang[1][6] = 12;
-        stokCabang[1][7] = 7;
-        stokCabang[1][8] = 10;
+        stokCabang[1][7] = 0;
+        stokCabang[1][8] = 0;
         stokCabang[1][9] = 13;
-        stokCabang[1][10] = 0;
+        stokCabang[1][10] = 10;
         stokCabang[1][11] = 0;
         stokCabang[1][12] = 0;
-        stokCabang[1][13] = 0;
-        stokCabang[1][14] = 0;
+        stokCabang[1][13] = 12;
+        stokCabang[1][14] = 9;
 
-        // tuban
+        // tuban/warmadura
         stokCabang[2][0] = 7;
         stokCabang[2][1] = 20;
-        stokCabang[2][2] = 25;
+        stokCabang[2][2] = 0;
         stokCabang[2][3] = 10;
         stokCabang[2][4] = 13;
         stokCabang[2][5] = 6;
-        stokCabang[2][6] = 15;
+        stokCabang[2][6] = 0;
         stokCabang[2][7] = 8;
         stokCabang[2][8] = 12;
         stokCabang[2][9] = 9;
-        stokCabang[2][10] = 0;
-        stokCabang[2][11] = 0;
-        stokCabang[2][12] = 0;
-        stokCabang[2][13] = 0;
+        stokCabang[2][10] = 18;
+        stokCabang[2][11] = 4;
+        stokCabang[2][12] = 12;
+        stokCabang[2][13] = 3;
         stokCabang[2][14] = 0;
         int menu, fitur;
         boolean stop = true;
@@ -245,12 +245,12 @@ public class indexV1 {
                         System.out.println("=========Item Entry and Storage=========");
                         System.out.println("========================================");
                         System.out.print("Masukkan Nama Supplier: ");
-                        
+
                         i++;
                     } while (stop);
 
                     break;
-                    case 2:
+                case 2:
                     int menu2;
                     int stop2 = 0;
                     do {
@@ -264,103 +264,104 @@ public class indexV1 {
                         System.out.println("0. Kembali");
                         System.out.print("Masukkan Nomor: ");
                         menu2 = input.nextInt();
-                        input.nextLine(); 
+                        input.nextLine();
                         int index = -1;
-            
+
                         switch (menu2) {
                             case 1:
-                            System.out.println("-------------------------");
-                            System.out.println("|\tUPDATE DATA \t|");
-                            System.out.println("-------------------------");
-                            System.out.println("=========================================");
-                            System.out.println("| NO\t| NAMA BARANG\t\t\t|");
-                            System.out.println("=========================================");
+                                System.out.println("-------------------------");
+                                System.out.println("|\tUPDATE DATA \t|");
+                                System.out.println("-------------------------");
+                                System.out.println("=========================================");
+                                System.out.println("| NO\t| NAMA BARANG\t\t\t|");
+                                System.out.println("=========================================");
 
-                            //daftar barang
-                            for (int i = 0; i < namaBrg.length; i++) {
-                                if (namaBrg[i] == null || tipeBrg[i] == null || prdDate[i] == null || expDate[i] == null || supplier[i] == null || konSupp[i] == null || alamatSupp[i] == null || harga[i] == 0 || stokBrg[i] == 0) {
-                                    
-                                    continue;
-                                } else {
-                                System.out.printf("%s %d\t| %-25s\t|%n","|", (i + 1), namaBrg[i]);
+                                // daftar barang
+                                for (int i = 0; i < namaBrg.length; i++) {
+                                    if (namaBrg[i] == null || tipeBrg[i] == null || prdDate[i] == null
+                                            || expDate[i] == null || supplier[i] == null || konSupp[i] == null
+                                            || alamatSupp[i] == null || harga[i] == 0 || stokBrg[i] == 0) {
+
+                                        continue;
+                                    } else {
+                                        System.out.printf("%s %d\t| %-25s\t|%n", "|", (i + 1), namaBrg[i]);
+                                    }
                                 }
-                            }
 
-                            System.out.println("=========================================");
-                            System.out.print("Masukkan Nomor Barang: ");
-                            int noBrgUpdate = input.nextInt();
+                                System.out.println("=========================================");
+                                System.out.print("Masukkan Nomor Barang: ");
+                                int noBrgUpdate = input.nextInt();
 
-                            // cari index barang
-                            if (noBrgUpdate >= 1 && noBrgUpdate <= namaBrg.length) {
-                                index = noBrgUpdate - 1;
-                            }
-                            else {
-                                System.out.println("Nomor Barang tidak valid.");
-                                continue;
-                            }
+                                // cari index barang
+                                if (noBrgUpdate >= 1 && noBrgUpdate <= namaBrg.length) {
+                                    index = noBrgUpdate - 1;
+                                } else {
+                                    System.out.println("Nomor Barang tidak valid.");
+                                    continue;
+                                }
 
-                            // daftar part update
-                            System.out.println("============================");
-                            System.out.println("Part yang ingin anda ubah:");
-                            System.out.println("1. Nama Barang");
-                            System.out.println("2. Kategori Barang");
-                            System.out.println("3. Tanggal Produksi Barang");
-                            System.out.println("4. Tanggal Kadaluwarsa Barang");
-                            System.out.println("5. Harga Barang");
-                            System.out.println("6. Jumlah Stok Barang");
-                            System.out.println("7. Supplier");
-                            System.out.println("0. Selesai");
-                            System.out.print("Pilih menu: ");
-                            int pilihan = input.nextInt();
-                            input.nextLine(); // Konsumsi newline
+                                // daftar part update
+                                System.out.println("============================");
+                                System.out.println("Part yang ingin anda ubah:");
+                                System.out.println("1. Nama Barang");
+                                System.out.println("2. Kategori Barang");
+                                System.out.println("3. Tanggal Produksi Barang");
+                                System.out.println("4. Tanggal Kadaluwarsa Barang");
+                                System.out.println("5. Harga Barang");
+                                System.out.println("6. Jumlah Stok Barang");
+                                System.out.println("7. Supplier");
+                                System.out.println("0. Selesai");
+                                System.out.print("Pilih menu: ");
+                                int pilihan = input.nextInt();
+                                input.nextLine(); // Konsumsi newline
 
-                            // update element data
-                            switch (pilihan) {
-                                case 1:
-                                    System.out.println("Nama Barang Lama\t\t: " + namaBrg[index]);
-                                    System.out.print("Masukkan Nama Barang Baru\t: ");
-                                    namaBrg[index] = input.nextLine();
-                                    break;
-                                case 2:
-                                    System.out.println("Kategori Barang Lama: " + tipeBrg[index]);
-                                    System.out.print("Masukkan Kategori Barang Baru: ");
-                                    tipeBrg[index] = input.nextLine();
-                                    break;
-                                case 3:
-                                    System.out.println("Tanggal Produksi Lama: " + prdDate[index]);
-                                    System.out.print("Masukkan Tanggal Produksi Baru: ");
-                                    prdDate[index] = input.nextLine();
-                                    break;
-                                case 4:
-                                    System.out.println("Tanggal Kadaluwarsa Lama: " + expDate[index]);
-                                    System.out.print("Masukkan Tanggal Kadaluwarsa Baru: ");
-                                    expDate[index] = input.nextLine();
-                                    break;
-                                case 5:
-                                    System.out.println("Harga Barang Lama: " + harga[index]);
-                                    System.out.print("Masukkan Harga Barang Baru: ");
-                                    harga[index] = input.nextDouble();
-                                    break;
-                                case 6:
-                                    System.out.println("Jumlah Stok Barang Lama: " + stokBrg[index]);
-                                    System.out.print("Masukkan Jumlah Stok Barang Baru: ");
-                                    stokBrg[index] = input.nextInt();
-                                    break;
-                                case 7:
-                                    System.out.println("Supplier Barang Lama: " + stokBrg[index]);
-                                    System.out.print("Masukkan Supplier Barang Baru: ");
-                                    supplier[index] = input.nextLine();
-                                    break;
-                                case 0:
-                                    System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
-                                    break;
-                                default:
-                                    System.out.println("Pilihan tidak valid.");
-                            }
+                                // update element data
+                                switch (pilihan) {
+                                    case 1:
+                                        System.out.println("Nama Barang Lama\t\t: " + namaBrg[index]);
+                                        System.out.print("Masukkan Nama Barang Baru\t: ");
+                                        namaBrg[index] = input.nextLine();
+                                        break;
+                                    case 2:
+                                        System.out.println("Kategori Barang Lama: " + tipeBrg[index]);
+                                        System.out.print("Masukkan Kategori Barang Baru: ");
+                                        tipeBrg[index] = input.nextLine();
+                                        break;
+                                    case 3:
+                                        System.out.println("Tanggal Produksi Lama: " + prdDate[index]);
+                                        System.out.print("Masukkan Tanggal Produksi Baru: ");
+                                        prdDate[index] = input.nextLine();
+                                        break;
+                                    case 4:
+                                        System.out.println("Tanggal Kadaluwarsa Lama: " + expDate[index]);
+                                        System.out.print("Masukkan Tanggal Kadaluwarsa Baru: ");
+                                        expDate[index] = input.nextLine();
+                                        break;
+                                    case 5:
+                                        System.out.println("Harga Barang Lama: " + harga[index]);
+                                        System.out.print("Masukkan Harga Barang Baru: ");
+                                        harga[index] = input.nextDouble();
+                                        break;
+                                    case 6:
+                                        System.out.println("Jumlah Stok Barang Lama: " + stokBrg[index]);
+                                        System.out.print("Masukkan Jumlah Stok Barang Baru: ");
+                                        stokBrg[index] = input.nextInt();
+                                        break;
+                                    case 7:
+                                        System.out.println("Supplier Barang Lama: " + stokBrg[index]);
+                                        System.out.print("Masukkan Supplier Barang Baru: ");
+                                        supplier[index] = input.nextLine();
+                                        break;
+                                    case 0:
+                                        System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
+                                        break;
+                                    default:
+                                        System.out.println("Pilihan tidak valid.");
+                                }
 
-                            System.out.println("Barang " + namaBrg[index] + " berhasil diperbarui ");
-                            break;
-                            
+                                System.out.println("Barang " + namaBrg[index] + " berhasil diperbarui ");
+                                break;
+
                             case 2:
                                 System.out.println("-------------------------");
                                 System.out.println("|\tHAPUS DATA \t|");
@@ -368,17 +369,19 @@ public class indexV1 {
                                 System.out.println("=========================================");
                                 System.out.println("| NO\t| NAMA BARANG\t\t\t|");
                                 System.out.println("=========================================");
-                                
-                                //daftar barang
+
+                                // daftar barang
                                 for (int i = 0; i < namaBrg.length; i++) {
-                                    if (namaBrg[i] == null || tipeBrg[i] == null || prdDate[i] == null || expDate[i] == null || supplier[i] == null || konSupp[i] == null || alamatSupp[i] == null || harga[i] == 0 || stokBrg[i] == 0) {
-                                        
+                                    if (namaBrg[i] == null || tipeBrg[i] == null || prdDate[i] == null
+                                            || expDate[i] == null || supplier[i] == null || konSupp[i] == null
+                                            || alamatSupp[i] == null || harga[i] == 0 || stokBrg[i] == 0) {
+
                                         continue;
                                     } else {
-                                    System.out.printf("%s %d\t| %-25s\t|%n","|", (i + 1), namaBrg[i]);
+                                        System.out.printf("%s %d\t| %-25s\t|%n", "|", (i + 1), namaBrg[i]);
                                     }
                                 }
-            
+
                                 System.out.println("=========================================");
                                 System.out.print("Masukkan Nomor barang: ");
                                 int noBrgHapus = input.nextInt();
@@ -386,14 +389,13 @@ public class indexV1 {
                                 // cari index barang
                                 if (noBrgHapus >= 1 && noBrgHapus <= namaBrg.length) {
                                     hapus = noBrgHapus - 1;
-                                }
-                                 else {
+                                } else {
                                     System.out.println("....Nomor Barang tidak valid....");
                                     continue;
                                 }
-                                
+
                                 String namaBrgHapus = namaBrg[hapus];
-                                //hapus data barang
+                                // hapus data barang
                                 if (hapus != -1) {
                                     for (int i = hapus; i < namaBrg.length - 1; i++) {
                                         namaBrg[i] = namaBrg[i + 1];
@@ -406,7 +408,7 @@ public class indexV1 {
                                         harga[i] = harga[i + 1];
                                         stokBrg[i] = stokBrg[i + 1];
                                     }
-                                
+
                                     // // Set elemen terakhir ke null untuk menghapus data yang duplikat
                                     // int newHapus = namaBrg.length - 1;
                                     // namaBrg[newHapus] = null;
@@ -418,17 +420,21 @@ public class indexV1 {
                                     // alamatSupp[newHapus] = null;
                                     // harga[newHapus] = 0;
                                     // stokBrg[newHapus] = 0;
-                                    
+
                                     System.out.println("Data barang " + namaBrgHapus + " telah berhasil dihapus");
-                                } 
-                            break;
+                                }
+                                break;
                             case 3:
-                                System.out.println("================================================================================================================================================");
+                                System.out.println(
+                                        "================================================================================================================================================");
                                 System.out.println("|\t\t\t\t\t\t\t\t| DAFTAR STOK BARANG |\t\t\t\t\t\t\t\t|");
-                                System.out.println("================================================================================================================================================");
-                                System.out.println("| NO\t| NAMA BARANG\t\t\t| KATEGORI\t| TGL PRODUKSI\t| TGL KADALUWARSA\t| SUPPLIER\t\t| HARGA\t\t| STOK |");
-                                System.out.println("================================================================================================================================================");
-                                
+                                System.out.println(
+                                        "================================================================================================================================================");
+                                System.out.println(
+                                        "| NO\t| NAMA BARANG\t\t\t| KATEGORI\t| TGL PRODUKSI\t| TGL KADALUWARSA\t| SUPPLIER\t\t| HARGA\t\t| STOK |");
+                                System.out.println(
+                                        "================================================================================================================================================");
+
                                 // Salin array yang akan diurutkan secara manual
                                 String[] sortNamaBrg = new String[namaBrg.length];
                                 String[] sortTipeBrg = new String[tipeBrg.length];
@@ -455,7 +461,7 @@ public class indexV1 {
                                 // Sorting dari jumlah stok barang paling sedikit ke yang paling banyak
                                 for (int i = 0; i < sortStokBrg.length - 1; i++) {
                                     for (int j = 0; j < sortStokBrg.length - i - 1; j++) {
-                                        if (sortStokBrg[j] > sortStokBrg[j+1]) {
+                                        if (sortStokBrg[j] > sortStokBrg[j + 1]) {
                                             // untuk ubah urutan nama
                                             String tempNama = sortNamaBrg[j];
                                             sortNamaBrg[j] = sortNamaBrg[j + 1];
@@ -491,32 +497,39 @@ public class indexV1 {
                                             sortAlamatSupp[j] = sortAlamatSupp[j + 1];
                                             sortAlamatSupp[j + 1] = tempAlamatSupp;
 
-                                            //untuk ubah urutan stok
-                                            double tempHarga = sortHarga [j];
+                                            // untuk ubah urutan stok
+                                            double tempHarga = sortHarga[j];
                                             sortHarga[j] = sortHarga[j + 1];
                                             sortHarga[j + 1] = tempHarga;
 
-                                            //untuk ubah urutan stok
+                                            // untuk ubah urutan stok
                                             int tempStok = sortStokBrg[j];
                                             sortStokBrg[j] = sortStokBrg[j + 1];
                                             sortStokBrg[j + 1] = tempStok;
 
                                         }
-                                    } 
+                                    }
                                 }
-                                
-                                //menampilkan data barang
+
+                                // menampilkan data barang
                                 int indexTampil = 1;
                                 for (int i = 0; i < sortNamaBrg.length; i++) {
-                                    if (sortNamaBrg[i] == null || sortTipeBrg[i] == null || sortPrdDate[i] == null || sortExpDate[i] == null || sortSupplier[i] == null || sortKonSupp[i] == null || sortAlamatSupp[i] == null || sortHarga[i] == 0 || sortStokBrg[i] == 0) {
-                                        
+                                    if (sortNamaBrg[i] == null || sortTipeBrg[i] == null || sortPrdDate[i] == null
+                                            || sortExpDate[i] == null || sortSupplier[i] == null
+                                            || sortKonSupp[i] == null || sortAlamatSupp[i] == null || sortHarga[i] == 0
+                                            || sortStokBrg[i] == 0) {
+
                                         continue;
-                                    } else{
-                                        System.out.printf("%s %d\t| %-25s\t| %-10s\t| %-10s\t| %-15s\t| %-15s\t| %-10s\t| %-5s|%n", "|", indexTampil++, sortNamaBrg[i], sortTipeBrg[i], sortPrdDate[i], sortExpDate[i], sortSupplier[i], sortHarga[i], sortStokBrg[i]);
+                                    } else {
+                                        System.out.printf(
+                                                "%s %d\t| %-25s\t| %-10s\t| %-10s\t| %-15s\t| %-15s\t| %-10s\t| %-5s|%n",
+                                                "|", indexTampil++, sortNamaBrg[i], sortTipeBrg[i], sortPrdDate[i],
+                                                sortExpDate[i], sortSupplier[i], sortHarga[i], sortStokBrg[i]);
                                     }
-                                }   
-                                System.out.println("================================================================================================================================================");
-                            break;
+                                }
+                                System.out.println(
+                                        "================================================================================================================================================");
+                                break;
                         }
                     } while (menu2 != stop2);
                 default:
