@@ -8,14 +8,13 @@ Proyek ini bertujuan untuk menciptakan solusi efisien untuk mengelola stok produ
 
 ## Fitur Utama
 
-1. Item entry and storage
-2. Update item information
-3. Item categorization
-4. Supplier management
-5. Stock checking
-6. Code scanning
-7. Expiry Date Tracking
-8. Delivery
+1. Item Entry and Storage
+2. Item Management Information
+3. Item Categorization
+4. Supplier Management
+5. Code Scanning
+6. Expiry Date Tracking
+7. Delivery
 
 ## Kontributor
 

@@ -223,13 +223,12 @@ public class indexV1 {
         do {
             System.out.println("=============Selamat Datang=============");
             System.out.println("1.Item Entry and Storage");
-            System.out.println("2.Update Item Information");
+            System.out.println("2.Item Management Information");
             System.out.println("3.Item Categorization");
             System.out.println("4.Supplier Management");
-            System.out.println("5.Stock Checking");
-            System.out.println("6.Item Scanning");
-            System.out.println("7.Expiry Date Tracking ");
-            System.out.println("8.Delivery");
+            System.out.println("5.Item Scanning");
+            System.out.println("6.Expiry Date Tracking");
+            System.out.println("7.Delivery ");
             System.out.println("0.Keluar");
             System.out.print("Masukkan Nomor Menu: ");
             fitur = input.nextInt();
@@ -714,47 +713,6 @@ public class indexV1 {
                     break;
 
                 case 5:
-                    int menu5;
-                    int stop5 = 0;
-                    do {
-                        System.out.println("=======================Stock Checking========================");
-                        System.out.println("1. Cek Semua Stok Barang");
-                        System.out.println("2. Cek Stok Berdasarkan Nama Barang");
-                        System.out.println("0. Kembali");
-                        System.out.print("Pilih Nomor : ");
-                        menu5 = input.nextInt();
-
-                        switch (menu5) {
-                            case 1:
-                                System.out.println("=============================================================");
-                                System.out.println("======================Stok Semua Barang======================");
-                                System.out.println("=============================================================");
-                                System.out.printf("%-3s| %-25s| %-18s| %-8s| \n", "No", "Nama Barang", "Kategori",
-                                        "Stok");
-                                for (int i = 0; i < namaBrg.length; i++) {
-                                    System.out.printf("%-3d| %-25s| %-18s| %-8s| \n", (i + 1), namaBrg[i], tipeBrg[i],
-                                            stokBrg[i]);
-                                }
-
-                                break;
-
-                            // case 2:
-                            // System.out.print("Masukkan Nama Barang : ");
-                            // String newNama = input.nextLine();
-                            // input.nextLine();
-                            // break;
-
-                            case 0:
-                                break;
-
-                            default:
-                                System.out.println("Nomor menu yang anda masukkan salah");
-                                break;
-                        }
-                    } while (menu5 != stop5);
-                    break;
-
-                case 6:
                     int index = -1;
 
                     System.out.println("==============Item Scanning==============");
@@ -788,9 +746,9 @@ public class indexV1 {
                     }
                     break;
 
-                // case 7:
-                // int menu7;
-                // int stop7 = 0;
+                // case 6:
+                // int menu6;
+                // int stop6 = 0;
                 // do {
                 // System.out.println("=====Expiry Date Tracking=====");
                 // System.out.println("Silahkan pilih menu anda (1/0):");
@@ -798,8 +756,8 @@ public class indexV1 {
                 // System.out.println("2. Tampilkan daftar kadaluarsa");
                 // System.out.println("0. Kembali");
                 // System.out.print("Pilih menu: ");
-                // menu7 = input.nextInt();
-                // switch (menu7) {
+                // menu6 = input.nextInt();
+                // switch (menu6) {
                 // case 1:
                 // System.out.print("Masukkan nama barang: ");
                 // namaBrg = input.next();
@@ -821,10 +779,10 @@ public class indexV1 {
                 // case 0:
                 // break;
                 // }
-                // } while (menu7 != stop7);
+                // } while (menu6 != stop6);
                 // break;
 
-                case 8:
+                case 7:
                     int fitur8;
                     do {
                         System.out.println("================Delivery================");
