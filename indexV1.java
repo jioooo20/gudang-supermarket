@@ -276,8 +276,8 @@ public class indexV1 {
 
                     break;
                 case 2:
-                    int menu2;
-                    int stop2 = 0;
+                    int menu2, stop2 = 0;
+                    ;
                     do {
                         System.out.println("-----------------------------------------");
                         System.out.println("|\t Update Item Information \t|");
@@ -354,12 +354,12 @@ public class indexV1 {
                                         break;
                                     case 3:
                                         System.out.println("Tanggal Produksi Lama: " + prdDate[index]);
-                                        System.out.print("Masukkan Tanggal Produksi Baru: ");
+                                        System.out.print("Masukkan Tanggal Produksi Baru(DD-MM-YYYY): ");
                                         prdDate[index] = input.nextLine();
                                         break;
                                     case 4:
                                         System.out.println("Tanggal Kadaluwarsa Lama: " + expDate[index]);
-                                        System.out.print("Masukkan Tanggal Kadaluwarsa Baru: ");
+                                        System.out.print("Masukkan Tanggal Kadaluwarsa Baru(DD-MM-YYYY): ");
                                         expDate[index] = input.nextLine();
                                         break;
                                     case 5:
@@ -538,32 +538,21 @@ public class indexV1 {
 
                                 // menampilkan data barang
                                 int indexTampil = 1;
-                                // testing-gio ( ini print nya kena limit, jadi max 15. data baru sebenarnya
-                                // aman sudah masuk array utama, problem nya saat menampilkan.)
-                                // (kode polos dibawah ini bukti bahwa data beru telah masuk)
-                                for (int i = 0; i < sortNamaBrg.length; i++) {
-                                    System.out.printf(
-                                            "%s %d\t| %-25s\t| %-10s\t| %-10s\t| %-15s\t| %-15s\t| %-10s\t| %-5s|%n",
-                                            "|", indexTampil++, sortNamaBrg[i], sortTipeBrg[i], sortPrdDate[i],
-                                            sortExpDate[i], sortSupplier[i], sortHarga[i], sortStokBrg[i]);
-                                }
-                                // for (int i = 0; i < sortNamaBrg.length; i++) {
-                                // if (sortNamaBrg[i] == null || sortTipeBrg[i] == null || sortPrdDate[i] ==
-                                // null
-                                // || sortExpDate[i] == null || sortSupplier[i] == null
-                                // || sortKonSupp[i] == null || sortAlamatSupp[i] == null || sortHarga[i] == 0
-                                // || sortStokBrg[i] == 0) {
 
-                                // continue;
-                                // } else {
-                                // System.out.printf(
-                                // "%s %d\t| %-25s\t| %-10s\t| %-10s\t| %-15s\t| %-15s\t| %-10s\t| %-5s|%n",
-                                // "|", indexTampil++, sortNamaBrg[i], sortTipeBrg[i], sortPrdDate[i],
-                                // sortExpDate[i], sortSupplier[i], sortHarga[i], sortStokBrg[i]);
-                                // }
-                                // }
+                                for (int i = 0; i < sortStokBrg.length; i++) {
+                                    if (sortStokBrg[i] == 0) {
+                                        continue;
+                                    } else {
+                                        System.out.printf(
+                                                "%s %d\t| %-25s\t| %-10s\t| %-10s\t| %-15s\t| %-15s\t| %-10s\t| %-5s|%n",
+                                                "|", indexTampil++, sortNamaBrg[i], sortTipeBrg[i], sortPrdDate[i],
+                                                sortExpDate[i], sortSupplier[i], sortHarga[i], sortStokBrg[i]);
+                                    }
+                                }
                                 System.out.println(
                                         "================================================================================================================================================");
+                                break;
+                            case 0:
                                 break;
                         }
                     } while (menu2 != stop2);
