@@ -223,9 +223,9 @@ public class ExpiryDateTracking {
         int menu;
         int stop = 0;
         do {
-            System.out.println("---------------------------------");
-            System.out.println("|\t Expiry Date Tracking \t|");
-            System.out.println("---------------------------------");
+            System.out.println("-----------------------------------------");
+            System.out.println("|\t Expiry Date Tracking     \t|");
+            System.out.println("-----------------------------------------");
             System.out.println("Silahkan Pilih");
             System.out.println("1. Cek Tanggal Kadaluwarsa");
             System.out.println("2. Tampilkan Daftar Kadaluwarsa");
