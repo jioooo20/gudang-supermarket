@@ -233,7 +233,6 @@ public class ExpiryDateTracking {
             System.out.print("Masukkan Nomor: ");
             menu = input.nextInt();
             input.nextLine();
-            int indeksBrgCek = -1;
             int index = 0;
             Date today = new Date();
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
