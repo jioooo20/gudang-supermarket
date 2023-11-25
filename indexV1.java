@@ -1,7 +1,9 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class indexV1 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
 
         String[] namaBrg = new String[20];
@@ -303,10 +305,7 @@ public class indexV1 {
 
                                 // daftar barang
                                 for (int i = 0; i < namaBrg.length; i++) {
-                                    if (namaBrg[i] == null || tipeBrg[i] == null || prdDate[i] == null
-                                            || expDate[i] == null || supplier[i] == null || konSupp[i] == null
-                                            || alamatSupp[i] == null || harga[i] == 0 || stokBrg[i] == 0) {
-
+                                    if (namaBrg[i] == null) {
                                         continue;
                                     } else {
                                         System.out.printf("%s %d\t| %-25s\t|%n", "|", (i + 1), namaBrg[i]);
@@ -397,10 +396,7 @@ public class indexV1 {
 
                                 // daftar barang
                                 for (int i = 0; i < namaBrg.length; i++) {
-                                    if (namaBrg[i] == null || tipeBrg[i] == null || prdDate[i] == null
-                                            || expDate[i] == null || supplier[i] == null || konSupp[i] == null
-                                            || alamatSupp[i] == null || harga[i] == 0 || stokBrg[i] == 0) {
-
+                                    if (namaBrg[i] == null) {
                                         continue;
                                     } else {
                                         System.out.printf("%s %d\t| %-25s\t|%n", "|", (i + 1), namaBrg[i]);
@@ -540,7 +536,7 @@ public class indexV1 {
                                 int indexTampil = 1;
 
                                 for (int i = 0; i < sortStokBrg.length; i++) {
-                                    if (sortStokBrg[i] == 0) {
+                                    if (sortNamaBrg[i] == null) {
                                         continue;
                                     } else {
                                         System.out.printf(
@@ -735,42 +731,132 @@ public class indexV1 {
                     }
                     break;
 
-                // case 6:
-                // int menu6;
-                // int stop6 = 0;
-                // do {
-                // System.out.println("=====Expiry Date Tracking=====");
-                // System.out.println("Silahkan pilih menu anda (1/0):");
-                // System.out.println("1. Cek tanggal kadaluarsa");
-                // System.out.println("2. Tampilkan daftar kadaluarsa");
-                // System.out.println("0. Kembali");
-                // System.out.print("Pilih menu: ");
-                // menu6 = input.nextInt();
-                // switch (menu6) {
-                // case 1:
-                // System.out.print("Masukkan nama barang: ");
-                // namaBrg = input.next();
-                // input.nextLine();
-                // System.out.print("Masukkan tanggal yang ingin Anda cek (format: dd-MM-yyyy):
-                // ");
-                // prdDate = input.nextLine();
-                // System.out.print("Masukkan tanggal sekarang (format: dd-MM-yyyy): ");
-                // dateNow = input.nextLine();
+                case 6:
+                    int menu6, stop6 = 0;
+                    int index6 = 0;
+                    Date today = new Date();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
-                // if (prdDate == dateNow) {
-                // System.out.println("Tanggal sudah lewat!");
-                // } else {
-                // System.out.println("Tanggal belum lewat.");
-                // }
-                // break;
-                // case 2:
-                // System.out.println("Nama Barang:");
-                // case 0:
-                // break;
-                // }
-                // } while (menu6 != stop6);
-                // break;
+                    do {
+                        System.out.println("-----------------------------------------");
+                        System.out.println("|\t Expiry Date Tracking     \t|");
+                        System.out.println("-----------------------------------------");
+                        System.out.println("Silahkan Pilih");
+                        System.out.println("1. Cek Tanggal Kadaluwarsa");
+                        System.out.println("2. Tampilkan Daftar Kadaluwarsa");
+                        System.out.println("0. Kembali");
+                        System.out.print("Masukkan Nomor: ");
+                        menu6 = input.nextInt();
+                        input.nextLine();
 
+                        switch (menu6) {
+                            case 1:
+                                System.out.println("---------------------------------");
+                                System.out.println("|\tCEK TGL KADALUWARSA \t|");
+                                System.out.println("---------------------------------");
+                                System.out.println("=========================================");
+                                System.out.println("| NO\t| NAMA BARANG\t\t\t|");
+                                System.out.println("=========================================");
+
+                                // daftar barang
+                                for (int i = 0; i < namaBrg.length; i++) {
+                                    if (stokBrg[i] == 0) {
+                                        continue;
+                                    } else {
+                                        System.out.printf("%s %d\t| %-25s\t|%n", "|", (i + 1), namaBrg[i]);
+                                    }
+                                }
+
+                                System.out.println("=========================================");
+
+                                System.out.print("Masukkan Nomor barang: ");
+                                int noBarangCek = input.nextInt();
+
+                                // Mengonversi tanggal kadaluwarsa dari string ke Date
+                                Date expDateCek = dateFormat.parse(expDate[index6]);
+
+                                if (noBarangCek >= 1 && noBarangCek <= namaBrg.length) {
+                                    index = noBarangCek - 1;
+
+                                    System.out.println("-----------------------------------------");
+
+                                    // cek tanggal
+                                    if (today.after(expDateCek)) {
+                                        System.out.println("|\tBARANG KADALUWARSA\t|");
+                                    } else {
+                                        System.out.println("|\tBARANG BELUM KADALUWARSA\t|");
+                                    }
+                                } else {
+                                    System.out.println("Indeks tidak valid.");
+                                }
+                                System.out.println("-----------------------------------------");
+                                break;
+
+                            case 2:
+                                // Sorting tanggal kadaluwarsa terdekat
+                                for (int i = 0; i < expDate.length - 1; i++) {
+                                    for (int j = 0; j < expDate.length - i - 1; j++) {
+                                        // menyeleksi jika ada array expdate barang yang null
+                                        if (expDate[j] == null || expDate[j + 1] == null) {
+                                            continue;
+                                        }
+                                        Date date1 = dateFormat.parse(expDate[j]);
+                                        Date date2 = dateFormat.parse(expDate[j + 1]);
+
+                                        if (date1.after(date2)) {
+                                            // untuk ubah urutan nama
+                                            String tempNama = namaBrg[j];
+                                            namaBrg[j] = namaBrg[j + 1];
+                                            namaBrg[j + 1] = tempNama;
+
+                                            // untuk ubah urutan tanggal kadaluwarsa
+                                            String tempDate = expDate[j];
+                                            expDate[j] = expDate[j + 1];
+                                            expDate[j + 1] = tempDate;
+                                        }
+                                    }
+                                }
+                                // menampilkan
+                                System.out.println(
+                                        "=================================================================================");
+
+                                System.out.println("|\t\t\t       DAFTAR BARANG KADALUWARSA       \t\t\t|");
+                                System.out.println(
+                                        "=================================================================================");
+                                System.out.printf("| %-5s| %-25s\t| %-15s| %-20s |%n", "NO", "NAMA BARANG",
+                                        "TGL KADALUWARSA",
+                                        "STATUS BARANG");
+                                System.out.println(
+                                        "=================================================================================");
+                                for (int i = 0; i < expDate.length; i++) {
+                                    // mengecek kembali jika terdapat nilai null
+                                    if (expDate[i] == null) {
+                                        // skip nilai null
+                                        continue;
+                                    }
+
+                                    Date expDateDaftar = dateFormat.parse(expDate[i]);
+
+                                    if (today.after(expDateDaftar)) {
+                                        System.out.printf("| %-5d| %-25s\t| %-15s| %-20s |%n", (i + 1), namaBrg[i],
+                                                expDate[i],
+                                                "Kadaluwarsa");
+                                    } else {
+                                        System.out.printf("| %-5d| %-25s\t| %-15s| %-20s |%n", (i + 1), namaBrg[i],
+                                                expDate[i],
+                                                "Belum Kadaluwarsa");
+                                    }
+                                }
+                                System.out.println(
+                                        "=================================================================================");
+
+                                break;
+
+                            case 0:
+                                break;
+                        }
+                    } while (menu6 != stop6);
+                    break;
                 case 7:
                     int fitur8;
                     do {
