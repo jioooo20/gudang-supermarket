@@ -279,7 +279,6 @@ public class indexV1 {
                     break;
                 case 2:
                     int menu2, stop2 = 0;
-                    ;
                     do {
                         System.out.println("-----------------------------------------");
                         System.out.println("|\t Update Item Information \t|");
@@ -429,19 +428,6 @@ public class indexV1 {
                                         harga[i] = harga[i + 1];
                                         stokBrg[i] = stokBrg[i + 1];
                                     }
-
-                                    // // Set elemen terakhir ke null untuk menghapus data yang duplikat
-                                    // int newHapus = namaBrg.length - 1;
-                                    // namaBrg[newHapus] = null;
-                                    // tipeBrg[newHapus] = null;
-                                    // prdDate[newHapus] = null;
-                                    // expDate[newHapus] = null;
-                                    // supplier[newHapus] = null;
-                                    // konSupp[newHapus] = null;
-                                    // alamatSupp[newHapus] = null;
-                                    // harga[newHapus] = 0;
-                                    // stokBrg[newHapus] = 0;
-
                                     System.out.println("Data barang " + namaBrgHapus + " telah berhasil dihapus");
                                 }
                                 break;
