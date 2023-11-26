@@ -3,20 +3,17 @@ import java.util.Scanner;
 public class MainFunction {
 
     // put function here
-
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
-        String[] namaBrg = new String[20];
-        String[] tipeBrg = new String[20];
-        String[] prdDate = new String[20];
-        String[] expDate = new String[20];
-        String[] supplier = new String[20];
-        String[] konSupp = new String[20];
-        String[] alamatSupp = new String[20];
-        double[] harga = new double[20];
-        int[] stokBrg = new int[20];
-        String[] cabang = new String[3];
+    static String[] namaBrg = new String[20];
+    static String[] tipeBrg = new String[20];
+    static String[] prdDate = new String[20];
+    static String[] expDate = new String[20];
+    static String[] supplier = new String[20];
+    static String[] konSupp = new String[20];
+    static String[] alamatSupp = new String[20];
+    static double[] harga = new double[20];
+    static int[] stokBrg = new int[20];
+    static String[] cabang = new String[3];
+    static {
 
         namaBrg[0] = "Mie Sedap Goreng";
         namaBrg[1] = "Aqua 600ml";
@@ -217,8 +214,93 @@ public class MainFunction {
         stokCabang[2][12] = 12;
         stokCabang[2][13] = 3;
         stokCabang[2][14] = 0;
-        int menu, fitur;
-        boolean stop = true;
+    }
+
+    static int firstEmptyNull() {
+        int index = -1;
+        for (int i = 0; i < namaBrg.length; i++) {
+            if (namaBrg[i] == null) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+    static int FindInArray(String[] found, String foundWhat) {
+        int hasil = 0;
+        for (int i = 0; i < found.length; i++) {
+            if (found[i] != null && found[i].equalsIgnoreCase(foundWhat)) {
+                hasil = i;
+                break;
+            } else {
+                hasil = -1;
+            }
+        }
+        System.out.println("hasil" + hasil);
+        return hasil;
+    }
+
+    static int CountNamaLebihDariSatu(String[] found, String foundWhat) {
+        int count = 0;
+        for (int i = 0; i < found.length; i++) {
+            if (found[i] != null && found[i].equalsIgnoreCase(foundWhat)) {
+                count++;
+            }
+        }
+        System.out.println(count + "count");
+        return count;
+    }
+
+    static int[] MakeArrayLebihDari1(String[] found, String foundWhat) {
+        int count = CountNamaLebihDariSatu(found, foundWhat);
+        int[] lebihsatu = new int[count];
+        int currentIndex = 0;
+        if (count > 1) {
+            for (int i = 0; i < found.length; i++) {
+                if (found[i] != null && found[i].equalsIgnoreCase(foundWhat)) {
+                    System.out.println(i);
+                    System.out.println(foundWhat);
+                    lebihsatu[currentIndex] = i;
+                    currentIndex++;
+
+                }
+            }
+        } else if (count == 1) {
+            for (int i = 0; i < found.length; i++) {
+                if (found[i] != null && found[i].equalsIgnoreCase(foundWhat)) {
+                    lebihsatu[0] = i;
+                }
+            }
+        }
+        for (int i = 0; i < lebihsatu.length; i++) {
+            System.out.println(lebihsatu[i] + "indek");
+        }
+        return lebihsatu;
+    }
+
+    static void inputNewData(String nama, String supplierr, String tipe, String prod, String exp, int hargaa,
+            int stok) {
+        int i = firstEmptyNull();
+        if (i == -1) {
+            System.out.println("++++++ ALERT ++++++");
+            System.out.println("Gudang Sudah Penuh!");
+        } else if (i != -1) {
+            namaBrg[i] = nama;
+            tipeBrg[i] = tipe;
+            supplier[i] = supplierr;
+            prdDate[i] = prod;
+            expDate[i] = exp;
+            harga[i] = hargaa;
+            stokBrg[i] = stok;
+            System.out.println("Data Baru Telah Ditambahkan!");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int fitur;
 
         // System.out.println("========================================"); GUNAKAN INI
         // UNTUK MEMBERI GARIS!!!
@@ -303,6 +385,7 @@ public class MainFunction {
             }
         } while (fitur != 0);
 
+        input.close();
     }
 
 }
