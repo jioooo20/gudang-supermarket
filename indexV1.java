@@ -684,37 +684,36 @@ public class indexV1 {
                     break;
 
                 case 5:
-                    int index = -1;
-
-                    System.out.println("==============Item Scanning==============");
-                    System.out.println();
-                    System.out.println("=========================================");
-                    System.out.println("===============Pilih Barang==============");
-                    for (int i = 0; i < namaBrg.length; i++) {
-                        System.out.printf("%s %d\t| %-25s\t|%n", "|", (i + 1), namaBrg[i]);
+                System.out.println("==============Item Scanning==============");
+                System.out.println("Daftar Barang Tersedia:");
+                for (String nama : namaBrg) {
+                    System.out.println("- " + nama);
+                }
+                System.out.print("Masukkan nama barang yang dicari : ");
+                String namaBarangCari = input.next();
+                input.nextLine();
+                int indeksBarang = -1;
+                for (int i = 0; i < namaBrg.length; i++) {
+                    if (namaBrg[i].equalsIgnoreCase(namaBarangCari)) {
+                        indeksBarang = i;
+                        break;
                     }
-                    System.out.println("=========================================");
-                    System.out.print("Pilih Nomor : ");
-                    int cariBrg = input.nextInt();
-                    // cari index barang
-                    for (int i = 0; i < namaBrg.length; i++) {
-                        if (cariBrg >= 1 && cariBrg <= namaBrg.length) {
-                            index = cariBrg - 1;
-                            break;
-                        }
-                    }
-                    if (index != -1) {
-                        System.out.println("Nama Barang         : " + namaBrg[index]);
-                        System.out.println("Kategori Barang     : " + tipeBrg[index]);
-                        System.out.println("Tanggal Produksi    : " + prdDate[index]);
-                        System.out.println("Tanggal Kedaluwarsa : " + expDate[index]);
-                        System.out.println("Nama Supplier       : " + supplier[index]);
-                        System.out.println("Kontak Supplier     : " + konSupp[index]);
-                        System.out.println("Alamat Supplier     : " + alamatSupp[index]);
-                        System.out.println("Harga Barang        : " + harga[index]);
-                    } else {
-                        System.out.println("Nomor yang anda masukkan salah");
-                    }
+                }
+                
+                if (indeksBarang != -1) {
+                    System.out.println("Informasi Barang:");
+                    System.out.println("Nama Barang         : " + namaBrg[indeksBarang]);
+                    System.out.println("Kategori            : " + tipeBrg[indeksBarang]);
+                    System.out.println("Tanggal Produksi    : " + prdDate[indeksBarang]);
+                    System.out.println("Tanggal Kedaluwarsa : " + expDate[indeksBarang]);
+                    System.out.println("Supplier            : " + supplier[indeksBarang]);
+                    System.out.println("Kontak Supplier     : " + konSupp[indeksBarang]);
+                    System.out.println("Alamat Supplier     : " + alamatSupp[indeksBarang]);
+                    System.out.println("Stok                : " + stokBrg[indeksBarang]);
+                    System.out.println("Harga               : " + harga[indeksBarang]);
+                } else {
+                    System.out.println("Barang tidak ditemukan.");
+                }
                     break;
 
                 case 6:
@@ -762,7 +761,7 @@ public class indexV1 {
                                 Date expDateCek = dateFormat.parse(expDate[index6]);
 
                                 if (noBarangCek >= 1 && noBarangCek <= namaBrg.length) {
-                                    index = noBarangCek - 1;
+                                    index6 = noBarangCek - 1;
 
                                     System.out.println("-----------------------------------------");
 
