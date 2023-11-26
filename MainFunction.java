@@ -324,7 +324,6 @@ public class MainFunction {
 
             switch (fitur) {
                 case 1:
-                    int indexnamaBrg = -1;
                     System.out.println("========================================");
                     System.out.println("=========Item Entry and Storage=========");
                     System.out.println("========================================");
@@ -339,26 +338,10 @@ public class MainFunction {
                     System.out.print("Masukkan Tanggal Kadaluwarsa(DD-MM-YYYY): ");
                     String newexpDate = input.next();
                     System.out.print("Masukkan Harga: ");
-                    int newHargaa = input.nextInt();
+                    int newHarga = input.nextInt();
                     System.out.print("Masukkan Stok: ");
                     int newStokBrgg = input.nextInt();
-
-                    for (int i = 0; i < namaBrg.length; i++) {
-                        if (namaBrg[i] == null) {
-                            indexnamaBrg = i;
-                            break;
-                        } // mencari index pertama yang kosong
-
-                    }
-                    // menambahkan data baru ke array utama
-                    namaBrg[indexnamaBrg] = newNamabrg;
-                    tipeBrg[indexnamaBrg] = newtipebrg;
-                    supplier[indexnamaBrg] = newSupp;
-                    prdDate[indexnamaBrg] = newprdDate;
-                    expDate[indexnamaBrg] = newexpDate;
-                    harga[indexnamaBrg] = newHargaa;
-                    stokBrg[indexnamaBrg] = newStokBrgg;
-                    System.out.println("Data Baru Telah Ditambahkan!");
+                    inputNewData(newNamabrg, newSupp, newtipebrg, newprdDate, newexpDate, newHarga, newStokBrgg);
 
                     break;
                 case 2:// manjemen item
