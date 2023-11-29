@@ -70,10 +70,10 @@ public class ExpiryDateTracking {
 
         expDate[0] = "23-12-2024";
         expDate[1] = "24-12-2025";
-        expDate[2] = "20-11-2024";
+        expDate[2] = "10-11-2023";
         expDate[3] = "25-12-2023";
         expDate[4] = "19-12-2024";
-        expDate[5] = "23-12-2024";
+        expDate[5] = "23-10-2023";
         expDate[6] = "24-12-2025";
         expDate[7] = "20-11-2024";
         expDate[8] = "25-12-2023";
@@ -270,7 +270,7 @@ public class ExpiryDateTracking {
 
                         // cek tanggal
                         if (today.after(expDateCek)) {
-                            System.out.println("|\tBARANG KADALUWARSA\t|");
+                            System.out.println("|\tBARANG KADALUWARSA\t\t|");
                         } else {
                             System.out.println("|\tBARANG BELUM KADALUWARSA\t|");
                         }
@@ -281,26 +281,47 @@ public class ExpiryDateTracking {
                     break;
 
                 case 2:
+                    String[] sortNamaBrg = new String[namaBrg.length];
+                    String[] sortTipeBrg = new String[tipeBrg.length];
+                    String[] sortPrdDate = new String[prdDate.length];
+                    String[] sortExpDate = new String[expDate.length];
+                    String[] sortSupplier = new String[supplier.length];
+                    String[] sortKonSupp = new String[konSupp.length];
+                    String[] sortAlamatSupp = new String[alamatSupp.length];
+                    double[] sortHarga = new double[harga.length];
+                    int[] sortStokBrg = new int[stokBrg.length];
+
+                    for (int i = 0; i < namaBrg.length; i++) {
+                        sortNamaBrg[i] = namaBrg[i];
+                        sortTipeBrg[i] = tipeBrg[i];
+                        sortPrdDate[i] = prdDate[i];
+                        sortExpDate[i] = expDate[i];
+                        sortSupplier[i] = supplier[i];
+                        sortKonSupp[i] = konSupp[i];
+                        sortAlamatSupp[i] = alamatSupp[i];
+                        sortHarga[i] = harga[i];
+                        sortStokBrg[i] = stokBrg[i];
+                    }
                     // Sorting tanggal kadaluwarsa terdekat
-                    for (int i = 0; i < expDate.length - 1; i++) {
-                        for (int j = 0; j < expDate.length - i - 1; j++) {
+                    for (int i = 0; i < sortExpDate.length - 1; i++) {
+                        for (int j = 0; j < sortExpDate.length - i - 1; j++) {
                             // menyeleksi jika ada array expdate barang yang null
-                            if (expDate[j] == null || expDate[j + 1] == null) {
+                            if (sortExpDate[j] == null || sortExpDate[j + 1] == null) {
                                 continue;
                             }
-                            Date date1 = dateFormat.parse(expDate[j]);
-                            Date date2 = dateFormat.parse(expDate[j + 1]);
+                            Date date1 = dateFormat.parse(sortExpDate[j]);
+                            Date date2 = dateFormat.parse(sortExpDate[j + 1]);
 
                             if (date1.after(date2)) {
                                 // untuk ubah urutan nama
-                                String tempNama = namaBrg[j];
-                                namaBrg[j] = namaBrg[j + 1];
-                                namaBrg[j + 1] = tempNama;
+                                String tempNama = sortNamaBrg[j];
+                                sortNamaBrg[j] = sortNamaBrg[j + 1];
+                                sortNamaBrg[j + 1] = tempNama;
 
                                 // untuk ubah urutan tanggal kadaluwarsa
-                                String tempDate = expDate[j];
-                                expDate[j] = expDate[j + 1];
-                                expDate[j + 1] = tempDate;
+                                String tempDate = sortExpDate[j];
+                                sortExpDate[j] = sortExpDate[j + 1];
+                                sortExpDate[j + 1] = tempDate;
                             }
                         }
                     }
@@ -315,21 +336,24 @@ public class ExpiryDateTracking {
                             "STATUS BARANG");
                     System.out.println(
                             "=================================================================================");
-                    for (int i = 0; i < expDate.length; i++) {
+                    int indexTampil = 1;
+                    for (int i = 0; i < sortExpDate.length; i++) {
                         // mengecek kembali jika terdapat nilai null
                         if (expDate[i] == null) {
                             // skip nilai null
                             continue;
-                        }
-
-                        Date expDateDaftar = dateFormat.parse(expDate[i]);
-
-                        if (today.after(expDateDaftar)) {
-                            System.out.printf("| %-5d| %-25s\t| %-15s| %-20s |%n", (i + 1), namaBrg[i], expDate[i],
-                                    "Kadaluwarsa");
                         } else {
-                            System.out.printf("| %-5d| %-25s\t| %-15s| %-20s |%n", (i + 1), namaBrg[i], expDate[i],
-                                    "Belum Kadaluwarsa");
+                            Date expDateDaftar = dateFormat.parse(sortExpDate[i]);
+
+                            if (today.after(expDateDaftar)) {
+                                System.out.printf("| %-5d| %-25s\t| %-15s| %-20s |%n", (i + 1), sortNamaBrg[i],
+                                        sortExpDate[i],
+                                        "Kadaluwarsa");
+                            } else {
+                                System.out.printf("| %-5d| %-25s\t| %-15s| %-20s |%n", (i + 1), sortNamaBrg[i],
+                                        sortExpDate[i],
+                                        "Belum Kadaluwarsa");
+                            }
                         }
                     }
                     System.out.println(
