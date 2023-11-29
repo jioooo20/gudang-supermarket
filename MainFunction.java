@@ -13,6 +13,7 @@ public class MainFunction {
     static double[] harga = new double[20];
     static int[] stokBrg = new int[20];
     static String[] cabang = new String[3];
+    static int[][] stokCabang = new int[3][20];
     static {
 
         namaBrg[0] = "Mie Sedap Goreng";
@@ -163,8 +164,7 @@ public class MainFunction {
         cabang[1] = "Blitar";
         cabang[2] = "Tuban";
 
-        int[][] stokCabang = new int[3][20];
-        // malang/warteg
+        // malang
         stokCabang[0][0] = 5;
         stokCabang[0][1] = 10;
         stokCabang[0][2] = 0;
@@ -181,7 +181,7 @@ public class MainFunction {
         stokCabang[0][13] = 20;
         stokCabang[0][14] = 0;
 
-        // blitar/apotek
+        // blitar
         stokCabang[1][0] = 0;
         stokCabang[1][1] = 15;
         stokCabang[1][2] = 20;
@@ -198,7 +198,7 @@ public class MainFunction {
         stokCabang[1][13] = 12;
         stokCabang[1][14] = 9;
 
-        // tuban/warmadura
+        // tuban
         stokCabang[2][0] = 7;
         stokCabang[2][1] = 20;
         stokCabang[2][2] = 0;
@@ -216,7 +216,46 @@ public class MainFunction {
         stokCabang[2][14] = 0;
     }
 
-    static int firstEmptyNull() {
+    static void PengirimanCabang(int cabang, int n) {
+        Scanner input = new Scanner(System.in);
+        int indeks = SearchUseIndexNumber(n);
+        int jumKirBarang;
+        // jika barang tidak ada, input tidak dijalankan
+        if (n >= 1 && n <= namaBrg.length) {
+            System.out.println(indeks);
+            System.out.print("Masukkan Jumlah barang yang dikirim: ");
+            jumKirBarang = input.nextInt();
+            stokBrg[indeks] -= jumKirBarang;
+            stokCabang[cabang][indeks] += jumKirBarang;
+        }
+    }
+
+    static int SearchUseIndexNumber(int n) {
+        int indeks = -1;
+        if (n >= 1 && n <= namaBrg.length) {
+            indeks = n - 1;
+        } else {
+            System.out.println("Nomor yang anda masukkan salah");
+        }
+        return indeks;
+    }
+
+    static void printBrgLengkap() {
+        System.out.printf(
+                "%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No",
+                "Barang", "Supplier", "Kategori", "Produksi", "Kedaluwarsa",
+                "Harga", "Stok");
+        for (int i = 0; i < namaBrg.length; i++) {
+            if (namaBrg[i] != null) {
+                System.out.printf(
+                        "%-3d| %-25s| %-18s| %-10s| %-12s| %-12s| %-10.1f| %-4d | \n",
+                        (i + 1), namaBrg[i], supplier[i], tipeBrg[i], prdDate[i],
+                        expDate[i], harga[i], stokBrg[i]);
+            }
+        } // menampilkan informasi barang dalam gudang
+    }
+
+    static int firstEmptyNull() {// mencari null yang muncul pertama muncul
         int index = -1;
         for (int i = 0; i < namaBrg.length; i++) {
             if (namaBrg[i] == null) {
@@ -227,6 +266,7 @@ public class MainFunction {
         return index;
     }
 
+    // cari "nama" tertentu di array
     static int FindInArray(String[] found, String foundWhat) {
         int hasil = 0;
         for (int i = 0; i < found.length; i++) {
@@ -234,13 +274,14 @@ public class MainFunction {
                 hasil = i;
                 break;
             } else {
-                hasil = -1;
+                hasil = -1;// kembalian -1 jika tidak ada nama supplier
             }
         }
         System.out.println("hasil" + hasil);
         return hasil;
     }
 
+    // hitung jumlah "nama" yang sama
     static int CountNamaLebihDariSatu(String[] found, String foundWhat) {
         int count = 0;
         for (int i = 0; i < found.length; i++) {
@@ -252,6 +293,7 @@ public class MainFunction {
         return count;
     }
 
+    // array baru untuk >1
     static int[] MakeArrayLebihDari1(String[] found, String foundWhat) {
         int count = CountNamaLebihDariSatu(found, foundWhat);
         int[] lebihsatu = new int[count];
@@ -279,12 +321,16 @@ public class MainFunction {
         return lebihsatu;
     }
 
+    // function input data
     static void inputNewData(String nama, String supplierr, String tipe, String prod, String exp, int hargaa,
             int stok) {
         int i = firstEmptyNull();
         if (i == -1) {
-            System.out.println("++++++ ALERT ++++++");
-            System.out.println("Gudang Sudah Penuh!");
+            System.out.println("++++++++++++++++++++++++++++++++++++++");
+            System.out.println("+++++ \t\t ALERT \t\t +++++");
+            System.out.println("++++++++++++++++++++++++++++++++++++++");
+            System.out.println("+++++\tGudang Sudah Penuh!\t++++++");
+            System.out.println("++++++++++++++++++++++++++++++++++++++");
         } else if (i != -1) {
             namaBrg[i] = nama;
             tipeBrg[i] = tipe;
@@ -302,19 +348,15 @@ public class MainFunction {
 
         int fitur;
 
-        // System.out.println("========================================"); GUNAKAN INI
-        // UNTUK MEMBERI GARIS!!!
-
         do {
             System.out.println("=============Selamat Datang=============");
             System.out.println("1.Item Entry and Storage");
             System.out.println("2.Update Item Information");
             System.out.println("3.Item Categorization");
             System.out.println("4.Supplier Management");
-            System.out.println("5.Stock Checking");
-            System.out.println("6.Item Scanning");
-            System.out.println("7.Expiry Date Tracking ");
-            System.out.println("8.Delivery");
+            System.out.println("5.Item Scanning");
+            System.out.println("6.Expiry Date Tracking ");
+            System.out.println("7.Delivery");
             System.out.println("0.Keluar");
             System.out.print("Masukkan Nomor Menu: ");
             fitur = input.nextInt();
