@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class MainFunction {
 
     // put function here
+    // array diberi static agar semua function dapat mengakses
     static String[] namaBrg = new String[20];
     static String[] tipeBrg = new String[20];
     static String[] prdDate = new String[20];
@@ -222,7 +223,7 @@ public class MainFunction {
         int jumKirBarang;
         // jika barang tidak ada, input tidak dijalankan
         if (n >= 1 && n <= namaBrg.length) {
-            System.out.println(indeks);
+            // System.out.println(indeks);//FOR TRACING
             System.out.print("Masukkan Jumlah barang yang dikirim: ");
             jumKirBarang = input.nextInt();
             stokBrg[indeks] -= jumKirBarang;
@@ -240,7 +241,7 @@ public class MainFunction {
         return indeks;
     }
 
-    static void printBrgLengkap() {
+    static void printBrgLengkap() {// menampilkan informasi barang dalam gudang
         System.out.printf(
                 "%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No",
                 "Barang", "Supplier", "Kategori", "Produksi", "Kedaluwarsa",
@@ -252,10 +253,10 @@ public class MainFunction {
                         (i + 1), namaBrg[i], supplier[i], tipeBrg[i], prdDate[i],
                         expDate[i], harga[i], stokBrg[i]);
             }
-        } // menampilkan informasi barang dalam gudang
+        }
     }
 
-    static int firstEmptyNull() {// mencari null yang muncul pertama muncul
+    static int firstEmptyNull() {// mencari spot null pertama untuk diisi
         int index = -1;
         for (int i = 0; i < namaBrg.length; i++) {
             if (namaBrg[i] == null) {
@@ -266,7 +267,7 @@ public class MainFunction {
         return index;
     }
 
-    // cari "nama" tertentu di array
+    // Searching "String"
     static int FindInArray(String[] found, String foundWhat) {
         int hasil = 0;
         for (int i = 0; i < found.length; i++) {
@@ -274,14 +275,14 @@ public class MainFunction {
                 hasil = i;
                 break;
             } else {
-                hasil = -1;// kembalian -1 jika tidak ada nama supplier
+                hasil = -1;// kembalian -1 jika tidak ada "String"
             }
         }
-        System.out.println("hasil" + hasil);
+        // System.out.println("hasil" + hasil); //FOR TRACING
         return hasil;
     }
 
-    // hitung jumlah "nama" yang sama
+    // hitung "String" muncul(++)
     static int CountNamaLebihDariSatu(String[] found, String foundWhat) {
         int count = 0;
         for (int i = 0; i < found.length; i++) {
@@ -289,11 +290,11 @@ public class MainFunction {
                 count++;
             }
         }
-        System.out.println(count + "count");
+        // System.out.println(count + "count");//FOR TRACING
         return count;
     }
 
-    // array baru untuk >1
+    // simpan posisi indeks "String"
     static int[] MakeArrayLebihDari1(String[] found, String foundWhat) {
         int count = CountNamaLebihDariSatu(found, foundWhat);
         int[] lebihsatu = new int[count];
@@ -301,8 +302,8 @@ public class MainFunction {
         if (count > 1) {
             for (int i = 0; i < found.length; i++) {
                 if (found[i] != null && found[i].equalsIgnoreCase(foundWhat)) {
-                    System.out.println(i);
-                    System.out.println(foundWhat);
+                    // System.out.println(i);//FOR TRACING
+                    // System.out.println(foundWhat);//FOR TRACING
                     lebihsatu[currentIndex] = i;
                     currentIndex++;
 
@@ -315,9 +316,9 @@ public class MainFunction {
                 }
             }
         }
-        for (int i = 0; i < lebihsatu.length; i++) {
-            System.out.println(lebihsatu[i] + "indek");
-        }
+        // for (int i = 0; i < lebihsatu.length; i++) {
+        // System.out.println(lebihsatu[i] + "indek");
+        // }//FOR TRACING
         return lebihsatu;
     }
 
