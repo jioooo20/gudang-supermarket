@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class MainFunction {
@@ -16,6 +18,9 @@ public class MainFunction {
     static int[] itemCode = new int[20];
     static String[] cabang = new String[3];
     static int[][] stokCabang = new int[3][20];
+    static Date today = new Date();
+    static SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
     static {
 
         namaBrg[0] = "Mie Sedap Goreng";
@@ -399,6 +404,92 @@ public class MainFunction {
         sortStokBrg[j] = tempStok;
     }
 
+    static String[] copyNama() {
+        String[] sortNamaBrg = new String[namaBrg.length];
+
+        for (int i = 0; i < namaBrg.length; i++) {
+            sortNamaBrg[i] = namaBrg[i];
+        }
+        return sortNamaBrg;
+    }
+
+    static String[] copyTipe() {
+        String[] sortTipeBrg = new String[tipeBrg.length];
+
+        for (int i = 0; i < namaBrg.length; i++) {
+            sortTipeBrg[i] = tipeBrg[i];
+        }
+        return sortTipeBrg;
+    }
+
+    static String[] copyProd() {
+        String[] sortPrdDate = new String[prdDate.length];
+
+        for (int i = 0; i < namaBrg.length; i++) {
+            sortPrdDate[i] = prdDate[i];
+        }
+
+        return sortPrdDate;
+    }
+
+    static String[] copyExpDate() {
+        String[] sortExpDate = new String[expDate.length];
+
+        for (int i = 0; i < namaBrg.length; i++) {
+            sortExpDate[i] = expDate[i];
+        }
+        return sortExpDate;
+    }
+
+    static String[] copySupplier() {
+        String[] sortSupplier = new String[supplier.length];
+
+        for (int i = 0; i < namaBrg.length; i++) {
+            sortSupplier[i] = supplier[i];
+        }
+        return sortSupplier;
+    }
+
+    static String[] copyKonSupp() {
+        String[] sortKonSupp = new String[konSupp.length];
+
+        for (int i = 0; i < namaBrg.length; i++) {
+            sortKonSupp[i] = konSupp[i];
+        }
+
+        return sortKonSupp;
+    }
+
+    static String[] copyAlamatSupp() {
+        String[] sortAlamatSupp = new String[alamatSupp.length];
+
+        for (int i = 0; i < namaBrg.length; i++) {
+            sortAlamatSupp[i] = alamatSupp[i];
+        }
+
+        return sortAlamatSupp;
+    }
+
+    static double[] copyHarga() {
+        double[] sortHarga = new double[harga.length];
+
+        for (int i = 0; i < namaBrg.length; i++) {
+            sortHarga[i] = harga[i];
+        }
+
+        return sortHarga;
+    }
+
+    static int[] copyStokBrg() {
+        int[] sortStokBrg = new int[stokBrg.length];
+
+        for (int i = 0; i < namaBrg.length; i++) {
+            sortStokBrg[i] = stokBrg[i];
+        }
+
+        return sortStokBrg;
+    }
+
     // merge codeitem
     static int MergeCode(int tipe, int urut) {
         String code = Integer.toString(tipe);
@@ -638,7 +729,111 @@ public class MainFunction {
 
     }
 
-    public static void main(String[] args) {
+    static void checkExpired(Scanner input) throws Exception {
+        System.out.println("---------------------------------");
+        System.out.println("|\tCEK TGL KADALUWARSA \t|");
+        System.out.println("---------------------------------");
+        System.out.println("=========================================");
+        System.out.println("| NO\t| NAMA BARANG\t\t\t|");
+        System.out.println("=========================================");
+
+        // daftar barang
+        displayListItems();
+
+        System.out.println("=========================================");
+
+        System.out.print("Masukkan Nomor barang: ");
+        int noBarangCek = input.nextInt();
+        int index = SearchUseIndexNumber(noBarangCek);
+
+        // Mengonversi tanggal kadaluwarsa dari string ke Date
+        Date expDateCek = dateFormat.parse(expDate[index]);
+
+        if (noBarangCek >= 1 && noBarangCek <= namaBrg.length) {
+            index = noBarangCek - 1;
+
+            System.out.println("-----------------------------------------");
+
+            // cek tanggal
+            if (today.after(expDateCek)) {
+                System.out.println("|\tBARANG SUDAH KADALUWARSA\t|");
+            } else {
+                System.out.println("|\tBARANG BELUM KADALUWARSA\t|");
+            }
+        } else {
+            System.out.println("Indeks tidak valid.");
+        }
+        System.out.println("-----------------------------------------");
+
+    }
+
+    static void displayExpired() throws Exception {
+
+        // Salin array yang akan diurutkan secara manual
+        String[] NamaBarang = copyNama();
+        String[] TipeBarang = copyTipe();
+        String[] ProduksiDate = copyProd();
+        String[] ExpiredDate = copyExpDate();
+        String[] Supplier = copySupplier();
+        String[] KontakSupplier = copyKonSupp();
+        String[] AlamatSupplier = copyAlamatSupp();
+        double[] Harga = copyHarga();
+        int[] StokBarang = copyStokBrg();
+
+        // Sorting dari jumlah stok barang paling sedikit ke yang paling banyak
+        for (int i = 0; i < ExpiredDate.length - 1; i++) {
+            for (int j = 0; j < ExpiredDate.length - i - 1; j++) {
+                if (ExpiredDate[j] == null || ExpiredDate[j + 1] == null) {
+                    continue;
+                }
+                Date date1 = dateFormat.parse(ExpiredDate[j]);
+                Date date2 = dateFormat.parse(ExpiredDate[j + 1]);
+                if (date1.after(date2)) {
+                    swapData(j, j + 1, NamaBarang, TipeBarang, ProduksiDate, ExpiredDate, Supplier, KontakSupplier,
+                            AlamatSupplier, Harga, StokBarang);
+                }
+            }
+        }
+
+        // menampilkan
+        System.out.println(
+                "=================================================================================");
+
+        System.out.println("|\t\t\t       DAFTAR BARANG KADALUWARSA       \t\t\t|");
+        System.out.println(
+                "=================================================================================");
+        System.out.printf("| %-5s| %-25s\t| %-15s| %-20s |%n", "NO", "NAMA BARANG",
+                "TGL KADALUWARSA",
+                "STATUS BARANG");
+        System.out.println(
+                "=================================================================================");
+        for (int i = 0; i < ExpiredDate.length; i++) {
+            // mengecek kembali jika terdapat nilai null
+            if (expDate[i] == null) {
+                // skip nilai null
+                continue;
+            } else {
+                Date expDateDaftar = dateFormat.parse(ExpiredDate[i]);
+
+                if (today.after(expDateDaftar)) {
+                    System.out.printf("| %-5d| %-25s\t| %-15s| %-20s |%n", (i + 1),
+                            NamaBarang[i],
+                            ExpiredDate[i],
+                            "Kadaluwarsa");
+                } else {
+                    System.out.printf("| %-5d| %-25s\t| %-15s| %-20s |%n", (i + 1),
+                            NamaBarang[i],
+                            ExpiredDate[i],
+                            "Belum Kadaluwarsa");
+                }
+            }
+        }
+        System.out.println(
+                "=================================================================================");
+
+    }
+
+    public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
 
         int fitur;
@@ -732,7 +927,38 @@ public class MainFunction {
                     break;
 
                 case 6:// Expiry Date Tracking
+                    int menu6;
+                    boolean stop6 = true;
+                    int index = 0;
 
+                    do {
+                        System.out.println("-----------------------------------------");
+                        System.out.println("|\t Expiry Date Tracking     \t|");
+                        System.out.println("-----------------------------------------");
+                        System.out.println("Silahkan Pilih");
+                        System.out.println("1. Cek Tanggal Kadaluwarsa");
+                        System.out.println("2. Tampilkan Daftar Kadaluwarsa");
+                        System.out.println("0. Kembali");
+                        System.out.print("Masukkan Nomor: ");
+                        menu6 = input.nextInt();
+                        input.nextLine();
+
+                        switch (menu6) {
+                            case 1:
+                                checkExpired(input);
+                                break;
+                            case 2:
+                                displayExpired();
+                                break;
+                            case 0:
+                                stop2 = false;
+                                System.out.println("Anda kembali ke menu utama");
+                                break;
+                            default:
+                                System.out.println("Pilihan tidak valid.");
+                                break;
+                        }
+                    } while (stop6);
                     break;
 
                 case 7:// Delivery
