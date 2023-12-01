@@ -13,6 +13,7 @@ public class MainFunction {
     static String[] alamatSupp = new String[20];
     static double[] harga = new double[20];
     static int[] stokBrg = new int[20];
+    static int[] itemCode = new int[20];
     static String[] cabang = new String[3];
     static int[][] stokCabang = new int[3][20];
     static {
@@ -160,6 +161,22 @@ public class MainFunction {
         stokBrg[12] = 60;
         stokBrg[13] = 180;
         stokBrg[14] = 25;
+
+        itemCode[0] = 825001;
+        itemCode[1] = 936001;
+        itemCode[2] = 169001;
+        itemCode[3] = 714001;
+        itemCode[4] = 825002;
+        itemCode[5] = 936002;
+        itemCode[6] = 169002;
+        itemCode[7] = 714002;
+        itemCode[8] = 825003;
+        itemCode[9] = 936003;
+        itemCode[10] = 169003;
+        itemCode[11] = 714003;
+        itemCode[12] = 825004;
+        itemCode[13] = 936004;
+        itemCode[14] = 169004;
 
         cabang[0] = "Malang";
         cabang[1] = "Blitar";
@@ -322,10 +339,35 @@ public class MainFunction {
         return lebihsatu;
     }
 
+    // merge codeitem
+    static int MergeCode(int tipe, int urut) {
+        String code = Integer.toString(tipe);
+        String item = Integer.toString(urut);
+        // merge
+        String codeitem = "000000";
+        if (urut < 10) {
+            codeitem = code + "00" + item;
+        } else if (urut >= 10) {
+            codeitem = code + "0" + item;
+        }
+
+        int itemCode = Integer.parseInt(codeitem);
+        return itemCode;
+    }
+
     // function input data
     static void inputNewData(String nama, String supplierr, String tipe, String prod, String exp, int hargaa,
             int stok) {
         int i = firstEmptyNull();
+        int makanan = CountNamaLebihDariSatu(tipeBrg, "Makanan");
+        int minuman = CountNamaLebihDariSatu(tipeBrg, "Minuman");
+        int obat = CountNamaLebihDariSatu(tipeBrg, "Obat");
+        int rokok = CountNamaLebihDariSatu(tipeBrg, "Rokok");
+        int codeMakanan = MergeCode(825, makanan + 1);
+        int codeMinuman = MergeCode(936, minuman + 1);
+        int codeObat = MergeCode(169, obat + 1);
+        int codeRokok = MergeCode(714, rokok + 1);
+
         if (i == -1) {
             System.out.println("++++++++++++++++++++++++++++++++++++++");
             System.out.println("+++++ \t\t ALERT \t\t +++++");
@@ -340,6 +382,18 @@ public class MainFunction {
             expDate[i] = exp;
             harga[i] = hargaa;
             stokBrg[i] = stok;
+            if (tipe.equalsIgnoreCase("Makanan")) {
+                itemCode[i] = codeMakanan;
+            }
+            if (tipe.equalsIgnoreCase("Minuman")) {
+                itemCode[i] = codeMinuman;
+            }
+            if (tipe.equalsIgnoreCase("Obat")) {
+                itemCode[i] = codeObat;
+            }
+            if (tipe.equalsIgnoreCase("Rokok")) {
+                itemCode[i] = codeRokok;
+            }
             System.out.println("Data Baru Telah Ditambahkan!");
         }
     }
@@ -408,6 +462,8 @@ public class MainFunction {
                     break;
 
                 case 7:// Delivery
+
+                    break;
             }
         } while (fitur != 0);
 
