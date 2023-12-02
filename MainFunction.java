@@ -496,6 +496,7 @@ public class MainFunction {
         String item = Integer.toString(urut);
         // merge
         String codeitem = "000000";
+
         if (urut < 10) {
             codeitem = code + "00" + item;
         } else if (urut >= 10) {
@@ -510,10 +511,16 @@ public class MainFunction {
     static void inputNewData(String nama, String supplierr, String tipe, String prod, String exp, int hargaa,
             int stok) {
         int i = firstEmptyNull();
-        int makanan = CountNamaLebihDariSatu(tipeBrg, "Makanan");
-        int minuman = CountNamaLebihDariSatu(tipeBrg, "Minuman");
-        int obat = CountNamaLebihDariSatu(tipeBrg, "Obat");
-        int rokok = CountNamaLebihDariSatu(tipeBrg, "Rokok");
+        // int makanan = CountNamaLebihDariSatu(tipeBrg, "Makanan");
+        // int minuman = CountNamaLebihDariSatu(tipeBrg, "Minuman");
+        // int obat = CountNamaLebihDariSatu(tipeBrg, "Obat");
+        // int rokok = CountNamaLebihDariSatu(tipeBrg, "Rokok");//hapus
+
+        int makanan = TwoLastDigit("Makanan");
+        int minuman = TwoLastDigit("Minuman");
+        int obat = TwoLastDigit("Obat");
+        int rokok = TwoLastDigit("Rokok");
+
         int codeMakanan = MergeCode(825, makanan + 1);
         int codeMinuman = MergeCode(936, minuman + 1);
         int codeObat = MergeCode(169, obat + 1);
@@ -547,6 +554,22 @@ public class MainFunction {
             }
             System.out.println("Data Baru Telah Ditambahkan!");
         }
+    }
+
+    static int TwoLastDigit(String FoundWhat) {
+        int[] AllArray = MakeArrayLebihDari1(tipeBrg, FoundWhat);
+        int LastArray = AllArray[AllArray.length - 1];
+        int Alldigit = itemCode[LastArray];
+        for (int i = 0; i < AllArray.length; i++) {
+            System.out.println(AllArray[i]);
+        }
+        System.out.println(LastArray);
+        int DuaDigitTerakhir = Alldigit;
+        int digit = (int) DuaDigitTerakhir % 100;
+        String padding = String.format("%02d", digit);
+        int Last2Digit = Integer.parseInt(padding);
+        // System.out.println(padding);
+        return Last2Digit;
     }
 
     static void updateItem(Scanner input) {
