@@ -528,6 +528,22 @@ public class MainFunction {
         return itemCode;
     }
 
+    static int TwoLastDigit(String FoundWhat) {
+        int[] AllArray = MakeArrayLebihDari1(tipeBrg, FoundWhat);
+        int LastArray = AllArray[AllArray.length - 1];
+        int Alldigit = itemCode[LastArray];
+        for (int i = 0; i < AllArray.length; i++) {
+            System.out.println(AllArray[i]);
+        }
+        System.out.println(LastArray);
+        int DuaDigitTerakhir = Alldigit;
+        int digit = (int) DuaDigitTerakhir % 100;
+        String padding = String.format("%02d", digit);
+        int Last2Digit = Integer.parseInt(padding);
+        // System.out.println(padding);
+        return Last2Digit;
+    }
+
     // function input data
     static void inputNewData(String nama, String supplierr, String tipe, String prod, String exp, int hargaa,
             int stok) {
@@ -575,22 +591,6 @@ public class MainFunction {
             }
             System.out.println("Data Baru Telah Ditambahkan!");
         }
-    }
-
-    static int TwoLastDigit(String FoundWhat) {
-        int[] AllArray = MakeArrayLebihDari1(tipeBrg, FoundWhat);
-        int LastArray = AllArray[AllArray.length - 1];
-        int Alldigit = itemCode[LastArray];
-        for (int i = 0; i < AllArray.length; i++) {
-            System.out.println(AllArray[i]);
-        }
-        System.out.println(LastArray);
-        int DuaDigitTerakhir = Alldigit;
-        int digit = (int) DuaDigitTerakhir % 100;
-        String padding = String.format("%02d", digit);
-        int Last2Digit = Integer.parseInt(padding);
-        // System.out.println(padding);
-        return Last2Digit;
     }
 
     static void updateItem(Scanner input) {
@@ -708,17 +708,17 @@ public class MainFunction {
                 itemCode[i] = itemCode[i + 1];
 
                 // Update itemCode untuk barang dengan tipe yang sama
-                if (tipeBrg[i] != null) {
-                    if (tipeBrg[i].equalsIgnoreCase("Makanan")) {
-                        itemCode[i] = MergeCode(825, CountNamaLebihDariSatu(tipeBrg, "Makanan") - 1);
-                    } else if (tipeBrg[i].equalsIgnoreCase("Minuman")) {
-                        itemCode[i] = MergeCode(936, CountNamaLebihDariSatu(tipeBrg, "Minuman") - 1);
-                    } else if (tipeBrg[i].equalsIgnoreCase("Obat")) {
-                        itemCode[i] = MergeCode(169, CountNamaLebihDariSatu(tipeBrg, "Obat") - 1);
-                    } else if (tipeBrg[i].equalsIgnoreCase("Rokok")) {
-                        itemCode[i] = MergeCode(714, CountNamaLebihDariSatu(tipeBrg, "Rokok") - 1);
-                    }
-                }
+                // if (tipeBrg[i] != null) {
+                // if (tipeBrg[i].equalsIgnoreCase("Makanan")) {
+                // itemCode[i] = MergeCode(825, CountNamaLebihDariSatu(tipeBrg, "Makanan") - 1);
+                // } else if (tipeBrg[i].equalsIgnoreCase("Minuman")) {
+                // itemCode[i] = MergeCode(936, CountNamaLebihDariSatu(tipeBrg, "Minuman") - 1);
+                // } else if (tipeBrg[i].equalsIgnoreCase("Obat")) {
+                // itemCode[i] = MergeCode(169, CountNamaLebihDariSatu(tipeBrg, "Obat") - 1);
+                // } else if (tipeBrg[i].equalsIgnoreCase("Rokok")) {
+                // itemCode[i] = MergeCode(714, CountNamaLebihDariSatu(tipeBrg, "Rokok") - 1);
+                // }
+                // }
             }
 
             System.out.println(
