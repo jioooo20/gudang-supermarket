@@ -1,5 +1,4 @@
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -24,7 +23,7 @@ public class MainFunction {
 
     static {
 
-        namaBrg[0] = "Mie Sedap Goreng 1";
+        namaBrg[0] = "Mie Sedap Goreng";
         namaBrg[1] = "Aqua 600ml";
         namaBrg[2] = "Paracetamol";
         namaBrg[3] = "Djarum Super";
@@ -32,11 +31,11 @@ public class MainFunction {
         namaBrg[5] = "Coca-Cola 600ml";
         namaBrg[6] = "OBH Combi 100ml";
         namaBrg[7] = "Gudang Garam";
-        namaBrg[8] = "Roti Aoka 2";
+        namaBrg[8] = "Roti Aoka ";
         namaBrg[9] = "Teh Kotak 300ml";
         namaBrg[10] = "Aspirin";
         namaBrg[11] = "Sampoerna";
-        namaBrg[12] = "Chitato 3";
+        namaBrg[12] = "Chitato ";
         namaBrg[13] = "Sprite Kaleng";
         namaBrg[14] = "Minyak Kayu Putih 60ml";
 
@@ -195,34 +194,34 @@ public class MainFunction {
         // malang
         stokCabang[0][0] = 5;
         stokCabang[0][1] = 10;
-        stokCabang[0][2] = 0;
-        stokCabang[0][3] = 0;
+        stokCabang[0][2] = 10;
+        stokCabang[0][3] = 20;
         stokCabang[0][4] = 12;
         stokCabang[0][5] = 7;
-        stokCabang[0][6] = 0;
-        stokCabang[0][7] = 0;
+        stokCabang[0][6] = 3;
+        stokCabang[0][7] = 12;
         stokCabang[0][8] = 9;
         stokCabang[0][9] = 11;
-        stokCabang[0][10] = 0;
-        stokCabang[0][11] = 0;
+        stokCabang[0][10] = 16;
+        stokCabang[0][11] = 9;
         stokCabang[0][12] = 10;
         stokCabang[0][13] = 20;
-        stokCabang[0][14] = 0;
+        stokCabang[0][14] = 12;
 
         // blitar
-        stokCabang[1][0] = 0;
+        stokCabang[1][0] = 10;
         stokCabang[1][1] = 15;
         stokCabang[1][2] = 20;
-        stokCabang[1][3] = 0;
+        stokCabang[1][3] = 9;
         stokCabang[1][4] = 14;
         stokCabang[1][5] = 8;
         stokCabang[1][6] = 12;
-        stokCabang[1][7] = 0;
-        stokCabang[1][8] = 0;
+        stokCabang[1][7] = 14;
+        stokCabang[1][8] = 20;
         stokCabang[1][9] = 13;
         stokCabang[1][10] = 10;
-        stokCabang[1][11] = 0;
-        stokCabang[1][12] = 0;
+        stokCabang[1][11] = 20;
+        stokCabang[1][12] = 10;
         stokCabang[1][13] = 12;
         stokCabang[1][14] = 9;
 
@@ -233,7 +232,7 @@ public class MainFunction {
         stokCabang[2][3] = 10;
         stokCabang[2][4] = 13;
         stokCabang[2][5] = 6;
-        stokCabang[2][6] = 0;
+        stokCabang[2][6] = 12;
         stokCabang[2][7] = 8;
         stokCabang[2][8] = 12;
         stokCabang[2][9] = 9;
@@ -241,7 +240,7 @@ public class MainFunction {
         stokCabang[2][11] = 4;
         stokCabang[2][12] = 12;
         stokCabang[2][13] = 3;
-        stokCabang[2][14] = 0;
+        stokCabang[2][14] = 20;
     }
 
     static void PengirimanCabang(int cabang, int n) {
@@ -533,9 +532,9 @@ public class MainFunction {
         int LastArray = AllArray[AllArray.length - 1];
         int Alldigit = itemCode[LastArray];
         for (int i = 0; i < AllArray.length; i++) {
-            System.out.println(AllArray[i]);
+            // System.out.println(AllArray[i]);
         }
-        System.out.println(LastArray);
+        // System.out.println(LastArray);
         int DuaDigitTerakhir = Alldigit;
         int digit = (int) DuaDigitTerakhir % 100;
         String padding = String.format("%02d", digit);
@@ -1013,7 +1012,7 @@ public class MainFunction {
                     break;
 
                 case 5:// Item Scanning
-                System.out.println("=======================================");
+                    System.out.println("=======================================");
                     System.out.println("============= Code Scanning ===========");
                     System.out.println("=======================================");
                     System.out.print("Masukkan Kode Item : ");
