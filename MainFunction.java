@@ -887,6 +887,7 @@ public class MainFunction {
                 "STATUS BARANG");
         System.out.println(
                 "=================================================================================");
+
         for (int i = 0; i < ExpiredDate.length; i++) {
             // mengecek kembali jika terdapat nilai null
             if (ExpiredDate[i] == null) {
