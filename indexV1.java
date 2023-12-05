@@ -3,6 +3,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class indexV1 {
+
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
 
@@ -17,20 +18,20 @@ public class indexV1 {
         int[] stokBrg = new int[20];
         String[] cabang = new String[3];
 
-        namaBrg[0] = "Mie Sedap Goreng";
-        namaBrg[1] = "Aqua 600ml";
+        namaBrg[0] = "Mie Sedap Goreng"; // makanan
+        namaBrg[1] = "Aqua 600ml";// minuman
         namaBrg[2] = "Paracetamol";
-        namaBrg[3] = "Djarum Super";
-        namaBrg[4] = "Teh Pucuk Harum 600ml";
-        namaBrg[5] = "Coca-Cola 600ml";
+        namaBrg[3] = "Djarum Super";// rokok
+        namaBrg[4] = "Teh Pucuk Harum 600ml";// minuman
+        namaBrg[5] = "Coca-Cola 600ml";// minuman
         namaBrg[6] = "OBH Combi 100ml";
-        namaBrg[7] = "Gudang Garam";
-        namaBrg[8] = "Roti Aoka";
+        namaBrg[7] = "Gudang Garam";// rokok
+        namaBrg[8] = "Roti Aoka"; // makanan
         namaBrg[9] = "Teh Kotak 300ml";
         namaBrg[10] = "Aspirin";
-        namaBrg[11] = "Sampoerna";
-        namaBrg[12] = "Chitato";
-        namaBrg[13] = "Sprite Kaleng";
+        namaBrg[11] = "Sampoerna";// rokok
+        namaBrg[12] = "Chitato"; // makanan
+        namaBrg[13] = "Sprite Kaleng";// minuman
         namaBrg[14] = "Minyak Kayu Putih 60ml";
 
         tipeBrg[0] = "Makanan";
