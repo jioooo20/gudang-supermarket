@@ -933,7 +933,7 @@ public class MainFunction {
                     String newNamabrg = input.next();
                     System.out.print("Masukkan Nama Supplier (Gunakan '-' untuk spasi) : ");
                     String newSupp = input.next();
-                    System.out.print("Masukkan Tipe Barang: ");
+                    System.out.print("Masukkan Tipe Barang (Makanan, Minuman, Obat, Rokok): ");
                     String newtipebrg = input.next();
                     System.out.print("Masukkan Tanggal Produksi(DD-MM-YYYY): ");
                     String newprdDate = input.next();
@@ -1076,13 +1076,13 @@ public class MainFunction {
                                 String cariSupplier = input.nextLine();
                                 int hasil = FindInArray(supplier, cariSupplier);
                                 int[] nilaiIndexPosition = MakeArrayLebihDari1(supplier, cariSupplier);
-                                System.out.println(hasil);
+                                // System.out.println(hasil);//For Tracing
                                 if (hasil == -1) {// gaada
                                     System.out.println("Supplier Yang Anda Cari Tidak Ditemukan");
                                 } else if (hasil >= 0 && hasil < supplier.length) {
-                                    System.out.println("Masukkan Kontak Supplier: ");
+                                    System.out.print("Masukkan Kontak Supplier: ");
                                     String newKontak = input.nextLine();
-                                    System.out.println("Masukkan Alamat Supplier");
+                                    System.out.print("Masukkan Alamat Supplier: ");
                                     String newAlamat = input.nextLine();
                                     for (int i = 0; i < nilaiIndexPosition.length; i++) {
                                         konSupp[nilaiIndexPosition[i]] = newKontak;
