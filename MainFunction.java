@@ -726,7 +726,6 @@ public class MainFunction {
 
         // hapus data barang
         if (index != -1) {
-            int deletedItemCode = itemCode[index];
             String namaBrgHapus = namaBrg[index];
             for (int i = index; i < namaBrg.length - 1; i++) {
                 namaBrg[i] = namaBrg[i + 1];
@@ -743,8 +742,7 @@ public class MainFunction {
             }
 
             System.out.println(
-                    "Data barang " + namaBrgHapus + " dengan Kode Barang " + deletedItemCode
-                            + " telah berhasil dihapus");
+                    "Data barang " + namaBrgHapus + " telah berhasil dihapus");
         }
     }
 
@@ -799,29 +797,6 @@ public class MainFunction {
         System.out.println(
                 "=========================================================================================================================================================");
 
-    }
-
-    static void scanItem(int itemCode) {
-        System.out.println("===========================================");
-        System.out.println("=========== Hasil Scanning Kode ===========");
-        System.out.println("===========================================");
-
-        int index = SearchUseIndexNumber(itemCode);
-
-        if (index != -1) {
-            System.out.println("Informasi Barang");
-            System.out.println("Nama Barang         : " + namaBrg[index]);
-            System.out.println("Kategori Barang     : " + tipeBrg[index]);
-            System.out.println("Tanggal Produksi    : " + prdDate[index]);
-            System.out.println("Tanggal Kedaluwarsa : " + expDate[index]);
-            System.out.println("Supplier            : " + supplier[index]);
-            System.out.println("Kontak Supplier     : " + konSupp[index]);
-            System.out.println("Alamat Supplier     : " + alamatSupp[index]);
-            System.out.println("Harga               : " + harga[index]);
-            System.out.println("Stok Barang         : " + stokBrg[index]);
-        } else {
-            System.out.println("Anda Salah Memasukkan Kode Item");
-        }
     }
 
     static void checkExpired(Scanner input) throws Exception {
@@ -1221,14 +1196,7 @@ public class MainFunction {
                     break;
 
                 case 5:// Item Scanning
-                    System.out.println("=======================================");
-                    System.out.println("============= Code Scanning ===========");
-                    System.out.println("=======================================");
-                    System.out.print("Masukkan Kode Item : ");
-                    int itemCode = input.nextInt();
-                    scanItem(itemCode);
-
-                    break;
+                    codeScanning(input);
 
                 case 6:// Expiry Date Tracking
                     int menu6;
