@@ -685,37 +685,32 @@ public class indexV1 {
                     break;
 
                 case 5:
-                    System.out.println("==============Item Scanning==============");
-                    System.out.println("Daftar Barang Tersedia:");
-                    for (String nama : namaBrg) {
-                        System.out.println("- " + nama);
-                    }
-                    System.out.print("Masukkan nama barang yang dicari : ");
-                    String namaBarangCari = input.next();
-                    input.nextLine();
-                    int indeksBarang = -1;
-                    for (int i = 0; i < namaBrg.length; i++) {
-                        if (namaBrg[i].equalsIgnoreCase(namaBarangCari)) {
-                            indeksBarang = i;
-                            break;
-                        }
-                    }
+                System.out.println("========= Item Scanning =========");
+                System.out.print("Masukkan Nama Barang yang akan discan: ");
+                String scannedItem = input.next();
 
-                    if (indeksBarang != -1) {
+                boolean found = false;
+                // Cari barang berdasarkan nama
+                for (int i = 0; i < namaBrg.length; i++) {
+                    if (namaBrg[i] != null && namaBrg[i].equalsIgnoreCase(scannedItem)) {
                         System.out.println("Informasi Barang:");
-                        System.out.println("Nama Barang         : " + namaBrg[indeksBarang]);
-                        System.out.println("Kategori            : " + tipeBrg[indeksBarang]);
-                        System.out.println("Tanggal Produksi    : " + prdDate[indeksBarang]);
-                        System.out.println("Tanggal Kedaluwarsa : " + expDate[indeksBarang]);
-                        System.out.println("Supplier            : " + supplier[indeksBarang]);
-                        System.out.println("Kontak Supplier     : " + konSupp[indeksBarang]);
-                        System.out.println("Alamat Supplier     : " + alamatSupp[indeksBarang]);
-                        System.out.println("Stok                : " + stokBrg[indeksBarang]);
-                        System.out.println("Harga               : " + harga[indeksBarang]);
-                    } else {
-                        System.out.println("Barang tidak ditemukan.");
+                        System.out.println("Nama Barang: " + namaBrg[i]);
+                        System.out.println("Tipe Barang: " + tipeBrg[i]);
+                        System.out.println("Tanggal Produksi: " + prdDate[i]);
+                        System.out.println("Tanggal Kadaluwarsa: " + expDate[i]);
+                        System.out.println("Supplier: " + supplier[i]);
+                        System.out.println("Harga: " + harga[i]);
+                        System.out.println("Stok: " + stokBrg[i]);
+
+                        found = true;
+                        break;
                     }
-                    break;
+                }
+
+                if (!found) {
+                    System.out.println("Barang tidak ditemukan.");
+                }
+                break;
 
                 case 6:
                     int menu6, stop6 = 0;
