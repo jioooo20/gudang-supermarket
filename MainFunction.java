@@ -1,5 +1,4 @@
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -56,8 +55,8 @@ public class MainFunction {
         tipeBrg[13] = "Minuman";
         tipeBrg[14] = "Obat";
 
-        prdDate[0] = "22-09-2023";
-        prdDate[1] = "23-09-2023";
+        prdDate[0] = "22-09-2020";
+        prdDate[1] = "23-09-2021";
         prdDate[2] = "21-10-2023";
         prdDate[3] = "24-09-2023";
         prdDate[4] = "20-09-2023";
@@ -66,14 +65,14 @@ public class MainFunction {
         prdDate[7] = "21-10-2023";
         prdDate[8] = "24-09-2023";
         prdDate[9] = "20-11-2023";
-        prdDate[10] = "22-09-2023";
+        prdDate[10] = "22-09-2019";
         prdDate[11] = "23-09-2023";
         prdDate[12] = "21-10-2023";
         prdDate[13] = "24-09-2023";
         prdDate[14] = "20-11-2023";
 
-        expDate[0] = "23-12-2024";
-        expDate[1] = "24-12-2025";
+        expDate[0] = "23-12-2022";
+        expDate[1] = "24-10-2023";
         expDate[2] = "20-11-2024";
         expDate[3] = "25-12-2023";
         expDate[4] = "19-12-2024";
@@ -82,7 +81,7 @@ public class MainFunction {
         expDate[7] = "20-11-2024";
         expDate[8] = "25-12-2023";
         expDate[9] = "19-12-2024";
-        expDate[10] = "23-12-2024";
+        expDate[10] = "23-01-2021";
         expDate[11] = "24-12-2025";
         expDate[12] = "20-11-2024";
         expDate[13] = "25-12-2023";
@@ -263,7 +262,10 @@ public class MainFunction {
         if (n >= 1 && n <= namaBrg.length) {
             indeks = n - 1;
         } else {
-            System.out.println("Nomor yang anda masukkan salah");
+            System.out.println("-----------------------------------------");
+            System.out.println("|     Nomor yang anda masukkan salah    |");
+            System.out.println("-----------------------------------------");
+
         }
         return indeks;
     }
@@ -299,6 +301,21 @@ public class MainFunction {
         int hasil = 0;
         for (int i = 0; i < found.length; i++) {
             if (found[i] != null && found[i].equalsIgnoreCase(foundWhat)) {
+                hasil = i;
+                break;
+            } else {
+                hasil = -1;// kembalian -1 jika tidak ada "String"
+            }
+        }
+        // System.out.println("hasil" + hasil); //FOR TRACING
+        return hasil;
+    }
+
+    // Searching "integer"
+    static int FindIntegerInArray(int[] found, int foundWhat) {
+        int hasil = 0;
+        for (int i = 0; i < found.length; i++) {
+            if (found[i] != 0 && found[i] == foundWhat) {
                 hasil = i;
                 break;
             } else {
@@ -564,11 +581,11 @@ public class MainFunction {
         int codeRokok = MergeCode(714, rokok + 1);
 
         if (i == -1) {
-            System.out.println("++++++++++++++++++++++++++++++++++++++");
-            System.out.println("+++++ \t\t ALERT \t\t +++++");
-            System.out.println("++++++++++++++++++++++++++++++++++++++");
-            System.out.println("+++++\tGudang Sudah Penuh!\t++++++");
-            System.out.println("++++++++++++++++++++++++++++++++++++++");
+            System.out.println("======================================");
+            System.out.println("|               ALERT                |");
+            System.out.println("--------------------------------------");
+            System.out.println("|         Gudang Sudah Penuh!        |");
+            System.out.println("======================================");
         } else if (i != -1) {
             namaBrg[i] = nama;
             tipeBrg[i] = tipe;
@@ -610,68 +627,83 @@ public class MainFunction {
 
         // Cari index barang
         int index = SearchUseIndexNumber(noBrgUpdate);
+        if (index != -1) {
+            // pilihan part yang di update
+            System.out.println("============================");
+            System.out.println("Part yang ingin anda ubah:");
+            System.out.println("1. Nama Barang");
+            System.out.println("2. Kategori Barang");
+            System.out.println("3. Tanggal Produksi Barang");
+            System.out.println("4. Tanggal Kadaluwarsa Barang");
+            System.out.println("5. Harga Barang");
+            System.out.println("6. Jumlah Stok Barang");
+            System.out.println("7. Supplier");
+            System.out.println("8. Kode Barang");
+            System.out.println("0. Selesai");
+            System.out.print("Pilih menu: ");
+            int pilihan = input.nextInt();
+            input.nextLine();
 
-        // pilihan part yang di update
-        System.out.println("============================");
-        System.out.println("Part yang ingin anda ubah:");
-        System.out.println("1. Nama Barang");
-        System.out.println("2. Kategori Barang");
-        System.out.println("3. Tanggal Produksi Barang");
-        System.out.println("4. Tanggal Kadaluwarsa Barang");
-        System.out.println("5. Harga Barang");
-        System.out.println("6. Jumlah Stok Barang");
-        System.out.println("7. Supplier");
-        System.out.println("0. Selesai");
-        System.out.print("Pilih menu: ");
-        int pilihan = input.nextInt();
-        input.nextLine();
+            // Update part yang dipilih
+            switch (pilihan) {
+                case 1:
+                    System.out.println("Nama Barang Lama\t\t: " + namaBrg[index]);
+                    System.out.print("Masukkan Nama Barang Baru\t: ");
+                    namaBrg[index] = input.nextLine();
+                    break;
+                case 2:
+                    System.out.println("Kategori Barang Lama: " + tipeBrg[index]);
+                    System.out.print("Masukkan Kategori Barang Baru: ");
+                    tipeBrg[index] = input.nextLine();
+                    break;
+                case 3:
+                    System.out.println("Tanggal Produksi Lama: " + prdDate[index]);
+                    System.out.print("Masukkan Tanggal Produksi Baru(DD-MM-YYYY): ");
+                    prdDate[index] = input.nextLine();
+                    break;
+                case 4:
+                    System.out.println("Tanggal Kadaluwarsa Lama: " + expDate[index]);
+                    System.out.print("Masukkan Tanggal Kadaluwarsa Baru(DD-MM-YYYY): ");
+                    expDate[index] = input.nextLine();
+                    break;
+                case 5:
+                    System.out.println("Harga Barang Lama: " + harga[index]);
+                    System.out.print("Masukkan Harga Barang Baru: ");
+                    harga[index] = input.nextDouble();
+                    break;
+                case 6:
+                    System.out.println("Jumlah Stok Barang Lama: " + stokBrg[index]);
+                    System.out.print("Masukkan Jumlah Stok Barang Baru: ");
+                    stokBrg[index] = input.nextInt();
+                    break;
+                case 7:
+                    System.out.println("Supplier Barang Lama: " + supplier[index]);
+                    System.out.print("Masukkan Supplier Barang Baru: ");
+                    supplier[index] = input.nextLine();
+                    break;
+                case 8:
+                    System.out.println("Kode Barang Lama: " + itemCode[index]);
+                    System.out.print("Masukkan Kode Barang Baru: ");
+                    int kode = input.nextInt();
+                    int nomor = FindIntegerInArray(itemCode, kode);
 
-        // Update part yang dipilih
-        switch (pilihan) {
-            case 1:
-                System.out.println("Nama Barang Lama\t\t: " + namaBrg[index]);
-                System.out.print("Masukkan Nama Barang Baru\t: ");
-                namaBrg[index] = input.nextLine();
-                break;
-            case 2:
-                System.out.println("Kategori Barang Lama: " + tipeBrg[index]);
-                System.out.print("Masukkan Kategori Barang Baru: ");
-                tipeBrg[index] = input.nextLine();
-                break;
-            case 3:
-                System.out.println("Tanggal Produksi Lama: " + prdDate[index]);
-                System.out.print("Masukkan Tanggal Produksi Baru(DD-MM-YYYY): ");
-                prdDate[index] = input.nextLine();
-                break;
-            case 4:
-                System.out.println("Tanggal Kadaluwarsa Lama: " + expDate[index]);
-                System.out.print("Masukkan Tanggal Kadaluwarsa Baru(DD-MM-YYYY): ");
-                expDate[index] = input.nextLine();
-                break;
-            case 5:
-                System.out.println("Harga Barang Lama: " + harga[index]);
-                System.out.print("Masukkan Harga Barang Baru: ");
-                harga[index] = input.nextDouble();
-                break;
-            case 6:
-                System.out.println("Jumlah Stok Barang Lama: " + stokBrg[index]);
-                System.out.print("Masukkan Jumlah Stok Barang Baru: ");
-                stokBrg[index] = input.nextInt();
-                break;
-            case 7:
-                System.out.println("Supplier Barang Lama: " + supplier[index]);
-                System.out.print("Masukkan Supplier Barang Baru: ");
-                supplier[index] = input.nextLine();
-                break;
-            case 0:
-                System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
-                break;
-            default:
-                System.out.println("Pilihan tidak valid.");
+                    if (nomor == -1) {
+                        itemCode[index] = kode;
+                        System.out.println("Barang " + namaBrg[index] + " berhasil diperbarui ");
+                    } else if (nomor != -1) {
+                        System.out.println("Kode Barang Sudah Digunakan");
+                    }
+                    break;
+                case 0:
+                    System.out.println("+++++Anda telah selesai melakukan pembaruan data+++++");
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid.");
+            }
+            if (pilihan != 8) {
+                System.out.println("Barang " + namaBrg[index] + " berhasil diperbarui ");
+            }
         }
-
-        System.out.println("Barang " + namaBrg[index] + " berhasil diperbarui ");
-
     }
 
     static void deleteItem(Scanner input) {
@@ -691,10 +723,11 @@ public class MainFunction {
 
         // cari index barang
         int index = SearchUseIndexNumber(noBrgHapus);
-        int deletedItemCode = itemCode[index];
-        String namaBrgHapus = namaBrg[index];
+
         // hapus data barang
         if (index != -1) {
+            int deletedItemCode = itemCode[index];
+            String namaBrgHapus = namaBrg[index];
             for (int i = index; i < namaBrg.length - 1; i++) {
                 namaBrg[i] = namaBrg[i + 1];
                 tipeBrg[i] = tipeBrg[i + 1];
@@ -707,18 +740,6 @@ public class MainFunction {
                 stokBrg[i] = stokBrg[i + 1];
                 itemCode[i] = itemCode[i + 1];
 
-                // Update itemCode untuk barang dengan tipe yang sama
-                // if (tipeBrg[i] != null) {
-                // if (tipeBrg[i].equalsIgnoreCase("Makanan")) {
-                // itemCode[i] = MergeCode(825, CountNamaLebihDariSatu(tipeBrg, "Makanan") - 1);
-                // } else if (tipeBrg[i].equalsIgnoreCase("Minuman")) {
-                // itemCode[i] = MergeCode(936, CountNamaLebihDariSatu(tipeBrg, "Minuman") - 1);
-                // } else if (tipeBrg[i].equalsIgnoreCase("Obat")) {
-                // itemCode[i] = MergeCode(169, CountNamaLebihDariSatu(tipeBrg, "Obat") - 1);
-                // } else if (tipeBrg[i].equalsIgnoreCase("Rokok")) {
-                // itemCode[i] = MergeCode(714, CountNamaLebihDariSatu(tipeBrg, "Rokok") - 1);
-                // }
-                // }
             }
 
             System.out.println(
@@ -753,7 +774,7 @@ public class MainFunction {
         int[] KodeBarang = copyKode();
 
         // Sorting dari jumlah stok barang paling sedikit ke yang paling banyak
-        for (int i = 0; i < StokBarang.length - 1; i++) {
+        for (int i = 0; i < StokBarang.length - 1; i++) { // agar stok paling banyak berada di paling ujung
             for (int j = 0; j < StokBarang.length - i - 1; j++) {
                 if (StokBarang[j] > StokBarang[j + 1]) {
                     swapData(j, j + 1, NamaBarang, TipeBarang, ProduksiDate, ExpiredDate, Supplier,
@@ -797,24 +818,26 @@ public class MainFunction {
         int noBarangCek = input.nextInt();
         int index = SearchUseIndexNumber(noBarangCek);
 
-        // Mengonversi tanggal kadaluwarsa dari string ke Date
-        Date expDateCek = dateFormat.parse(expDate[index]);
+        if (index != -1) {
+            // Mengonversi tanggal kadaluwarsa dari string ke Date
+            Date expDateCek = dateFormat.parse(expDate[index]);
 
-        if (noBarangCek >= 1 && noBarangCek <= namaBrg.length) {
-            index = noBarangCek - 1;
+            if (noBarangCek >= 1 && noBarangCek <= namaBrg.length) {
+                index = noBarangCek - 1;
+                System.out.println("-----------------------------------------");
+                System.out.println("|\t" + "Tgl Kadaluwarsa: " + expDate[index] + "\t|");
 
-            System.out.println("-----------------------------------------");
-
-            // cek tanggal
-            if (today.after(expDateCek)) {
-                System.out.println("|\tBARANG SUDAH KADALUWARSA\t|");
+                // cek tanggal
+                if (today.after(expDateCek)) {
+                    System.out.println("|\t BARANG SUDAH KADALUWARSA\t|");
+                } else {
+                    System.out.println("|\t BARANG BELUM KADALUWARSA\t|");
+                }
+                System.out.println("-----------------------------------------");
             } else {
-                System.out.println("|\tBARANG BELUM KADALUWARSA\t|");
+                System.out.println("|\t Indeks tidak valid \t|");
             }
-        } else {
-            System.out.println("Indeks tidak valid.");
         }
-        System.out.println("-----------------------------------------");
 
     }
 
@@ -833,10 +856,19 @@ public class MainFunction {
         int[] StokBarang = copyStokBrg();
         int[] KodeBarang = copyKode();
 
-        // Sorting dari jumlah stok barang paling sedikit ke yang paling banyak
-        for (int i = 0; i < StokBarang.length - 1; i++) {
-            for (int j = 0; j < StokBarang.length - i - 1; j++) {
-                if (StokBarang[j] > StokBarang[j + 1]) {
+        // Sorting dari jumlah tanggal barang paling sedikit ke yang paling banyak
+        for (int i = 0; i < ExpiredDate.length - 1; i++) {
+            for (int j = 0; j < ExpiredDate.length - i - 1; j++) {
+                // menyeleksi jika ada array expdate barang yang null
+                if (ExpiredDate[j] == null || ExpiredDate[j + 1] == null) {
+                    continue;
+                }
+                // Konversi ExpiredDate dari String ke Date dengan dateFormat
+                Date date1 = dateFormat.parse(ExpiredDate[j]);
+                Date date2 = dateFormat.parse(ExpiredDate[j + 1]);
+
+                // melakukan swap/penukaran posisi data
+                if (date1.after(date2)) {
                     swapData(j, j + 1, NamaBarang, TipeBarang, ProduksiDate, ExpiredDate, Supplier,
                             KontakSupplier, AlamatSupplier, Harga, StokBarang, KodeBarang);
                 }
@@ -857,7 +889,7 @@ public class MainFunction {
                 "=================================================================================");
         for (int i = 0; i < ExpiredDate.length; i++) {
             // mengecek kembali jika terdapat nilai null
-            if (expDate[i] == null) {
+            if (ExpiredDate[i] == null) {
                 // skip nilai null
                 continue;
             } else {
@@ -881,22 +913,60 @@ public class MainFunction {
 
     }
 
-    static void nameScanning(Scanner input) {
-        System.out.println("-------------------------");
-        System.out.println("|\t CARI NAMA BARANG \t|");
-        System.out.println("-------------------------");
-        System.out.println("=========================================");
-        System.out.println("| NO\t| NAMA BARANG\t\t\t|");
-        System.out.println("=========================================");
+    static void codeScanning(Scanner input) {
+        System.out.println("-----------------------------------------------");
+        System.out.println("|      \t\t CODE SCANNING \t\t      |");
+        System.out.println("-----------------------------------------------");
+        System.out.println("===============================================");
+        System.out.printf("| %-30s| %-12s| %n", "NAMA BARANG", "KODE BARANG");
+        System.out.println("===============================================");
 
         // daftar barang
-        displayListItems();
+        for (int i = 0; i < namaBrg.length; i++) {
+            if (namaBrg[i] == null) {
+                continue;
+            } else {
+                System.out.printf("| %-30s| %-12s| %n", namaBrg[i], itemCode[i]);
+            }
+        }
 
-        System.out.println("=========================================");
-        System.out.print("Masukkan Nama Barang: ");
-        String name = input.nextLine();
-        int index = FindInArray(namaBrg, name);
+        System.out.println("===============================================");
+        System.out.print("Masukkan Kode Barang: ");
+        int kode = input.nextInt();
 
+        // Cari index barang
+        int index = FindIntegerInArray(itemCode, kode);
+        // Salin array yang akan diurutkan secara manual
+
+        // menampilkan
+        if (index == -1) {
+            System.out.println("==========================================");
+            System.out.println("|           Barang Tidak Ditemukan       |");
+            System.out.println("==========================================");
+        } else {
+
+            System.out.println(
+                    "===================================================================================================================================================");
+
+            System.out
+                    .println("|\t\t\t\t\t\t" + "      INFORMASI BARANG (" + namaBrg[index] + ")       \t\t\t\t\t\t  |");
+            System.out.println(
+                    "===================================================================================================================================================");
+            System.out.printf(
+                    "| %-8s| %-30s| %-15s| %-15s| %-18s| %-20s| %-15s| %-9s|%n",
+                    "KODE", "NAMA BARANG", "KATEGORI", "TGL PRODUKSI",
+                    "TGL KADALUWARSA", "SUPPLIER", "HARGA", "STOK");
+            System.out.println(
+                    "---------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf(
+                    "| %-8d| %-30s| %-15s| %-15s| %-18s| %-20s| %-15s| %-9s|%n",
+                    itemCode[index], namaBrg[index], tipeBrg[index], prdDate[index],
+                    expDate[index], supplier[index], harga[index], stokBrg[index]);
+
+            System.out.println(
+                    "===================================================================================================================================================");
+
+        }
     }
 
     public static void main(String[] args) throws Exception {
@@ -905,12 +975,14 @@ public class MainFunction {
         int fitur;
 
         do {
-            System.out.println("=============Selamat Datang=============");
+            System.out.println("========================================");
+            System.out.println("|             SELAMAT DATANG           |");
+            System.out.println("========================================");
             System.out.println("1.Item Entry and Storage");
             System.out.println("2.Update Item Information");
             System.out.println("3.Item Categorization");
             System.out.println("4.Supplier Management");
-            System.out.println("5.Item Scanning");
+            System.out.println("5.Code Scanning");
             System.out.println("6.Expiry Date Tracking ");
             System.out.println("7.Delivery");
             System.out.println("0.Keluar");
@@ -922,12 +994,12 @@ public class MainFunction {
 
             switch (fitur) {
                 case 1:
-                    System.out.println("========================================");
-                    System.out.println("=========Item Entry and Storage=========");
-                    System.out.println("========================================");
-                    System.out.print("Masukkan Nama Barang (Gunakan '-' untuk spasi) : ");
+                    System.out.println("----------------------------------------------------");
+                    System.out.println("|                Item Entry and Storage            |");
+                    System.out.println("----------------------------------------------------");
+                    System.out.print("Masukkan Nama Barang(Gunakan '-' untuk spasi): ");
                     String newNamabrg = input.next();
-                    System.out.print("Masukkan Nama Supplier (Gunakan '-' untuk spasi) : ");
+                    System.out.print("Masukkan Nama Supplier(Gunakan '-' untuk spasi): ");
                     String newSupp = input.next();
                     System.out.print("Masukkan Tipe Barang: ");
                     String newtipebrg = input.next();
@@ -989,8 +1061,8 @@ public class MainFunction {
 
                     break;
 
-                case 5:// Item Scanning
-
+                case 5:// Code Scanning
+                    codeScanning(input);
                     break;
 
                 case 6:// Expiry Date Tracking
@@ -1017,7 +1089,7 @@ public class MainFunction {
                                 displayExpired();
                                 break;
                             case 0:
-                                stop2 = false;
+                                stop6 = false;
                                 System.out.println("Anda kembali ke menu utama");
                                 break;
                             default:
