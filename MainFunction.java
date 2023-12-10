@@ -1241,7 +1241,6 @@ public class MainFunction {
                         System.out.print("Masukkan Nomor Menu: ");
                         fitur7 = input.nextInt();
                         input.nextLine();
-
                         switch (fitur7) {
                             case 1:
                                 int kirim_cabang;
