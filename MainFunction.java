@@ -272,13 +272,15 @@ public class MainFunction {
 
     static void printBrgLengkap() {// menampilkan informasi barang dalam gudang
         System.out.printf(
-                "%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No",
+                "|%-3s| %-25s| %-18s| %-10s| %-12s| %-12s| %-10s| %-4s | \n", "No",
                 "Barang", "Supplier", "Kategori", "Produksi", "Kedaluwarsa",
                 "Harga", "Stok");
+        System.out.println(
+                "---------------------------------------------------------------------------------------------------------------");
         for (int i = 0; i < namaBrg.length; i++) {
             if (namaBrg[i] != null) {
                 System.out.printf(
-                        "%-3d| %-25s| %-18s| %-10s| %-12s| %-12s| %-10.1f| %-4d | \n",
+                        "|%-3d| %-25s| %-18s| %-10s| %-12s| %-12s| %-10.1f| %-4d | \n",
                         (i + 1), namaBrg[i], supplier[i], tipeBrg[i], prdDate[i],
                         expDate[i], harga[i], stokBrg[i]);
             }
@@ -485,7 +487,6 @@ public class MainFunction {
         for (int i = 0; i < namaBrg.length; i++) {
             sortKonSupp[i] = konSupp[i];
         }
-
         return sortKonSupp;
     }
 
@@ -854,7 +855,7 @@ public class MainFunction {
         int[] StokBarang = copyStokBrg();
         int[] KodeBarang = copyKode();
 
-        // Sorting dari jumlah tanggal barang paling sedikit ke yang paling banyak
+        // Sorting dari jumlah stok barang paling sedikit ke yang paling banyak
         for (int i = 0; i < ExpiredDate.length - 1; i++) {
             for (int j = 0; j < ExpiredDate.length - i - 1; j++) {
                 // menyeleksi jika ada array expdate barang yang null
@@ -885,7 +886,6 @@ public class MainFunction {
                 "STATUS BARANG");
         System.out.println(
                 "=================================================================================");
-
         for (int i = 0; i < ExpiredDate.length; i++) {
             // mengecek kembali jika terdapat nilai null
             if (ExpiredDate[i] == null) {
@@ -920,7 +920,7 @@ public class MainFunction {
         System.out.printf("| %-30s| %-12s| %n", "NAMA BARANG", "KODE BARANG");
         System.out.println("===============================================");
 
-        // daftar barang
+        // print daftar barang
         for (int i = 0; i < namaBrg.length; i++) {
             if (namaBrg[i] == null) {
                 continue;
@@ -964,7 +964,6 @@ public class MainFunction {
 
             System.out.println(
                     "===================================================================================================================================================");
-
         }
     }
 
@@ -1048,14 +1047,16 @@ public class MainFunction {
                                 System.out.println("Pilihan tidak valid.");
                                 break;
                         }
-
                     } while (stop2);
                     break;
 
                 case 3:// Item Categorization
                     int menu3;
                     do {
-                        System.out.println("============Item Categorization===========");
+                        System.out.println("-----------------------------------------");
+                        System.out.println("|          Item Categorization          |");
+                        System.out.println("-----------------------------------------");
+
                         System.out.println("1. Makanan");
                         System.out.println("2. Minuman");
                         System.out.println("3. Obat Obatan");
@@ -1067,7 +1068,7 @@ public class MainFunction {
                         switch (menu3) {
                             case 1:
                                 System.out.println("==========================================");
-                                System.out.println("==\t\tList Makanan\t\t==");
+                                System.out.println("|               List Makanan             |");
                                 System.out.println("==========================================");
 
                                 int[] indeks = MakeArrayLebihDari1(tipeBrg, "Makanan");
@@ -1075,11 +1076,10 @@ public class MainFunction {
                                     System.out.printf("%-3s| %-36s| \n", (i + 1), namaBrg[indeks[i]]);
                                 }
                                 System.out.println("==========================================");
-
                                 break;
                             case 2:
                                 System.out.println("==========================================");
-                                System.out.println("==\t\tList Minuman\t\t==");
+                                System.out.println("|               List Minuman             |");
                                 System.out.println("==========================================");
 
                                 int[] indekss = MakeArrayLebihDari1(tipeBrg, "Minuman");
@@ -1087,11 +1087,10 @@ public class MainFunction {
                                     System.out.printf("%-3s| %-36s| \n", (i + 1), namaBrg[indekss[i]]);
                                 }
                                 System.out.println("==========================================");
-
                                 break;
                             case 3:
                                 System.out.println("==========================================");
-                                System.out.println("==\t\tList Obat\t\t==");
+                                System.out.println("|                List Obat               |");
                                 System.out.println("==========================================");
 
                                 int[] indeksss = MakeArrayLebihDari1(tipeBrg, "Obat");
@@ -1103,7 +1102,7 @@ public class MainFunction {
                                 break;
                             case 4:
                                 System.out.println("==========================================");
-                                System.out.println("==\t\tList Rokok\t\t==");
+                                System.out.println("|                 List Rokok             |");
                                 System.out.println("==========================================");
 
                                 int[] indekssss = MakeArrayLebihDari1(tipeBrg, "Rokok");
@@ -1111,9 +1110,7 @@ public class MainFunction {
                                     System.out.printf("%-3s| %-36s| \n", (i + 1), namaBrg[indekssss[i]]);
                                 }
                                 System.out.println("==========================================");
-
                                 break;
-
                             default:
                                 System.out.println("Angka yang anda masukkan salah");
                                 break;
@@ -1124,7 +1121,9 @@ public class MainFunction {
                 case 4:// Supplier Management
                     int menu4;
                     do {
-                        System.out.println("===========Supplier Management==========");
+                        System.out.println("========================================");
+                        System.out.println("|          Supplier Management         |");
+                        System.out.println("========================================");
                         System.out.println("1.Edit Data Supplier");
                         System.out.println("2.Lihat Informasi Supplier");
                         System.out.println("0.Kembali");
@@ -1137,7 +1136,7 @@ public class MainFunction {
                         switch (menu4) {
                             case 1:
                                 System.out.println("========================================");
-                                System.out.println("===========Edit Data Supplier===========");
+                                System.out.println("|          Edit Data Supplier          |");
                                 System.out.println("========================================");
                                 System.out.print("Masukkan Supplier: ");
                                 String cariSupplier = input.nextLine();
@@ -1160,9 +1159,9 @@ public class MainFunction {
 
                                 break;
                             case 2:// nnt dikasi function
-                                System.out.println("========================================");
-                                System.out.println("==============List Supplier=============");
-                                System.out.println("========================================");
+                                System.out.println("==================================================");
+                                System.out.println("|                   List Supplier                |");
+                                System.out.println("==================================================");
                                 System.out.printf("%-3s| %-15s| %-15s| %-10s|\n", "No", "Supplier", "Kontak",
                                         " Alamat");
                                 for (int i = 0; i < supplier.length; i++) {
@@ -1180,23 +1179,21 @@ public class MainFunction {
                                             System.out.printf("%-3s| %-15s| %-15s| %-10s| \n", (i + 1), supplier[i],
                                                     konSupp[i], alamatSupp[i]);
                                         }
-
                                     }
                                 }
-                                System.out.println("========================================");
+                                System.out.println("==================================================");
                                 break;
-
                             default:
                                 System.out.println("Masukkan Nomor Menu");
                                 continue;
                         }
-
                     } while (menu4 != 0);
 
                     break;
 
                 case 5:// Item Scanning
                     codeScanning(input);
+                    break;
 
                 case 6:// Expiry Date Tracking
                     int menu6;
@@ -1235,7 +1232,9 @@ public class MainFunction {
                 case 7:// Delivery
                     int fitur7;
                     do {
-                        System.out.println("================Delivery================");
+                        System.out.println("----------------------------------------");
+                        System.out.println("|               Delivery               |");
+                        System.out.println("----------------------------------------");
                         System.out.println("1. Pengiriman");
                         System.out.println("2. Lihat Stok Cabang");
                         System.out.println("0. Kembali");
@@ -1246,7 +1245,9 @@ public class MainFunction {
                         switch (fitur7) {
                             case 1:
                                 int kirim_cabang;
-                                System.out.println("=====Pilih Cabang Yang Akan Dikirim=====");
+                                System.out.println("----------------------------------------");
+                                System.out.println("|    Pilih Cabang Yang Akan Dikirim    |");
+                                System.out.println("----------------------------------------");
                                 System.out.println("1.Malang");
                                 System.out.println("2.Blitar");
                                 System.out.println("3.Tuban");
@@ -1257,48 +1258,54 @@ public class MainFunction {
                                 switch (kirim_cabang) {
                                     case 1:
                                         System.out.println(
-                                                "==============================================================================================================");
+                                                "===============================================================================================================");
                                         System.out.println(
-                                                "=============================================Kirim Cabang Malang==============================================");
+                                                "|                                              KIRIM CABANG MALANG                                            |");
                                         System.out.println(
-                                                "==============================================================================================================");
+                                                "--------------------------------------------------------------------------------------------------------------");
                                         System.out.println(
-                                                "=================================================Stok Gudang==================================================");
+                                                "|                                                  Stok Gudang                                                |");
                                         System.out.println(
-                                                "==============================================================================================================");
+                                                "===============================================================================================================");
                                         printBrgLengkap();
+                                        System.out.println(
+                                                "===============================================================================================================");
                                         System.out.print("Masukkan Nomor Barang: ");
                                         int malang = input.nextInt();
                                         PengirimanCabang(kirim_cabang - 1, malang);
                                         break;
                                     case 2:
                                         System.out.println(
-                                                "==============================================================================================================");
+                                                "===============================================================================================================");
                                         System.out.println(
-                                                "=============================================Kirim Cabang Blitar==============================================");
+                                                "|                                              KIRIM CABANG BLITAR                                            |");
                                         System.out.println(
-                                                "==============================================================================================================");
+                                                "---------------------------------------------------------------------------------------------------------------");
                                         System.out.println(
-                                                "=================================================Stok Gudang==================================================");
+                                                "|                                                  Stok Gudang                                                 |");
                                         System.out.println(
-                                                "==============================================================================================================");
+                                                "===============================================================================================================");
                                         printBrgLengkap();
+                                        System.out.println(
+                                                "===============================================================================================================");
                                         System.out.print("Masukkan Nomor Barang: ");
                                         int blitar = input.nextInt();
                                         PengirimanCabang(kirim_cabang - 1, blitar);
                                         break;
                                     case 3:
                                         System.out.println(
-                                                "==============================================================================================================");
+                                                "===============================================================================================================");
                                         System.out.println(
-                                                "==============================================Kirim Cabang Tuban==============================================");
+                                                "|                                              KIRIM CABANG TUBAN                                             |");
                                         System.out.println(
-                                                "==============================================================================================================");
+                                                "---------------------------------------------------------------------------------------------------------------");
                                         System.out.println(
-                                                "=================================================Stok Gudang==================================================");
+                                                "|                                                 Stok Gudang                                                 |");
                                         System.out.println(
-                                                "==============================================================================================================");
+                                                "===============================================================================================================");
                                         printBrgLengkap();
+                                        System.out.println(
+                                                "===============================================================================================================");
                                         System.out.print("Masukkan Nomor Barang: ");
                                         int tuban = input.nextInt();
                                         PengirimanCabang(kirim_cabang - 1, tuban);
@@ -1307,18 +1314,17 @@ public class MainFunction {
                                     default:
                                         break;
                                 }
-
                                 break;
                             case 2:
-                                System.out.println("==============================================");
-                                System.out.println("==================Stok Cabang=================");
-                                System.out.println("==============================================");
+                                System.out.println("=================================================");
+                                System.out.println("|                    Stok Cabang                |");
+                                System.out.println("-------------------------------------------------");
                                 System.out.printf("%-23s |", "Nama Barang");
                                 for (int i = 0; i < cabang.length; i++) {
                                     System.out.printf("%-6s|", cabang[i]);
                                 }
                                 System.out.println();
-                                System.out.println("==============================================");
+                                System.out.println("-------------------------------------------------");
 
                                 for (int i = 0; i < namaBrg.length; i++) {
                                     if (namaBrg[i] != null) {
@@ -1328,23 +1334,20 @@ public class MainFunction {
                                         if (namaBrg[i] != null) { // stokCabang[j][i] != 0
                                             System.out.printf("|  %-4d ", stokCabang[j][i]);
                                         }
-
                                     }
                                     if (namaBrg[i] != null) {
                                         System.out.println("|");
                                     }
-
                                 }
-                                break;
-
-                            default:
                                 break;
                         }
                     } while (fitur7 != 0);
                     break;
+                default:
+                    System.out.println("Menu yang anda masukkan salah");
+                    break;
             }
         } while (fitur != 0);
-
         input.close();
     }
 
