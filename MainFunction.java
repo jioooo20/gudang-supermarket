@@ -656,13 +656,12 @@ public class MainFunction {
             System.out.println("============================");
             System.out.println("Part yang ingin anda ubah:");
             System.out.println("1. Nama Barang");
-            System.out.println("2. Kategori Barang");
-            System.out.println("3. Tanggal Produksi Barang");
-            System.out.println("4. Tanggal Kadaluwarsa Barang");
-            System.out.println("5. Harga Barang");
-            System.out.println("6. Jumlah Stok Barang");
-            System.out.println("7. Supplier");
-            System.out.println("8. Kode Barang");
+            System.out.println("2. Tanggal Produksi Barang");
+            System.out.println("3. Tanggal Kadaluwarsa Barang");
+            System.out.println("4. Harga Barang");
+            System.out.println("5. Jumlah Stok Barang");
+            System.out.println("6. Supplier");
+            System.out.println("7. Kode Barang");
             System.out.println("0. Selesai");
             System.out.print("Pilih menu: ");
             int pilihan = input.nextInt();
@@ -676,36 +675,31 @@ public class MainFunction {
                     namaBrg[index] = input.nextLine();
                     break;
                 case 2:
-                    System.out.println("Kategori Barang Lama: " + tipeBrg[index]);
-                    System.out.print("Masukkan Kategori Barang Baru: ");
-                    tipeBrg[index] = input.nextLine();
-                    break;
-                case 3:
                     System.out.println("Tanggal Produksi Lama: " + prdDate[index]);
                     System.out.print("Masukkan Tanggal Produksi Baru(DD-MM-YYYY): ");
                     prdDate[index] = input.nextLine();
                     break;
-                case 4:
+                case 3:
                     System.out.println("Tanggal Kadaluwarsa Lama: " + expDate[index]);
                     System.out.print("Masukkan Tanggal Kadaluwarsa Baru(DD-MM-YYYY): ");
                     expDate[index] = input.nextLine();
                     break;
-                case 5:
+                case 4:
                     System.out.println("Harga Barang Lama: " + harga[index]);
                     System.out.print("Masukkan Harga Barang Baru: ");
                     harga[index] = input.nextDouble();
                     break;
-                case 6:
+                case 5:
                     System.out.println("Jumlah Stok Barang Lama: " + stokBrg[index]);
                     System.out.print("Masukkan Jumlah Stok Barang Baru: ");
                     stokBrg[index] = input.nextInt();
                     break;
-                case 7:
+                case 6:
                     System.out.println("Supplier Barang Lama: " + supplier[index]);
                     System.out.print("Masukkan Supplier Barang Baru: ");
                     supplier[index] = input.nextLine();
                     break;
-                case 8:
+                case 7:
                     System.out.println("Kode Barang Lama: " + itemCode[index]);
                     System.out.print("Masukkan Kode Barang Baru: ");
                     int kode = input.nextInt();
