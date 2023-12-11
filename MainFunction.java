@@ -593,10 +593,6 @@ public class MainFunction {
     static void inputNewData(String nama, String supplierr, String tipe, String prod, String exp, int hargaa,
             int stok) {
         int i = firstEmptyNull();
-        // int makanan = CountNamaLebihDariSatu(tipeBrg, "Makanan");
-        // int minuman = CountNamaLebihDariSatu(tipeBrg, "Minuman");
-        // int obat = CountNamaLebihDariSatu(tipeBrg, "Obat");
-        // int rokok = CountNamaLebihDariSatu(tipeBrg, "Rokok");//hapus
 
         int makanan = TwoLastDigit("Makanan");
         int minuman = TwoLastDigit("Minuman");
