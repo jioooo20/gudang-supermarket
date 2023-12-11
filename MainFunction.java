@@ -949,7 +949,7 @@ public class MainFunction {
             System.out.println("|             SELAMAT DATANG           |");
             System.out.println("========================================");
             System.out.println("1.Item Entry and Storage");
-            System.out.println("2.Update Item Information");
+            System.out.println("2.Item Management Information");
             System.out.println("3.Item Categorization");
             System.out.println("4.Supplier Management");
             System.out.println("5.Code Scanning");
@@ -990,7 +990,7 @@ public class MainFunction {
 
                     do {
                         System.out.println("=========================================");
-                        System.out.println("|\t Update Item Information \t|");
+                        System.out.println("|\t Item Management Information \t|");
                         System.out.println("=========================================");
                         System.out.println("Silahkan Pilih");
                         System.out.println("1. Update");
@@ -1131,29 +1131,29 @@ public class MainFunction {
 
                                 break;
                             case 2:// nnt dikasi function
-                                System.out.println("===================================================");
-                                System.out.println("|                    List Supplier                |");
-                                System.out.println("===================================================");
-                                System.out.printf("%-3s| %-15s| %-15s| %-10s|\n", "No", "Supplier", "Kontak",
+                                System.out.println("=========================================================");
+                                System.out.println("|\t\t      LIST SUPPLIER  \t\t\t|");
+                                System.out.println("=========================================================");
+                                System.out.printf("%-3s| %-20s| %-15s| %-12s|\n", "No", "Supplier", "Kontak",
                                         " Alamat");
                                 for (int i = 0; i < supplier.length; i++) {
                                     if (supplier[i] != null) {
                                         if (konSupp[i] == null && alamatSupp[i] == null) {
-                                            System.out.printf("|%-3s| %-15s| %-15s| %-10s| \n", (i + 1), supplier[i],
+                                            System.out.printf("%-3s| %-20s| %-15s| %-12s| \n", (i + 1), supplier[i],
                                                     " ", " ");
                                         } else if (konSupp[i] == null) {
-                                            System.out.printf("|%-3s| %-15s| %-15s| %-10s| \n", (i + 1), supplier[i],
+                                            System.out.printf("%-3s| %-20s| %-15s| %-12s| \n", (i + 1), supplier[i],
                                                     " ", alamatSupp[i]);
                                         } else if (alamatSupp[i] == null) {
-                                            System.out.printf("|%-3s| %-15s| %-15s| %-10s| \n", (i + 1), supplier[i],
+                                            System.out.printf("%-3s| %-20s| %-15s| %-12s| \n", (i + 1), supplier[i],
                                                     konSupp[i], " ");
                                         } else {
-                                            System.out.printf("|%-3s| %-15s| %-15s| %-10s| \n", (i + 1), supplier[i],
+                                            System.out.printf("%-3s| %-20s| %-15s| %-12s| \n", (i + 1), supplier[i],
                                                     konSupp[i], alamatSupp[i]);
                                         }
                                     }
                                 }
-                                System.out.println("===================================================");
+                                System.out.println("=========================================================");
                                 break;
                             default:
                                 System.out.println("Masukkan Nomor Menu");
@@ -1341,15 +1341,15 @@ public class MainFunction {
                                 }
                                 break;
                             case 2:
-                                System.out.println("=================================================");
-                                System.out.println("|                    Stok Cabang                |");
-                                System.out.println("=================================================");
+                                System.out.println("====================================================");
+                                System.out.println("\t\t    STOK CABANG    \t\t");
+                                System.out.println("====================================================");
                                 System.out.printf("%-23s |", "Nama Barang");
                                 for (int i = 0; i < cabang.length; i++) {
-                                    System.out.printf("%-6s|", cabang[i]);
+                                    System.out.printf(" %-6s |", cabang[i]);
                                 }
                                 System.out.println();
-                                System.out.println("=================================================");
+                                System.out.println("====================================================");
 
                                 for (int i = 0; i < namaBrg.length; i++) {
                                     if (namaBrg[i] != null) {
@@ -1359,12 +1359,17 @@ public class MainFunction {
                                         if (namaBrg[i] != null) { // stokCabang[j][i] != 0
                                             System.out.printf("|  %-5d ", stokCabang[j][i]);
                                         }
+
                                     }
                                     if (namaBrg[i] != null) {
                                         System.out.println("|");
                                     }
+
                                 }
+
+                                System.out.println("====================================================");
                                 break;
+
                         }
                     } while (fitur7 != 0);
                     break;
