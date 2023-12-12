@@ -1,6 +1,6 @@
-# Inventory Gudang Supermarket - Proyek Akhir Semester 1 Kelompok 4
+# Inventory Gudang Supermarket - Proyek Akhir Semester 1 Kelompok 3
 
-Selamat datang di repositori Proyek Semester 1 kelompok 4! Proyek ini adalah penerapan berbagai mata kuliah yang kami dapatkan pada semester ini di mana kami mengembangkan sistem manajemen inventaris untuk gudang supermarket.
+Selamat datang di repositori Proyek Semester 1 kelompok 3! Proyek ini adalah penerapan berbagai mata kuliah yang kami dapatkan pada semester ini di mana kami mengembangkan sistem manajemen inventaris untuk gudang supermarket.
 
 ## Deskripsi Proyek
 
@@ -20,7 +20,7 @@ Proyek ini bertujuan untuk menciptakan solusi efisien untuk mengelola stok produ
 
 Projek ini merupakan kontribusi dan kolaborasi dari 3 anggota kelompok kami:
 1. Giovano Alkandri (13)       2341720096 (Ketua Projek) 
-2. Ghetsa Ramadhani R. A. (12) 2341720004(Anggota)
+2. Ghetsa Ramadhani R. A. (12) 2341720004(Dokumentalis)
 3. Satriyo Bagus Susianto (27) 2341720249 (Anggota)
 
 
